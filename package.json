@@ -1,0 +1,43 @@
+{
+  "name": "something-to-remember",
+  "version": "1.0.0",
+  "description": "this application is a wedding planner we will help you to manage your dream  day.",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon server.js --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhamposhtiban/Something-To-Remember.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "mongoose",
+    "wedding",
+    "Sass"
+  ],
+  "author": "Elham poshtiban & Makah abutahoun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elhamposhtiban/Something-To-Remember/issues"
+  },
+  "homepage": "https://github.com/elhamposhtiban/Something-To-Remember#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.9.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
