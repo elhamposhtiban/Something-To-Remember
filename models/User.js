@@ -8,17 +8,19 @@ const UserSchema = new Schema ({
     firstname: {
 
         type: String,
+        required: true
     },
 
     lastname: {
 
         type: String,
+        required: true
     },
 
     email: {
         type: String,
         unique: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
       },
 
     passwordHash: {
@@ -43,8 +45,19 @@ const UserSchema = new Schema ({
 
         type:Boolean,  
         default:"inactive"
-    }
+    },
 
+    created_at:{
+      type:Date,
+    },
+
+    updated_at: {
+      type: Date, 
+    },
+
+    deleted_at: {
+        type: Date, 
+      }
 
 })
 
