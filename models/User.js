@@ -47,19 +47,12 @@ const UserSchema = new Schema ({
         default:"inactive"
     },
 
-    created_at:{
-      type:Date,
-    },
-
-    updated_at: {
-      type: Date, 
-    },
-
     deleted_at: {
         type: Date, 
       }
 
-})
+},
+{ timestamps:true})
 
 var User = mongoose.model("User", UserSchema);
 

@@ -14,34 +14,27 @@ const ExpansesSchema = new Schema ({
     amount: {
         type: Number,
         required: false,
-        min: [1, 'it is up to you'],
-        max: ["it is up to you"]
-      },
+        min: [1, 'put any number you want'],
+    },
 
     savings: {
         type: Number,     
-        min: [1, 'it is up to you'],
-        max: ["it is up to you"]
-      },
+        min: [0, 'it is up to you'],
+    },
 
     status: {
         type:Boolean,
         default:"inactive"
     },
 
-    created_at:{
-        type:Date,
-    },
-  
-    updated_at: {
-        type: Date, 
+    timestamps: {
+
+        type:Date
     },
   
     deleted_at: {
           type: Date, 
     }
-
-
 })
 
 const Expenses = mongoose.model("Expenses", ExpansesSchema);
