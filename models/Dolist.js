@@ -5,11 +5,15 @@ const DolistSchema = new Schema({
     
   title: { 
     type: String, 
-    required: true },
+    default: '',
+    trim: true,
+    required: 'Title cannot be blank'
+},
 
   description: { 
       type: String,
-      required: true},
+      required: 'Title cannot be blank'
+    },
 
 
 

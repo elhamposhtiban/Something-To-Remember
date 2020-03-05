@@ -1,0 +1,12 @@
+.form-dolist {
+    width: 700px;
+    height : 500px;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 30%;
+    right: 30%;
+}
+
+.input-dolist {
+    margin-bottom: 20px;
+}
