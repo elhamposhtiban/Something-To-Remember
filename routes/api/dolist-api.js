@@ -7,7 +7,6 @@ const dolistController = require ("../../controllers/dolistController");
 router
 .route("/")
 .get(dolistController.findAll)
-// .get(dolistController.findAll)
 .post(dolistController.create);
 
 

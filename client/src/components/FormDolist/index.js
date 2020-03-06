@@ -1,70 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import  "./style.css"
 import API from "../../utils/API"
 
 
 const FormDolist = (
+  { doListInput,
+    handleInputChange,
+    handleFormSubmit}
 ) => {
-
-  
-  const [doList, setDolist] = useState([]);
-
-  const [doListInput, setDolistInput] = useState({
-      title: "",
-      date:"",
-      description: ""
-  });
-
-
-  useEffect(() => {
-    loadDolist();
-  }, []);
-
-  // Loads all DolistloadDolist  and sets them to DolistloadDolist
-  const loadDolist = async () => {
-    try {
-      const response = await API.getAllDolist();
-      setDolist(response.data);
-      console.log('todos', response.data)
-    } catch (error) {
-      console.group("it can not load todo list");
-      console.log(error);
-      console.groupEnd();
-    }
-  };
-
-  const handleInputChange = event => {
-      const { name, value } = event.target;
-      setDolistInput({
-        ...doListInput,
-        [name]: value
-      });
-      console.log(doListInput)
-
-    };
-
-
-    const handleFormSubmit = async event => {
-      event.preventDefault();
-      if (doListInput.title && doListInput.description) {
-        try {
-          await API.saveDolist({
-            ...doListInput,
-          });
-          setDolistInput({
-            title: "",
-            date:"",
-            description: "",
-          });
-          loadDolist();
-        } catch (error) {
-          console.group("SUBMIT FORM");
-          console.log(error);
-          console.groupEnd();
-        }
-      }
-    };
-  
 
     return( 
       
@@ -76,19 +19,19 @@ const FormDolist = (
             id="dolist"
             name= "title"
             value = {doListInput.name}
-            onChange={(event) => handleInputChange(event)}
+            onChange={handleInputChange}
             type="text"
             className="form-control input-dolist"
             placeholder="title"
           />
 
-          <label className ="search-label" htmlFor="datelist">title</label>
+          <label className ="search-label" htmlFor="datelist">date</label>
           <input
             id="datelist"
 
             name= "date"
             value = {doListInput.name}
-            onChange={(event) => handleInputChange(event)}
+            onChange={handleInputChange}
             type="date"
             className="form-control input-dolist"
             placeholder="date"
@@ -101,7 +44,7 @@ const FormDolist = (
            value= {doListInput.name}
            id="description"
            placeholder="description"
-           onChange={(event) => handleInputChange(event)} 
+           onChange={handleInputChange} 
            />
           
           <button 

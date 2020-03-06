@@ -9,10 +9,10 @@ export default {
     },
 
     // send all todolist
-    sendDolist: (dolistData) => {
-        console.log('data in api.js', dolistData)
-        return axios.post("/api/dolist", dolistData);
-    },
+    // sendDolist: (dolistData) => {
+    //     console.log('data in api.js', dolistData)
+    //     return axios.post("/api/dolist", dolistData);
+    // },
 
     // Gets the todolist with the given id
     getDolist: (id) => {
@@ -30,8 +30,9 @@ export default {
     },
 
       // Saves a todolist to the database
-  saveDolist: function(dolistData) {
-    return axios.post("/api/books", dolistData);
+    saveDolist: (dolistData) => {
+        console.log('data in api.js', dolistData)
+        return axios.post("/api/dolist", dolistData);
   }
 
  }
