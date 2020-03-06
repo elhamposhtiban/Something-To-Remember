@@ -27,15 +27,10 @@ const ExpansesSchema = new Schema ({
         default:"inactive"
     },
 
-    timestamps: {
-
-        type:Date
-    },
-  
     deleted_at: {
           type: Date, 
     }
-})
+}, { timestamps:true})
 
 const Expenses = mongoose.model("Expenses", ExpansesSchema);
 
