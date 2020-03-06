@@ -1,9 +1,9 @@
-// const router = require ("express").Router();
-// const dolistRoutes = require ("./dolist-api");
+const router = require ("express").Router();
+const dolistRoutes = require ("./dolist-api");
 
 
-// // Dolist routes
+// Dolist routes
 
-// router.use("/dolist", dolistRoutes);
+router.use("/dolist", dolistRoutes);
 
-// module.exports = router
+module.exports = router

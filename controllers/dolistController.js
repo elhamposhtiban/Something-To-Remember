@@ -5,9 +5,9 @@ module.exports = {
 
   findAll: function(req, res) {
 
-    console.log("i am reading req.query for you ", req.query)
-    db.Book
-      .find(req.query)
+    console.log("i am reading req.query for you ")
+    db.Dolist
+      .find()
       .then(dbModel => {
 
         console.log('dbmodel', dbModel)

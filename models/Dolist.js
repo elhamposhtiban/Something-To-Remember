@@ -15,6 +15,14 @@ const DolistSchema = new Schema({
       required: 'Title cannot be blank'
     },
 
+    todoDate: {
+
+       type: Date,
+       default: Date.now,
+       min: '1987-09-28',
+
+    }
+
 
 
 },
@@ -22,4 +30,4 @@ const DolistSchema = new Schema({
 
 const Dolist = mongoose.model("Dolist", DolistSchema);
 
-module.exports = Book;
+module.exports = Dolist;
