@@ -67,7 +67,9 @@ const Dolist = () => {
         }
       }
     };
-  
+
+    
+
 
     return (
         <Container>
@@ -81,7 +83,10 @@ const Dolist = () => {
             </Col>
 
             <Col size="md-12">
-            {doList.length ?<DolistResult doList={doList} />: null}
+            {doList.length ?
+            <DolistResult
+             doList={doList}
+             loadDolist= {loadDolist}/>: null}
             </Col>
         </Row>
 

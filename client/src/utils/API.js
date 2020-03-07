@@ -8,12 +8,6 @@ export default {
         return axios.get("/api/dolist" );
     },
 
-    // send all todolist
-    // sendDolist: (dolistData) => {
-    //     console.log('data in api.js', dolistData)
-    //     return axios.post("/api/dolist", dolistData);
-    // },
-
     // Gets the todolist with the given id
     getDolist: (id) => {
         return axios.get("/api/dolist/" + id);
@@ -21,6 +15,7 @@ export default {
 
     // Deletes the todolist with the given id
     deleteDolist: (id) => {
+        console.log("this is the id you clicking", id)
         return axios.delete("/api/dolist/" + id);
     },
     

@@ -1,15 +1,46 @@
 import React from "react";
-import Proptype from "prop-types"
+import Proptype from "prop-types";
+import API from "../../utils/API";
 import"./style.css"
 
 const proptype = {
     dolist : Proptype.array.isRequired,
+    loadDolist: Proptype.func.isRequired
+
 }
 
 
-const DolistResult = ({doList}) => {
+const DolistResult = ({doList,loadDolist }) => {
 
+    //function for handling delete 
+    const deleteHandler = event => {
+        event.preventDefault();
+        console.log("i am doing something for you")
+        const deleteId = event.target.getAttribute("data-unique-id");
+        // const deleteTask = doList.filter(item => item.id === id);
 
+        // const deleteTaskObj =  
+        // {
+        //     "title": deleteTask.title,
+        //     "description": deleteTask.description,
+        // }
+        // console.log (deleteTaskObj)
+        console.log(deleteId)
+        deleteDolist(deleteId)
+    }
+  
+    
+    const deleteDolist = async (deleteId) => {
+      try {
+        await API.deleteDolist(deleteId);
+        loadDolist();
+      } catch(error) {
+        console.group("DELETE A BOOK is not happening");
+        console.log(error);
+        console.groupEnd();
+      }
+    };
+    
     return (
       
         <div className="card p-3 ToDoList-card">
@@ -25,10 +56,11 @@ const DolistResult = ({doList}) => {
 
                         <p className="img-fluid">{item.date}</p>
 
-                        {/* <button className="btn btn-success float-right"
-                         data-unique-id={item.id}
-                         onClick= {saveToDB}>save
-                        </button> */}
+                        <button className="btn btn-danger float-right"
+                        data-unique-id={item.id}
+                        //  value={item.id}
+                         onClick= {deleteHandler}> delete this
+                        </button> 
                    
                     </li>
                     ))}

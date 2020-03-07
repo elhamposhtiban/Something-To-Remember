@@ -39,6 +39,8 @@ module.exports = {
   },
   remove: function(req, res) {
 
+    console.log("i am deleting something for you")
+
     db.Dolist
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())

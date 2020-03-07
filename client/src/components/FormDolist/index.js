@@ -1,6 +1,5 @@
 import React from "react";
 import  "./style.css"
-import API from "../../utils/API"
 
 
 const FormDolist = (
@@ -25,10 +24,9 @@ const FormDolist = (
             placeholder="title"
           />
 
-          <label className ="search-label" htmlFor="datelist">date</label>
+          <label className ="search-label" htmlFor="datelist">due date</label>
           <input
             id="datelist"
-
             name= "date"
             value = {doListInput.name}
             onChange={handleInputChange}
