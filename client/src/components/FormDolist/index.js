@@ -13,7 +13,7 @@ const FormDolist = (
       <form>
       <div className="form-group form-dolist">
 
-          <label className ="search-label" htmlFor="dolist">title</label>
+          <label className ="Dolist-label" htmlFor="dolist">title</label>
           <input
             id="dolist"
             name= "title"
@@ -24,7 +24,7 @@ const FormDolist = (
             placeholder="title"
           />
 
-          <label className ="search-label" htmlFor="datelist">due date</label>
+          <label className ="Dolist-label" htmlFor="datelist">due date</label>
           <input
             id="datelist"
             name= "date"
@@ -35,7 +35,7 @@ const FormDolist = (
             placeholder="date"
           />
           
-          <label className ="search-label" htmlFor="description">description</label>
+          <label className ="Dolist-label" htmlFor="description">description</label>
           <textarea 
            className="form-control input-dolist"
            name="description"
@@ -48,8 +48,8 @@ const FormDolist = (
           <button 
           disabled={!(doListInput.title && doListInput.description)}
           onClick= {handleFormSubmit}
-           className="btn btn-success search-btn">
-            add to my todo list
+          className="btn btn-success toDolist-btn">
+            submit check list
           </button>
      
       </div>

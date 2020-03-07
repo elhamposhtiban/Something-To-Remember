@@ -1,12 +1,16 @@
 import React from 'react';
 import Dolist from "./pages/doList"
 import Navbar from "./components/Navbar/index"
+import {Col,Row,Container} from "./components/Grid"
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <Dolist/>
+      <Container>
+         <Dolist/>
+      </Container>
+
     </div>
 
   );

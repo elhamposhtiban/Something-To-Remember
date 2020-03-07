@@ -74,7 +74,7 @@ const Dolist = () => {
     return (
         <Container>
         <Row>
-            <Col size=" ms-12">
+            <Col size=" md-4">
                 <FormDolist
                 doListInput = {doListInput}
                 handleInputChange = {handleInputChange}
@@ -82,7 +82,7 @@ const Dolist = () => {
                 />
             </Col>
 
-            <Col size="md-12">
+            <Col size="md-8">
             {doList.length ?
             <DolistResult
              doList={doList}

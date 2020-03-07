@@ -1,5 +1,7 @@
 import React from "react";
-import "../../sass"
+// import "../../sass/layout"
+// import "../../sass/abstracts"
+import "./style.css"
 
 
 
