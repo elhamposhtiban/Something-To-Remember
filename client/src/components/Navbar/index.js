@@ -1,4 +1,5 @@
 import React from "react";
+import "../../sass"
 
 
 
@@ -20,7 +21,6 @@ const Navbar = () => {
             </ul>
         </nav>
       </div>
-
 
     )
 }
