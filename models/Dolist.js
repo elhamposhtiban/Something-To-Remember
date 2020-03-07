@@ -15,10 +15,9 @@ const DolistSchema = new Schema({
       required: 'Title cannot be blank'
     },
 
-    dueDate: {
+    date: {
 
        type: Date,
-      //  default: Date.now,
        min: '1987-09-28',
 
     }

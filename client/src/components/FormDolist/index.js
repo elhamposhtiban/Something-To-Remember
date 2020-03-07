@@ -1,12 +1,18 @@
-import React from "react";
-import  "./style.css"
+import React, {useState} from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+// import  "./style.css"
 
 
 const FormDolist = (
   { doListInput,
     handleInputChange,
-    handleFormSubmit}
+    handleFormSubmit,
+    handleDateChange}
 ) => {
+
+  const [startDate, setStartDate] = useState(new Date());
+
 
     return( 
       
@@ -24,17 +30,16 @@ const FormDolist = (
             placeholder="title"
           />
 
-          <label className ="Dolist-label" htmlFor="datelist">due date</label>
-          <input
-            id="datelist"
-            name= "date"
-            value = {doListInput.name}
-            onChange={handleInputChange}
-            type="date"
-            className="form-control input-dolist"
-            placeholder="date"
+          <DatePicker
+            selected={doListInput.date}
+            onChange={date => handleDateChange(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="MMMM d, yyyy h:mm aa"
           />
-          
+
           <label className ="Dolist-label" htmlFor="description">description</label>
           <textarea 
            className="form-control input-dolist"
@@ -53,7 +58,9 @@ const FormDolist = (
           </button>
      
       </div>
-    </form>)
+    </form>
+    
+    )
 }
 
 export default FormDolist;
