@@ -1,9 +1,18 @@
 import React from 'react';
 import Dolist from "./pages/doList"
+import Navbar from "./components/Navbar/index"
+import {Col,Row,Container} from "./components/Grid"
 
 function App() {
   return (
-<Dolist/>
+    <div>
+      <Navbar/>
+      <Container>
+         <Dolist/>
+      </Container>
+
+    </div>
+
   );
 }
 
