@@ -15,16 +15,7 @@ const DolistResult = ({doList,loadDolist }) => {
     //function for handling delete 
     const deleteHandler = event => {
         event.preventDefault();
-        console.log("i am doing something for you")
         const deleteId = event.target.getAttribute("data-unique-id");
-        // const deleteTask = doList.filter(item => item.id === id);
-
-        // const deleteTaskObj =  
-        // {
-        //     "title": deleteTask.title,
-        //     "description": deleteTask.description,
-        // }
-        // console.log (deleteTaskObj)
         console.log(deleteId)
         deleteDolist(deleteId)
     }
@@ -48,7 +39,7 @@ const DolistResult = ({doList,loadDolist }) => {
             <div className="card-body">
                 <ul className="list-group">
                     {doList.map(item => (
-                    <li className="list-group-item" key={item.id}>
+                    <li className="list-group-item" key={item._id}>
 
                         <h2>{item.title}</h2>
 
@@ -56,10 +47,13 @@ const DolistResult = ({doList,loadDolist }) => {
 
                         <p className="img-fluid">{item.date}</p>
 
-                        <button className="btn btn-danger float-right"
-                        data-unique-id={item.id}
-                        //  value={item.id}
-                         onClick= {deleteHandler}> delete this
+                        <button type="button" className="btn btn-danger float-right"
+                        data-unique-id={item._id}
+                         onClick={deleteHandler}> delete this
+                        </button> 
+                        <button type="button" className="btn btn-success mr-4 float-right"
+                        data-unique-id={item._id}
+                         onClick={deleteHandler}> done
                         </button> 
                    
                     </li>
