@@ -1,13 +1,18 @@
 import React from "react";
 import Proptype from "prop-types";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../../utils/API";
-import"./style.css"
+
 
 const proptype = {
     dolist : Proptype.array.isRequired,
     loadDolist: Proptype.func.isRequired
 
 }
+
+
+
 
 
 const DolistResult = ({doList,loadDolist }) => {
@@ -35,7 +40,7 @@ const DolistResult = ({doList,loadDolist }) => {
     return (
       
         <div className="card p-3 ToDoList-card">
-        <div className="card-title"><h5>Here is your to do list </h5></div>
+            <div className="card-title"><h5>Here is your to do list </h5></div>
             <div className="card-body">
                 <ul className="list-group">
                     {doList.map(item => (
@@ -46,7 +51,11 @@ const DolistResult = ({doList,loadDolist }) => {
                         <h4>{item.description}</h4>
 
                         <p className="img-fluid">{item.date}</p>
-
+                        <button type="button" 
+                        className="btn btn-warning"
+                        data-unique-id={item._id}
+                        ><FontAwesomeIcon icon={faEdit} />
+                        </button> 
                         <button type="button" className="btn btn-danger float-right"
                         data-unique-id={item._id}
                          onClick={deleteHandler}> delete this

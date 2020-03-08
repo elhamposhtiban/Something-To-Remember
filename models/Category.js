@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const DolistSchema = new Schema({
+const CategorySchema = new Schema({
     
   title: { 
     type: String, 
@@ -25,6 +25,6 @@ const DolistSchema = new Schema({
 },
 { timestamps:true});
 
-const Dolist = mongoose.model("Dolist", DolistSchema);
+const Category = mongoose.model("Category", CategorySchema);
 
-module.exports = Dolist;
+module.exports = Category;
