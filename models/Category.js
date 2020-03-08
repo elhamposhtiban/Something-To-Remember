@@ -3,23 +3,12 @@ const Schema = mongoose.Schema;
 
 const CategorySchema = new Schema({
     
-  title: { 
+  category: { 
     type: String, 
     default: '',
     trim: true,
     required: 'Title cannot be blank'
-},
-
-  description: { 
-      type: String,
-      required: 'Title cannot be blank'
-    },
-
-    date: {
-       type: Date,
-       min: '1987-09-28',
-    }
-
+}
 
 
 },
