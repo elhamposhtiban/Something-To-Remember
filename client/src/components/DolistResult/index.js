@@ -36,6 +36,26 @@ const DolistResult = ({doList,loadDolist }) => {
         console.groupEnd();
       }
     };
+
+
+        //function for handling update
+        const updateHandler = event => {
+            event.preventDefault();
+            const updateId = event.target.getAttribute("data-unique-id");
+            console.log(updateId)
+            updateDolist(updateId)
+        }
+
+        const updateDolist = async (updateId) => {
+            try {
+              await API.UpdateDolist(updateId);
+              loadDolist();
+            } catch(error) {
+              console.group("hey i can not update to do list for you");
+              console.log(error);
+              console.groupEnd();
+            }
+          };
     
     return (
       
@@ -51,15 +71,21 @@ const DolistResult = ({doList,loadDolist }) => {
                         <h4>{item.description}</h4>
 
                         <p className="img-fluid">{item.date}</p>
+
                         <button type="button" 
-                        className="btn btn-warning"
+                        className="btn btn-warning" 
+                        data-toggle="modal"
+                        data-target="#dolistModal"
                         data-unique-id={item._id}
+                        onClick = {updateHandler}
                         ><FontAwesomeIcon icon={faEdit} />
-                        </button> 
+                        </button>
+
                         <button type="button" className="btn btn-danger float-right"
                         data-unique-id={item._id}
                          onClick={deleteHandler}> delete this
                         </button> 
+
                         <button type="button" className="btn btn-success mr-4 float-right"
                         data-unique-id={item._id}
                          onClick={deleteHandler}> done
@@ -68,6 +94,73 @@ const DolistResult = ({doList,loadDolist }) => {
                     </li>
                     ))}
                 </ul>
+            </div>
+                         {/* Modal  */}
+            <div className="modal fade" id="dolistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">update todolist</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div className="modal-body">
+                  
+                    {/* <form>
+                        <div className="form-group form-dolist">
+
+                            <label className ="Dolist-label" htmlFor="dolist">title</label>
+                            <input
+                            id="dolist"
+                            name= "title"
+                            value = {doListInput.name}
+                            onChange={handleInputChange}
+                            type="text"
+                            className="form-control input-dolist"
+                            placeholder="title"
+                            />
+
+                            <DatePicker
+                            selected={doListInput.date}
+                            onChange={date => handleDateChange(date)}
+                            showTimeSelect
+                            timeFormat="HH:mm"
+                            timeIntervals={15}
+                            timeCaption="time"
+                            dateFormat="MMMM d, yyyy h:mm aa"
+                            />
+
+                            <label className ="Dolist-label" htmlFor="description">description</label>
+                            <textarea 
+                            className="form-control input-dolist"
+                            name="description"
+                            value= {doListInput.name}
+                            id="description"
+                            placeholder="description"
+                            onChange={handleInputChange} 
+                            />
+                            
+                            <button 
+                            disabled={!(doListInput.title && doListInput.description)}
+                            onClick= {handleFormSubmit}
+                            className="btn btn-success toDolist-btn">
+                            submit check list
+                            </button>
+                    
+                        </div>
+                    </form> */}
+                </div>
+
+
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
     )
