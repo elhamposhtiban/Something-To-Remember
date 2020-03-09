@@ -1,14 +1,16 @@
 .section-budget {
-    padding:15rem;
+    padding: 13rem;
+    margin: 5rem 3rem 0 3rem;
     background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
+
     
 }
 
 .budget {
     background-image:linear-gradient(105deg, rgba($color-white, .8) 0%,
     rgba($color-white, .8) 50%,
-     transparent 50%) ;
-    //   url(../images/back6.jpg);
+     transparent 50%) ,
+      url(../../assets/1.jpg);
     background-size: cover;
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .20);

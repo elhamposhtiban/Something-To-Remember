@@ -7,27 +7,23 @@ import {Col,Row,Container} from "./components/Grid"
 
 function App() {
   return (
-    <div>
-
-      {/* <Container>
-         <Dolist/>
-      </Container> */}
-
-      <Router>
-      <div>
+    
+     <Router>
         <Navbar />
-        <Container>
           <Switch>
             <Route exact path="/" component={Dolist} />
             <Route exact path="/budget" component={Budget} />
           </Switch>
-          </Container>
-      </div>
-    </Router>
+     </Router>
 
-    </div>
+
 
   );
 }
 
 export default App;
+
+
+      {/* <Container>
+         <Dolis>t/>
+      </Container> */}
