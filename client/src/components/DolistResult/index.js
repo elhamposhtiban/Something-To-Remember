@@ -4,6 +4,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FlipMove from 'react-flip-move';
 import API from "../../utils/API";
 
 
@@ -60,10 +61,11 @@ const DolistResult = ({doList,loadDolist }) => {
           };
     
     return (
-      
+        <FlipMove>
         <div className="card p-3 ToDoList-card">
             <div className="card-title"><h5>Here is your to do list </h5></div>
             <div className="card-body">
+           
                 <ul className="list-group">
                     {doList.map(item => (
                     <li className="list-group-item" key={item._id}>
@@ -98,6 +100,7 @@ const DolistResult = ({doList,loadDolist }) => {
                     </li>
                     ))}
                 </ul>
+                
             </div>
                          {/* Modal  */}
             <div className="modal fade" id="dolistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -167,6 +170,7 @@ const DolistResult = ({doList,loadDolist }) => {
                 </div>
             </div>
         </div>
+        </FlipMove>
     )
 }
 
