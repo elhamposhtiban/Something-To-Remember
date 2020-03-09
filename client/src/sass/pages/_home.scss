@@ -1,6 +1,5 @@
 .section-budget {
-    padding: 13rem;
-    margin: 5rem 3rem 0 3rem;
+    padding: 10rem;
     background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
 
     
@@ -14,14 +13,15 @@
     background-size: cover;
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
-    height: 60rem;
+    height: 55rem;
     width: 100%;
-    margin-top: -9rem;
+    margin-top: 2rem;
     animation: moveInRight 1s ease-out;
 
     &__form {
 
         width: 50%;
-        padding: 6rem;
+        height: 30%;
+        padding: 3rem;
     }
 }

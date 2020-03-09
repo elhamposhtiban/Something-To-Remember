@@ -24,19 +24,19 @@ const Expensesform = ()  => {
             <div className="col-1-of-2">
                 <button 
                 type="button"
-                className="btn btn-success  budget-manage-btn"
+                className="btn btn--white budget-manage-btn"
                 onClick= {showHandler}>
                     add your budget
                 </button>
             </div>
             <div className= "col-2-of-2">
                 
-                <label className ="Dolist-label" htmlFor="budget"> Specify your total budget($)</label>
+                <label className ="expenses-label" htmlFor="budget"> Specify your total budget($)</label>
                 <input
                     id="budget"
                     name= "budget"
                     type="number"
-                    className="form-control input-dolist"
+                    className="form-control input-expenses"
                     placeholder="budget"
                 />
             </div>
@@ -60,7 +60,7 @@ const Expensesform = ()  => {
 
                 <div className="form__group input-group">
 
-                    <div className="input-group-prepend">
+                    <div className="input-group-prepend ">
                         <span className="input-group-text">
                         <FontAwesomeIcon className="form__icon" icon={faShoppingBag} />
                         </span>
@@ -125,7 +125,7 @@ const Expensesform = ()  => {
                     </select>
 
 
-                    <label htmlFor="category" className="form__label">category</label>
+                <label htmlFor="category" className="form__label"></label>
 
                 </div>
                 <div className="form__group input-group u-margin-bottom-medium">
