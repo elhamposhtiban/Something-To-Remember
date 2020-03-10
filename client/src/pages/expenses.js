@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import Expensesform from "../components/Expensesform"
+import Expensesform from "../components/Expensesform/index";
+import API from "../utils/API"
 
 
 const Expenses = () => {
@@ -16,18 +17,23 @@ const [expensesInput, setExpensesInput] = useState({
 
 })
 
+console.log(expensesInput)
+
 
 useEffect ( () => {
     loadBudget ();
 }, []);
 
+
 useEffect ( () => {
     loadExpense ();
 }, []);
 
+
+
 const loadBudget = async () => {
     try {
-      const response = await API.getAllDolist();
+      const response = await API.getAllExpenses();
       setExpenses(response.data);
       console.log('todos', response.data)
     } catch (error) {
@@ -40,7 +46,7 @@ const loadBudget = async () => {
 
   const loadExpense = async () => {
     try {
-      const response = await API.getAllDolist();
+      const response = await API.getAllExpenses();
       setExpenses(response.data);
       console.log('todos', response.data)
     } catch (error) {
@@ -50,11 +56,33 @@ const loadBudget = async () => {
     }
   };
 
+  // function for handling input change for budget 
+  const handleInputChangeBudget = event => {
+    setBudgetInput(event.target.value);
+    console.log(budgetInput)
+
+  };
+
+  // function for handling input change for form
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setExpensesInput({
+      ...expensesInput,
+      [name]: value
+    });
+    console.log(expensesInput)
+
+  };
 
 
 
     return (
-        <Expensesform/>
+        <Expensesform
+        handleInputChangeBudget= {handleInputChangeBudget}
+        handleInputChange = {handleInputChange}
+        expensesInput = {expensesInput}
+        budgetInput = {budgetInput}
+        />
     )
 }
 
