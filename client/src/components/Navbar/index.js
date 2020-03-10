@@ -1,7 +1,7 @@
 import React from "react";
 // import "../../sass/layout"
 // import "../../sass/abstracts"
-import "./style.css"
+// // import "./style.css"
 
 
 
@@ -11,7 +11,7 @@ const Navbar = () => {
     
         <div className="navigation">
         <input type="checkbox" className="navigation__checkbox" id="navi_toggle"/>
-        <label for="navi_toggle" className="navigation__button">
+        <label htmlFor="navi_toggle" className="navigation__button">
             <span className="navigation__icon">&nbsp;</span>
         </label>
         <div className="navigation__background"></div>

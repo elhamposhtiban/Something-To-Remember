@@ -1,19 +1,29 @@
 import React from 'react';
-import Dolist from "./pages/doList"
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Dolist from "./pages/doList";
+import Budget from "./pages/expenses";
 import Navbar from "./components/Navbar/index"
 import {Col,Row,Container} from "./components/Grid"
 
 function App() {
   return (
-    <div>
-      <Navbar/>
-      <Container>
-         <Dolist/>
-      </Container>
+    
+     <Router>
+        <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dolist} />
+            <Route exact path="/budget" component={Budget} />
+          </Switch>
+     </Router>
 
-    </div>
+
 
   );
 }
 
 export default App;
+
+
+      {/* <Container>
+         <Dolis>t/>
+      </Container> */}

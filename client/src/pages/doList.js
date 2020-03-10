@@ -12,9 +12,10 @@ const Dolist = () => {
 
   const [doListInput, setDolistInput] = useState({
       title: "",
-      date:"",
+      date: new Date(),
       description: ""
   });
+
 
 
   useEffect(() => {
@@ -44,6 +45,15 @@ const Dolist = () => {
 
     };
 
+    const handleDateChange= date => {
+      setDolistInput({
+        ...doListInput,
+       date : date
+      });
+      console.log(doListInput)
+
+    };
+
 
     const handleFormSubmit = async event => {
       console.log("hi i am actually grabing the data")
@@ -55,7 +65,7 @@ const Dolist = () => {
           });
           setDolistInput({
             title: "",
-            date:"",
+            date: new Date(),
             description: "",
           });
           loadDolist();
@@ -79,6 +89,8 @@ const Dolist = () => {
                 doListInput = {doListInput}
                 handleInputChange = {handleInputChange}
                 handleFormSubmit = {handleFormSubmit}
+                handleDateChange = {handleDateChange}
+                
                 />
             </Col>
 
