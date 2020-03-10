@@ -1,8 +1,4 @@
 import React from "react";
-// import "../../sass/layout"
-// import "../../sass/abstracts"
-// // import "./style.css"
-
 
 
 const Navbar = () => {

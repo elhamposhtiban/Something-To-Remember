@@ -39,6 +39,7 @@ const Expensesform = ()  => {
                     className="form-control input-expenses"
                     placeholder="budget"
                 />
+                    <button className="btn btn--white mt-3" type="submit" value="register">submit</button>
             </div>
         </div>
 

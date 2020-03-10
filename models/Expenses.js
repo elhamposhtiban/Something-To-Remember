@@ -36,7 +36,7 @@ const ExpansesSchema = new Schema ({
         default:"inactive"
     },
 
-    categories: [
+    category: [
         {
           // Store ObjectIds in the array
           type: Schema.Types.ObjectId,
