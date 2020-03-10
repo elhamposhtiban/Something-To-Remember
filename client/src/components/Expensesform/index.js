@@ -155,16 +155,11 @@ const Expensesform = ()  => {
         </div>
     </div>
 }
-</section>
-
-
-      
+</section> 
       )
     }
 
     
-
-
 export default Expensesform;
 
 
