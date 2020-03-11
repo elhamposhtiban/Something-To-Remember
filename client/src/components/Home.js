@@ -4,7 +4,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                Home Component
+                the envelope is gonna be in the middle and gonna have the names and locations/date
             </div>
         );
     }

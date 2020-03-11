@@ -1,59 +1,29 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
-const UserSchema = new Schema ({
-
-    firstname: {
-
+const UserSchema = new Schema({
+    name: {
         type: String,
         required: true
     },
-
-    lastname: {
-
-        type: String,
-        required: true
-    },
-
     email: {
         type: String,
-        unique: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
-      },
-
-    passwordHash: {
-
+        required: true
+    },
+    password: {
         type: String,
-        trim: true,
-        required: "Password is Required",
-        validate: [
-          function(input) {
-            return input.length >= 6;
-          },
-          "Password should be longer."
-        ]
+        required: true
     },
-
-    passwordSalt: {
-        
-        type:String
+    avatar: {
+        type: String
     },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+});
 
-    status: {
-
-        type:Boolean,  
-        default:"inactive"
-    },
-
-    deleted_at: {
-        type: Date, 
-      }
-
-},
-{ timestamps:true})
-
-var User = mongoose.model("User", UserSchema);
+const User = mongoose.model('users', UserSchema);
 
 module.exports = User;

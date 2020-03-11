@@ -32,8 +32,16 @@ class Login extends Component {
         this.props.loginUser(user);
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/');
+        }
+    }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
         if(nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -74,7 +82,7 @@ class Login extends Component {
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary" >
                         Login User
                     </button>
                 </div>
@@ -85,10 +93,13 @@ class Login extends Component {
 }
 
 Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
+    auth: state.auth,
     errors: state.errors
 })
 
