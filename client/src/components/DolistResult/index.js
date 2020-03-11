@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FlipMove from 'react-flip-move';
-import API from "../../utils/API";
+import API from "../utils/API";
 
 
 const proptype = {
