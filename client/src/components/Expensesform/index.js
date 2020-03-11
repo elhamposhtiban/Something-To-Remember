@@ -1,22 +1,37 @@
 import React, {useState} from "react";
+import PropType from "prop-types"
 import { faList} from "@fortawesome/free-solid-svg-icons";
 import { faDollarSign} from "@fortawesome/free-solid-svg-icons";
 import { faComment} from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBag} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const propType = {
 
+    handleInputChangeBudget : PropType.func.isRequired,
+    handleInputChange : PropType.func.isRequired,
+    expensesInput : PropType.object.isRequired,
+    budgetInput : PropType.string.isRequired
+      }
 
-const Expensesform = ()  => {
+const Expensesform = ({
+    handleInputChangeBudget,
+    handleInputChange,
+    expensesInput,
+    budgetInput
+})  => {
 
-    const [showExpenses, setShowExpenses] = useState(false)
+   const [showExpenses, setShowExpenses] = useState(false)
 
 
    const showHandler = () => {
      setShowExpenses(!showExpenses);
    }
 
+   console.log(expensesInput)
+
     return( 
+
             
 <section className="section-budget">
 
@@ -38,7 +53,14 @@ const Expensesform = ()  => {
                     type="number"
                     className="form-control input-expenses"
                     placeholder="budget"
+                    onChange = {event => handleInputChangeBudget(event)}
+                    value = {budgetInput}
                 />
+                    <button 
+                    className="btn btn--white mt-3"
+                    type="submit"
+                      >submit
+                    </button>
             </div>
         </div>
 
@@ -72,6 +94,8 @@ const Expensesform = ()  => {
                     className="form__input"
                     name= "item"
                     placeholder="Item Name"
+                    value = {expensesInput.name}
+                    onChange = {event => handleInputChange (event)}
                     required/>
                     <label htmlFor="item" className="form__label">Item Name</label>
 
@@ -91,8 +115,10 @@ const Expensesform = ()  => {
                     type="number"
                     placeholder="Amount Paid"
                     className="form__input"
+                    value = {expensesInput.name}
+                    onChange = {event => handleInputChange (event)}
                     required/>
-                    <label htmlFor="name" className="form__label">Amount Paid</label>
+                    <label htmlFor="amount" className="form__label">Amount Paid</label>
                 
                 </div>
 
@@ -104,7 +130,11 @@ const Expensesform = ()  => {
                         </span>
                     </div>
 
-                    <select name="category" id="category" className="form__input mb-5">
+                    <select name="category"
+                    id="category"
+                    value = {expensesInput.name}
+                    onChange = {event => handleInputChange (event)}
+                    className="form__input mb-5">
                         <option selected>category</option>
                         <option> Reception Venue & Rentals </option>
                         <option> Ceremony Location Fee </option>
@@ -124,10 +154,10 @@ const Expensesform = ()  => {
                         <option> Others</option>
                     </select>
 
-
                 <label htmlFor="category" className="form__label"></label>
 
                 </div>
+                
                 <div className="form__group input-group u-margin-bottom-medium">
 
                     <div className="input-group-prepend">
@@ -142,12 +172,17 @@ const Expensesform = ()  => {
                     placeholder="note" 
                     id="note-input" 
                     className="form__input"
+                    value = {expensesInput.name}
+                    onChange = {event => handleInputChange (event)}
                     required></textarea>
                     <label htmlFor="note-input" className="form__label"> Note </label>
                 </div>
 
                 <div className="form__group">
-                    <button className="btn btn--pink" type="submit" value="register">save</button>
+                    <button 
+                    className="btn btn--pink"
+                     type="submit"
+                     >save</button>
                 </div>
 
             </form>
@@ -155,16 +190,12 @@ const Expensesform = ()  => {
         </div>
     </div>
 }
-</section>
-
-
-      
+</section> 
       )
     }
 
-    
 
-
+Expensesform.prototype = propType;
 export default Expensesform;
 
 

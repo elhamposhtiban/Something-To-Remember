@@ -20,7 +20,7 @@ const DolistSchema = new Schema({
        min: '1987-09-28',
     },
 
-    categories: [
+    category: [
       {
         // Store ObjectIds in the array
         type: Schema.Types.ObjectId,
