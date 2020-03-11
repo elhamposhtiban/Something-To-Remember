@@ -154,10 +154,10 @@ const Expensesform = ({
                         <option> Others</option>
                     </select>
 
-
                 <label htmlFor="category" className="form__label"></label>
 
                 </div>
+                
                 <div className="form__group input-group u-margin-bottom-medium">
 
                     <div className="input-group-prepend">

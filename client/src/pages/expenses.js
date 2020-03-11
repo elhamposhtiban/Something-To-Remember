@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import Expensesform from "../components/Expensesform/index";
+import Expensesform from "../components/ExpensesForm/index";
+import ExpensesResult from "../components/ExpensesResult/index"
 import API from "../utils/API"
 
 
@@ -77,12 +78,17 @@ const loadBudget = async () => {
 
 
     return (
+      <React.Fragment>
         <Expensesform
         handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
         expensesInput = {expensesInput}
         budgetInput = {budgetInput}
         />
+
+        <ExpensesResult/>
+
+        </React.Fragment>
     )
 }
 
