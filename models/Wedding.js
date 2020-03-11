@@ -22,7 +22,7 @@ const WeddingSchema = new Schema ({
         required: true
       },
 
-    budget: {
+    totalBudget: {
         type: Number,
         required: false,
         min: [1, 'put any number you want'],

@@ -8,13 +8,7 @@ const ExpansesSchema = new Schema ({
     type: String,
     required: true
     },
-
-    budget: {
-        type: Number,
-        required: false,
-        min: [1, 'put any number you want'],
-    },
-
+    
     amount: {
         type: Number,
         required: false,
@@ -42,6 +36,15 @@ const ExpansesSchema = new Schema ({
           type: Schema.Types.ObjectId,
           // The ObjectIds will refer to the ids in the Note model
           ref: "Category"
+        }
+      ],
+
+      wedding: [
+        {
+          // Store ObjectIds in the array
+          type: Schema.Types.ObjectId,
+          // The ObjectIds will refer to the ids in the Note model
+          ref: "Wedding"
         }
       ]
 
