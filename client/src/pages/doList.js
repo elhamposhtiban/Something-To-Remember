@@ -99,7 +99,10 @@ const Dolist = () => {
             {doList.length ?
             <DolistResult
              doList={doList}
-             loadDolist= {loadDolist}/>: null}
+             loadDolist= {loadDolist}
+             doListInput = {doListInput}
+             setDolistInput = {setDolistInput}
+             handleInputChange = {handleInputChange}/>: null}
             </Col>
         </Row>
 
