@@ -1,11 +1,14 @@
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var UserSchema = new Schema({
-    email: String,
-    firstName: String,
-    lastName: String,
-    passwordHash: String,
-    passwordSalt: String
-});
-module.exports = mongoose.model('User', UserSchema);
+
+userSchema = new Schema( {
+	
+	unique_id: Number,
+	email: String,
+	username: String,
+	password: String,
+	passwordConf: String
+}),
+User = mongoose.model('User', userSchema);
+
+module.exports = User;
