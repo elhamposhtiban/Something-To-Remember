@@ -50,6 +50,18 @@
 
         }
 
+        &--pink-toDoList {
+            background-color:$color-purple-dark-1;
+            width: 130;
+            height: 55px;
+            color:  $color-white;
+    
+        &::after {
+            background-color: $color-purple-dark-1;
+        }
+
+        }
+
         &::after {
             content: "";
             display: inline-block;

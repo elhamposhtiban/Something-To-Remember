@@ -1,3 +1,31 @@
+.section-toDoList {
+    padding: 10rem;
+    background-image: $color-grey-light-2;
+    min-height: 100vh;
+}
+
+.ToDoList {
+    background-image:linear-gradient(105deg, rgba($color-white, .7) 0%,
+    rgba($color-white, .7) 44%,
+     transparent 44%) ,
+      url(../../assets/checklist-4.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+    height: 40rem;
+    width: 60%;
+    margin-top: 2rem;
+    animation: moveInRight 1s ease-out;
+
+    &__form {
+
+        width: 44%;
+        height: 40%;
+        padding: 3rem;
+        margin-top: 3rem;
+    }
+}
+
 .section-budget {
     padding: 10rem;
     background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);

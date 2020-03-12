@@ -32,9 +32,8 @@ const Expensesform = ({
 
     return( 
 
+        <React.Fragment>
             
-<section className="section-budget">
-
         <div className="row">
             <div className="col-1-of-2">
                 <button 
@@ -84,7 +83,7 @@ const Expensesform = ({
 
                     <div className="input-group-prepend ">
                         <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon" icon={faShoppingBag} />
+                        <FontAwesomeIcon className="form__icon fa-2x" icon={faShoppingBag} />
                         </span>
                     </div>
 
@@ -105,7 +104,7 @@ const Expensesform = ({
 
                     <div className="input-group-prepend">
                         <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon" icon={faDollarSign} />
+                        <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
                         </span>
                     </div>
 
@@ -126,7 +125,7 @@ const Expensesform = ({
 
                     <div className="input-group-prepend mb-5">
                         <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon" icon={faList} />
+                        <FontAwesomeIcon className="form__icon fa-2x" icon={faList} />
                         </span>
                     </div>
 
@@ -162,7 +161,7 @@ const Expensesform = ({
 
                     <div className="input-group-prepend">
                         <span className=" input-group-text">
-                        <FontAwesomeIcon className="form__icon" icon={faComment} />
+                        <FontAwesomeIcon className="form__icon fa-2x" icon={faComment} />
                         </span>
                     </div>
 
@@ -190,7 +189,7 @@ const Expensesform = ({
         </div>
     </div>
 }
-</section> 
+</React.Fragment>
       )
     }
 

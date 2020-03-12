@@ -32,11 +32,17 @@ module.exports = {
   },
   
   update: function(req, res) {
+    console.log("i am updating something for you")
     db.Dolist
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+
+        console.log('dbmodel', dbModel)
+        return(res.json(dbModel))
+        })
       .catch(err => res.status(422).json(err));
   },
+
   remove: function(req, res) {
 
     console.log("i am deleting something for you")

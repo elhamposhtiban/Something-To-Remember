@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
-import {Col,Row,Container} from "../components/Grid"
+import { faStickyNote } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../utils/API";
 
 
@@ -83,30 +84,32 @@ const Dolist = () => {
 
 
     return (
-        <Container>
-        <Row>
-            <Col size=" md-4">
+<React.Fragment>
+    <div className = "section-toDoList">
+        <div className="row">
+
                 <FormDolist
                 doListInput = {doListInput}
                 handleInputChange = {handleInputChange}
                 handleFormSubmit = {handleFormSubmit}
                 handleDateChange = {handleDateChange}
-                
                 />
-            </Col>
 
-            <Col size="md-8">
-            {doList.length ?
-            <DolistResult
-             doList={doList}
-             loadDolist= {loadDolist}
-             doListInput = {doListInput}
-             setDolistInput = {setDolistInput}
-             handleInputChange = {handleInputChange}/>: null}
-            </Col>
-        </Row>
-
-    </Container>
+            </div>
+            <div className="row">
+            <div className="col-2-of-2">
+                {doList.length ?
+                <DolistResult
+                doList={doList}
+                loadDolist= {loadDolist}
+                doListInput = {doListInput}
+                setDolistInput = {setDolistInput}
+                handleInputChange = {handleInputChange}/>: null}
+            </div>
+        </div>
+    </div>
+  </React.Fragment>
+    
     )
     
 }

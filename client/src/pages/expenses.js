@@ -79,6 +79,7 @@ const loadBudget = async () => {
 
     return (
       <React.Fragment>
+        <section className="section-budget">
         <Expensesform
         handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
@@ -87,7 +88,7 @@ const loadBudget = async () => {
         />
 
         <ExpensesResult/>
-
+        </section>
         </React.Fragment>
     )
 }

@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"
+import "react-datepicker/dist/react-datepicker.css";
+import { faStickyNote,
+          faTasks,
+        faClock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
@@ -13,51 +17,80 @@ const FormDolist = (
 
   const [startDate, setStartDate] = useState(new Date());
     return( 
-      
-      <form>
-        <div className="form-group form-dolist">
 
-            <label className ="Dolist-label" htmlFor="dolist">title</label>
-            <input
-              id="dolist"
-              name= "title"
-              value = {doListInput.name}
-              onChange={handleInputChange}
-              type="text"
-              className="form-control input-dolist"
-              placeholder="title"
-            />
+      <div className="ToDoList">
 
-            <DatePicker
-              selected={doListInput.date}
-              onChange={date => handleDateChange(date)}
-              showTimeSelect
-              timeFormat="HH:mm"
-              timeIntervals={15}
-              timeCaption="time"
-              dateFormat="MMMM d, yyyy h:mm aa"
-            />
+          <div className="ToDoList__form">
 
-            <label className ="Dolist-label" htmlFor="description">description</label>
-            <textarea 
-            className="form-control input-dolist"
-            name="description"
-            value= {doListInput.name}
-            id="description"
-            placeholder="description"
-            onChange={handleInputChange} 
-            />
+            <form className = " form-toDoList">
+
+                <div className="form-toDoList__group input-group">
+
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">
+                      <FontAwesomeIcon className="form__icon fa-2x" icon={faTasks} />
+                      </span>
+                    </div>
+
+                  <input
+                    id="dolist"
+                    name= "title"
+                    value = {doListInput.name}
+                    onChange={handleInputChange}
+                    type="text"
+                    className="form-control form-toDoList__input"
+                    placeholder="title"
+                  />
+                  {/* <label className ="Dolist-label" htmlFor="dolist">title</label> */}
+
+                </div>
+
+                <div className="form-toDoList__group input-group">
+
+                  <DatePicker
+                    selected={doListInput.date}
+                    onChange={date => handleDateChange(date)}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    timeCaption="time"
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    className="form-control form-toDoList__input"
+                  />
+                </div>
+
+                <div className="form-toDoList__group input-group">
+
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">
+                    <FontAwesomeIcon className="form__icon fa-2x" icon={faStickyNote} />
+                    </span>
+                  </div>
+
+                  <textarea 
+                    className="form-control form-toDoList__input"
+                    name="description"
+                    value= {doListInput.name}
+                    id="description"
+                    placeholder="description"
+                    onChange={handleInputChange} 
+                  />
+
+                    {/* <label className ="Dolist-label" htmlFor="description">description</label> */}
+
+                </div>
+                  
+                <button 
+                  disabled={!(doListInput.title && doListInput.description)}
+                  onClick= {handleFormSubmit}
+                  className="btn btn btn--pink-toDoList">
+                    CREATE
+                </button>
             
-            <button 
-            disabled={!(doListInput.title && doListInput.description)}
-            onClick= {handleFormSubmit}
-            className="btn btn-success toDolist-btn">
-              submit check list
-            </button>
-      
+          </form>
         </div>
-    </form>
-    
+    </div>
+
     )
 }
 
