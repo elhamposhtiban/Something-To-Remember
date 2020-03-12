@@ -4,8 +4,8 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const validateRegisterInput = require('../validation/register');
-const validateLoginInput = require('../validation/login');
+const validateRegisterInput = require('../ validation/register');
+const validateLoginInput = require('../ validation/login');
 
 const User = require('../models/User');
 
@@ -111,3 +111,4 @@ router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) =
 });
 
 module.exports = router;
+//nothing just to make sure it's still connected to my Database on terminal

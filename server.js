@@ -4,7 +4,7 @@ const path = require("path")
 const routes = require ("./routes/route-index");
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const config = require('./config/db');
+
 const app = express ();
 const PORT = process.env.PORT || 3003;
 
