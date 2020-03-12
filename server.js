@@ -1,6 +1,7 @@
 const express = require ("express");
 const mongoose = require ("mongoose");
-const path = require("path")
+const path = require("path");
+const routes = require('./routes');
 
 const app = express ();
 
@@ -19,13 +20,8 @@ if (process.env.NODE_ENV === "production") {
 
 
 
-
-
-
 // Add routes, both API and view
- app.use(routes);
-
-
+app.use('/', routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weddingplanner");
@@ -34,3 +30,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weddingplanner"
 app.listen(PORT, () => {
     console.log(` API Server now listening on PORT ${PORT}!`);
   });
+
+  
