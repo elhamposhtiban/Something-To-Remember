@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
+import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 
 
@@ -106,31 +107,35 @@ const Dolist = () => {
 
             </div>
 
-          {showToDoListForm && 
+       
 
             <div className="row">
-                <FormDolist
-                doListInput = {doListInput}
-                handleInputChange = {handleInputChange}
-                handleFormSubmit = {handleFormSubmit}
-                handleDateChange = {handleDateChange}
-                />
 
-            </div> 
-            }
+            {showToDoListForm && 
 
-            <div className="row">
-            <div className="col-2-of-2">
-                {doList.length ?
-                <DolistResult
-                doList={doList}
-                loadDolist= {loadDolist}
-                doListInput = {doListInput}
-                setDolistInput = {setDolistInput}
-                handleInputChange = {handleInputChange}/>: null}
+                <div className="col-2-of-3">
+                  <FormDolist
+                  doListInput = {doListInput}
+                  handleInputChange = {handleInputChange}
+                  handleFormSubmit = {handleFormSubmit}
+                  handleDateChange = {handleDateChange}
+                  />
+                </div>
+                 } 
+              </div>
+          
+            <div className="row"> 
+
+                    {doList.length ?
+                    <DolistResult
+                    doList={doList}
+                    loadDolist= {loadDolist}
+                    doListInput = {doListInput}
+                    setDolistInput = {setDolistInput}
+                    handleInputChange = {handleInputChange}/>: null}
+
             </div>
         </div>
-    </div>
   </React.Fragment>
     
     )

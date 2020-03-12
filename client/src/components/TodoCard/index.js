@@ -27,93 +27,95 @@ const ToDolistCard = (
 
     return (
 
-    <li className="list-group-item" key={item._id}>
+    <li className=" ToDoList__item" key={item._id}>
+        <div className=" ToDoList__data">
+            {editTitle ?
+            <div className=" ToDoList__input-edit"> 
 
-        {editTitle ?
-        <div>
+            <input
+            name= "title"
+            id={item._id}
+            value = {doListInput.name}
+            onChange={handleInputChange}
+            type="text"
+            className="form-control input-dolist"
+            placeholder="title"
+            />
+            <button type="button" className="btn btn--toDoList-icon"
+            data-unique-id={item._id}
+            onClick={updateHandler}> 
+            <FontAwesomeIcon icon={faEdit} /> 
+            </button> 
+            </div> :
 
-        <input
-        name= "title"
-        id={item._id}
-        value = {doListInput.name}
-        onChange={handleInputChange}
-        type="text"
-        className="form-control input-dolist"
-        placeholder="title"
-        />
-        <button type="button" className="btn btn-success mr-4 float-right"
-        data-unique-id={item._id}
-        onClick={updateHandler}> 
-        submit the changes
-        </button> 
-        </div> :
+            <h2 onClick={() => setEditTitle(true)}
+            >  {item.title}
+            </h2>
 
-        <h2 onClick={() => setEditTitle(true)}
-        >  {item.title}
-        </h2>
+            }
 
-        }
+            {editNote ?
+            <div className=" ToDoList__input-edit">
 
-        {editNote ?
-        <div>
+            <input
+            name= "description"
+            id={item._id}
+            value = {doListInput.name}
+            onChange={handleInputChange}
+            type="text"
+            className="form-control input-dolist"
+            placeholder="description"
+            />
 
-        <input
-        name= "description"
-        id={item._id}
-        value = {doListInput.name}
-        onChange={handleInputChange}
-        type="text"
-        className="form-control input-dolist"
-        placeholder="description"
-        />
+            <button type="button" className="btn btn--toDoList-icon"
+            data-unique-id={item._id}
+            onClick={updateHandler}> 
+            <FontAwesomeIcon icon={faEdit} /> 
+            </button> 
+            </div> :
 
-        <button type="button" className="btn btn-success mr-4 float-right"
-        data-unique-id={item._id}
-        onClick={updateHandler}> 
-       submit the changes
-        </button> 
-        </div> :
+            <h2 onClick={() => setEditNote(true)}
+            >  {item.description}
+            </h2>
 
-        <h4 onClick={() => setEditNote(true)}
-        >  {item.description}
-        </h4>
+            }
 
-        }
+            {editDate ?
+            <div className=" ToDoList__input-edit">
 
-        {editDate ?
-        <div>
+            <DatePicker
+            selected={doListInput.date}
+            id={item._id}
+            onChange={date => handleDateChange(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="MMMM d, yyyy h:mm aa"
+            />
 
-        <DatePicker
-        selected={doListInput.date}
-        id={item._id}
-        onChange={date => handleDateChange(date)}
-        showTimeSelect
-        timeFormat="HH:mm"
-        timeIntervals={15}
-        timeCaption="time"
-        dateFormat="MMMM d, yyyy h:mm aa"
-        />
-        <button type="button" className="btn btn-success mr-4 float-right"
-        data-unique-id={item._id}
-        onClick={updateHandler}> 
-        submit the changes
-        </button> 
-        </div>:
+            <button type="button" className="btn btn--toDoList-icon"
+            data-unique-id={item._id}
+            onClick={updateHandler}> 
+            <FontAwesomeIcon icon={faEdit} /> 
+            </button> 
 
-        <h4 onClick={() => setEditDate(true)}
-        >  {item.date}
-        </h4>
-        
-        }
+            </div>:
 
+            <h4 onClick={() => setEditDate(true)}
+            >  {item.date}
+            </h4>
+            
+            }
 
-    <button type="button" className="btn btn-danger mt-3 float-right"
+        </div>
+    <button type="button" className="btn btn--toDoList-icon "
     data-unique-id={item._id}
     onClick={deleteHandler}>
     <FontAwesomeIcon icon={faTrash} /> 
     </button> 
 
-    <button type="button" className="btn btn-success mr-4 mt-3 float-right"
+    <button type="button" className="btn btn--toDoList-icon "
     data-unique-id={item._id}
     onClick={deleteHandler}> 
     <FontAwesomeIcon icon={faCheck} /> 

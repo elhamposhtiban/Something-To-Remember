@@ -1,6 +1,6 @@
 .section-toDoList {
     padding: 10rem;
-    background-image: $color-grey-light-2;
+    background-color: $color-grey-light-1;
     min-height: 100vh;
 }
 
@@ -13,7 +13,7 @@
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
     height: 40rem;
-    width: 60%;
+    width: 100%;
     margin-top: 2rem;
     animation: moveInRight 1s ease-out;
 

@@ -97,12 +97,12 @@ const DolistResult = ({
     
     return (
        
-        <div className="card p-3 ToDoList-card">
+        // <div className="ToDoList__card">
 
-            <div className="card-header"><h5>Here is your to do list </h5></div>
-            <div className="card-body">
+        //     <div className="card-header"><h5>Here is your to do list </h5></div>
+        //      <div className="ToDoList__card-body">
         
-                <ul className="list-group">
+                <ul className="list-group ToDoList__list">
                     {doList.map(item => (
 
                         <ToDolistCard
@@ -118,8 +118,8 @@ const DolistResult = ({
                     ))}
                 </ul>
                 
-            </div>
-        </div>
+        //      </div>
+        //  </div>
 
     )
 }
