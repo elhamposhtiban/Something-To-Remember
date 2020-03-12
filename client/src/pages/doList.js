@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
-import { faStickyNote } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../utils/API";
 
 
@@ -16,6 +14,14 @@ const Dolist = () => {
       date: new Date(),
       description: ""
   });
+
+
+  const [showToDoListForm, setShowToDoListForm] = useState(false)
+
+
+  const showHandler = () => {
+   setShowToDoListForm(!showToDoListForm);
+  }
 
 
 
@@ -85,9 +91,24 @@ const Dolist = () => {
 
     return (
 <React.Fragment>
-    <div className = "section-toDoList">
-        <div className="row">
 
+    <div className = "section-toDoList">
+            <div className="row">
+
+            <div className="col-2-of-2">
+                <button 
+                    type="button"
+                    className="btn btn--pink "
+                    onClick= {showHandler}>
+                        add your checklist
+                </button>
+            </div>
+
+            </div>
+
+          {showToDoListForm && 
+
+            <div className="row">
                 <FormDolist
                 doListInput = {doListInput}
                 handleInputChange = {handleInputChange}
@@ -95,7 +116,9 @@ const Dolist = () => {
                 handleDateChange = {handleDateChange}
                 />
 
-            </div>
+            </div> 
+            }
+
             <div className="row">
             <div className="col-2-of-2">
                 {doList.length ?
