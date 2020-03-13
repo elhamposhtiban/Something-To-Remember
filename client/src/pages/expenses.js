@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Expensesform from "../components/Expensesform/index";
+import Expensesform from "../components/ExpensesForm/index";
 import ExpensesResult from "../components/ExpensesResult/index";
 import API from "../utils/API"
 
