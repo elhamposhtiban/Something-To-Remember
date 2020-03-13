@@ -16,7 +16,6 @@ import Budget from "./pages/expenses";
 // import Navbar from "./components/Navbar/index"
 // import {Col,Row,Container} from "./components/Grid"
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
