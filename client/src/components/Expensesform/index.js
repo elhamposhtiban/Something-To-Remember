@@ -1,10 +1,10 @@
-import React, {useState} from "./node_modules/react";
-import PropType from "./node_modules/prop-types"
-import { faList} from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { faDollarSign} from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { faComment} from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { faShoppingBag} from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "./node_modules/@fortawesome/react-fontawesome";
+import React, {useState} from "react";
+import PropType from "prop-types"
+import { faList} from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign} from "@fortawesome/free-solid-svg-icons";
+import { faComment} from "@fortawesome/free-solid-svg-icons";
+import { faShoppingBag} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const propType = {
 
