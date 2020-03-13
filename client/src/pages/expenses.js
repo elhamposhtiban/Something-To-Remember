@@ -27,7 +27,7 @@ useEffect ( () => {
 
 
 useEffect ( () => {
-    loadExpense ();
+    loadExpenses ();
 }, []);
 
 
@@ -45,7 +45,7 @@ const loadBudget = async () => {
   };
 
 
-  const loadExpense = async () => {
+  const loadExpenses = async () => {
     try {
       const response = await API.getAllExpenses();
       setExpenses(response.data);
@@ -79,15 +79,17 @@ const loadBudget = async () => {
 
     return (
       <React.Fragment>
+        <section className="section-budget">
         <Expensesform
         handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
         expensesInput = {expensesInput}
         budgetInput = {budgetInput}
+        expenses = {expenses}
         />
 
         <ExpensesResult/>
-
+        </section>
         </React.Fragment>
     )
 }

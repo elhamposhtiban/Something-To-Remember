@@ -25,6 +25,7 @@
                 opacity: 0;
             }
         }
+
         &:active {
             transform: translateY(-0.1rem);
             box-shadow: 0 0.5rem 4rem rgba($color-black, .2);
@@ -48,6 +49,30 @@
             background-color: $color-purple-medium;
         }
 
+        }
+
+        &--pink-toDoList {
+            background-color:$color-purple-dark-1;
+            width: 130;
+            height: 55px;
+            color:  $color-white;
+    
+        &::after {
+            background-color: $color-purple-dark-1;
+        }
+
+        }
+
+        &--toDoList-icon {
+
+            background-color: $color-white;
+            color: $color-grey-dark;
+            margin:0 1rem 2rem 1rem;
+    
+        &::after {
+            background-color: $color-white;
+        }
+        
         }
 
         &::after {

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
-import {Col,Row,Container} from "../components/Grid"
+import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 
 
@@ -15,6 +15,14 @@ const Dolist = () => {
       date: new Date(),
       description: ""
   });
+
+
+  const [showToDoListForm, setShowToDoListForm] = useState(false)
+
+
+  const showHandler = () => {
+   setShowToDoListForm(!showToDoListForm);
+  }
 
 
 
@@ -83,27 +91,53 @@ const Dolist = () => {
 
 
     return (
-        <Container>
-        <Row>
-            <Col size=" md-4">
-                <FormDolist
-                doListInput = {doListInput}
-                handleInputChange = {handleInputChange}
-                handleFormSubmit = {handleFormSubmit}
-                handleDateChange = {handleDateChange}
-                
-                />
-            </Col>
+<React.Fragment>
 
-            <Col size="md-8">
-            {doList.length ?
-            <DolistResult
-             doList={doList}
-             loadDolist= {loadDolist}/>: null}
-            </Col>
-        </Row>
+    <div className = "section-toDoList">
+            <div className="row">
 
-    </Container>
+            <div className="col-2-of-2">
+                <button 
+                    type="button"
+                    className="btn btn--pink "
+                    onClick= {showHandler}>
+                        add your checklist
+                </button>
+            </div>
+
+            </div>
+
+       
+
+            <div className="row">
+
+            {showToDoListForm && 
+
+                <div className="col-2-of-3">
+                  <FormDolist
+                  doListInput = {doListInput}
+                  handleInputChange = {handleInputChange}
+                  handleFormSubmit = {handleFormSubmit}
+                  handleDateChange = {handleDateChange}
+                  />
+                </div>
+                 } 
+              </div>
+          
+            <div className="row"> 
+
+                    {doList.length ?
+                    <DolistResult
+                    doList={doList}
+                    loadDolist= {loadDolist}
+                    doListInput = {doListInput}
+                    setDolistInput = {setDolistInput}
+                    handleInputChange = {handleInputChange}/>: null}
+
+            </div>
+        </div>
+  </React.Fragment>
+    
     )
     
 }

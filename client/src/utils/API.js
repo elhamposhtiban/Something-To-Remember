@@ -20,8 +20,9 @@ export default {
     },
     
     // update a todolist to the database
-    UpdateDolist: () =>{
-        return axios.put("/api/dolist");
+    UpdateDolist: (id, data) =>{
+        console.log("hi i can read update api from client side", id, data)
+        return axios.put("/api/dolist/" + id, data);
     },
 
       // Saves a todolist to the database
@@ -49,8 +50,8 @@ export default {
     },
     
     // update a toexpenses to the database
-    UpdateExpenses: () =>{
-        return axios.put("/api/expenses");
+    UpdateExpenses: (id) =>{
+        return axios.put("/api/expenses/" + id);
     },
 
       // Saves a toexpenses to the database
