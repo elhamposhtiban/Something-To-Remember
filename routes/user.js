@@ -4,13 +4,13 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const validateRegisterInput = require('../client/backend/validation/register');
-const validateLoginInput = require('../client/backend/validation/login');
+const validateRegisterInput = require('../validation/register');
+const validateLoginInput = require('../validation/login');
 
-const User = require('../client/backend/models/User');
+const User = require('../models/User');
 
 router.post('/register', function(req, res) {
-
+console.log(req.body)
     const { errors, isValid } = validateRegisterInput(req.body);
 
     if(!isValid) {

@@ -14,9 +14,9 @@ import Home from './components/Home';
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 // import Navbar from "./components/Navbar/index"
-import {Col,Row,Container} from "./components/Grid"
+// import {Col,Row,Container} from "./components/Grid"
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -39,12 +39,12 @@ class App extends Component {
               <Navbar />
               <Switch>
                 <Route exact path="/" component={ Home } />
-                <div className="container">
+                {/* <div className="container"> */}
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/dolist" component={Dolist} />
             <Route exact path="/budget" component={Budget} />
-                </div>
+                {/* </div> */}
                 </Switch>
             </div>
            

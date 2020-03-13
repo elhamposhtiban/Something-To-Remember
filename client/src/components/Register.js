@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
 
+
 class Register extends Component {
 
     constructor() {
@@ -34,7 +35,8 @@ class Register extends Component {
             password: this.state.password,
             password_confirm: this.state.password_confirm
         }
-        this.props.registerUser(user, this.props.history);
+        this.props.registerUser(user, this.props.history)
+    
     }
 
     componentWillReceiveProps(nextProps) {
@@ -113,9 +115,11 @@ class Register extends Component {
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                {/* <Link to='/somewhere'> */}
+                    <button  type="submit" className="btn btn-primary">
                         Register User
-                    </button>
+                    </button> 
+                    {/* </Link> */}
                 </div>
             </form>
         </div>

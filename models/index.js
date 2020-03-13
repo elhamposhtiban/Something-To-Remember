@@ -5,6 +5,6 @@ module.exports = {
     Dolist: require("./Dolist"),
     Wedding: require("./Wedding"),
     Category: require("./Category"), 
-    User: require("../client/backend/models/User")
+    User: require("./User")
 
 }

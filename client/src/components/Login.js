@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
+// import {Link} from 'react-router-dom';
 
 class Login extends Component {
 
@@ -85,6 +86,11 @@ class Login extends Component {
                     <button type="submit" className="btn btn-primary">
                         Login User
                     </button>
+                    {/* < Link to='/'>
+                    <button type="submit" className="btn btn-primary">
+                        Login User
+                    </button>
+                    </Link> */}
                 </div>
             </form>
         </div>
