@@ -61,22 +61,12 @@ const DolistResult = ({
 
 
         //function for handling update
-        const updateHandler = event => {
-            event.preventDefault();
 
-            const updateId = event.target.getAttribute("data-unique-id");
+        
 
-            const updateToDo = doList.filter(item => item.id === updateId);
-
-            console.log(updateId)
-            // console.log(updateToDo)
-
-            updateDolist(updateId)
-        }
-
-        const updateDolist = async (updateId) => {
+        const updateDolist = async (updateId, updateToDo) => {
             try {
-              await API.UpdateDolist(updateId);
+              await API.UpdateDolist(updateId,updateToDo );
 
               console.log(updateId)
 
@@ -96,22 +86,18 @@ const DolistResult = ({
           };
     
     return (
-       
-        // <div className="ToDoList__card">
 
-        //     <div className="card-header"><h5>Here is your to do list </h5></div>
-        //      <div className="ToDoList__card-body">
         
                 <ul className="list-group ToDoList__list">
                     {doList.map(item => (
 
                         <ToDolistCard
+                        key={item._id}
                         handleInputChange = {handleInputChange}
                         doListInput = {doListInput}
                         doList = {doList}
                         handleDateChange = {handleDateChange}
                         deleteHandler = {deleteHandler}
-                        updateHandler = {updateHandler}
                         item={item}
                         />
             

@@ -20,9 +20,9 @@ export default {
     },
     
     // update a todolist to the database
-    UpdateDolist: (id) =>{
-        console.log("hi i can read update api from client side", id)
-        return axios.put("/api/dolist/" + id);
+    UpdateDolist: (id, data) =>{
+        console.log("hi i can read update api from client side", id, data)
+        return axios.put("/api/dolist/" + id, data);
     },
 
       // Saves a todolist to the database

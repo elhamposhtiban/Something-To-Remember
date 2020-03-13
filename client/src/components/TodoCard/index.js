@@ -5,6 +5,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import API from "../../utils/API";
 
 
 
@@ -15,7 +16,7 @@ const ToDolistCard = (
         doList,
         handleDateChange ,
         deleteHandler ,
-        updateHandler,
+        
         item
     }
 ) => {
@@ -24,32 +25,64 @@ const ToDolistCard = (
     const [editTitle, setEditTitle] = useState(false);
     const [editNote, setEditNote] = useState(false);
     const [editDate, setEditDate] = useState(false);
+    const time = new Date()
+    const todo = {
+        title: item.title,
+        date: time.toDateString(),
+        _id: item._id,
+        description: item.description
+    }
+
+
+
+    // const [editList, setEditList] = useState([]);
+
+
+    // here am making one state to use in handle change for edit part
+    const [editInput, setEditInput] = useState(todo);
+
+    // function for handling input change 
+  const handleEditChange = event => {
+    const { name, value } = event.target;
+    setEditInput({
+      ...editInput,
+      [name]: value
+    });
+    console.log(editInput)
+
+  };
+
+  const handleEditDateChange= date => {
+    setEditInput({
+        ...editInput,
+     date : date
+    });
+    console.log(editInput)
+
+  };
 
     return (
 
-    <li className=" ToDoList__item" key={item._id}>
+    <li className=" ToDoList__item" >
         <div className=" ToDoList__data">
+
             {editTitle ?
             <div className=" ToDoList__input-edit"> 
 
             <input
             name= "title"
-            id={item._id}
-            value = {doListInput.name}
-            onChange={handleInputChange}
+            id={editInput._id}
+            value = {editInput.name}
+            onKeyUp={(e) => {if(e.keyCode === 13) setEditTitle(false)}}
+            onChange={handleEditChange}
             type="text"
             className="form-control input-dolist"
             placeholder="title"
             />
-            <button type="button" className="btn btn--toDoList-icon"
-            data-unique-id={item._id}
-            onClick={updateHandler}> 
-            <FontAwesomeIcon icon={faEdit} /> 
-            </button> 
             </div> :
 
             <h2 onClick={() => setEditTitle(true)}
-            >  {item.title}
+            >  {editInput.title}
             </h2>
 
             }
@@ -59,23 +92,18 @@ const ToDolistCard = (
 
             <input
             name= "description"
-            id={item._id}
-            value = {doListInput.name}
-            onChange={handleInputChange}
+            id={editInput._id}
+            value = {editInput.name}
+            onChange={handleEditChange}
+            onKeyUp={(e) => {if(e.keyCode === 13) setEditDate(false)}}
             type="text"
             className="form-control input-dolist"
             placeholder="description"
             />
-
-            <button type="button" className="btn btn--toDoList-icon"
-            data-unique-id={item._id}
-            onClick={updateHandler}> 
-            <FontAwesomeIcon icon={faEdit} /> 
-            </button> 
             </div> :
 
             <h2 onClick={() => setEditNote(true)}
-            >  {item.description}
+            >  {editInput.description}
             </h2>
 
             }
@@ -84,9 +112,10 @@ const ToDolistCard = (
             <div className=" ToDoList__input-edit">
 
             <DatePicker
-            selected={doListInput.date}
-            id={item._id}
-            onChange={date => handleDateChange(date)}
+            selected={editInput.date}
+            id={editInput._id}
+            onKeyUp={(e) => {if(e.keyCode === 13) setEditTitle(false)}}
+            onChange={date => handleEditDateChange(date)}
             showTimeSelect
             timeFormat="HH:mm"
             timeIntervals={15}
@@ -94,29 +123,30 @@ const ToDolistCard = (
             dateFormat="MMMM d, yyyy h:mm aa"
             />
 
-            <button type="button" className="btn btn--toDoList-icon"
-            data-unique-id={item._id}
-            onClick={updateHandler}> 
-            <FontAwesomeIcon icon={faEdit} /> 
-            </button> 
-
             </div>:
 
             <h4 onClick={() => setEditDate(true)}
-            >  {item.date}
+            >  {editInput.date}
             </h4>
             
             }
 
         </div>
+
+    <button type="button" className="btn btn--toDoList-icon"
+        data-unique-id={editInput._id}
+        onClick={() => {API.UpdateDolist(editInput._id, editInput)}}> 
+        <FontAwesomeIcon icon={faEdit} /> 
+    </button> 
+
     <button type="button" className="btn btn--toDoList-icon "
-    data-unique-id={item._id}
+    data-unique-id={editInput._id}
     onClick={deleteHandler}>
     <FontAwesomeIcon icon={faTrash} /> 
     </button> 
 
     <button type="button" className="btn btn--toDoList-icon "
-    data-unique-id={item._id}
+    data-unique-id={editInput._id}
     onClick={deleteHandler}> 
     <FontAwesomeIcon icon={faCheck} /> 
     </button> 

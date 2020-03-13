@@ -5,12 +5,12 @@ module.exports = {
 
   findAll: function(req, res) {
 
-    console.log("i am reading req for you ")
+    // console.log("i am reading req for you ")
     db.Dolist
       .find()
       .then(dbModel => {
 
-        console.log('dbmodel', dbModel)
+        // console.log('dbmodel', dbModel)
         return(res.json(dbModel))
         })
       .catch(err => res.status(422).json(err));
@@ -33,8 +33,11 @@ module.exports = {
   
   update: function(req, res) {
     console.log("i am updating something for you")
+    console.log(`id: ${req.params.id}`)
+    console.log(`request body, ${req.body}`)
+    console.log(req.body)
     db.Dolist
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({_id: req.params.id }, req.body)
       .then(dbModel => {
 
         console.log('dbmodel', dbModel)
