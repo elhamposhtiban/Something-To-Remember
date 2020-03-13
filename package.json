@@ -14,6 +14,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "node": ">=13.9.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elhamposhtiban/Something-To-Remember.git"
