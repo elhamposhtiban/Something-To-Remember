@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react";
-import Expensesform from "../components/ExpensesForm/index";
+import Expensesform from "../components/Expensesform/index";
 import ExpensesResult from "../components/ExpensesResult/index";
 import API from "../utils/API"
 
 
 const Expenses = () => {
-
 
 const [expenses, setExpenses] = useState([]);
 const [budgetInput, setBudgetInput] = useState("");
