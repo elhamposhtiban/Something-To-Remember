@@ -104,8 +104,7 @@ const DolistResult = ({
                     ))}
                 </ul>
                 
-        //      </div>
-        //  </div>
+
 
     )
 }
