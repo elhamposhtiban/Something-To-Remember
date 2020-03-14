@@ -5,7 +5,7 @@ import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
 import {Modal,
 Button} from "react-bootstrap"
-
+// import {Link} from 'react-router-dom';
 
 class Login extends Component {
 
@@ -76,12 +76,11 @@ class Login extends Component {
                             onChange={ this.handleInputChange }
                             value={ this.state.email }
                             />
-
                             {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                         </div>
 
                         <div className="form-group">
-
+                            
                             <input
                             type="password"
                             placeholder="Password"
@@ -92,7 +91,6 @@ class Login extends Component {
                             onChange={ this.handleInputChange }
                             value={ this.state.password }
                             />
-
                             {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                         </div>
 

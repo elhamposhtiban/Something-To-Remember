@@ -63,7 +63,6 @@ const DolistResult = ({
         //function for handling update
 
         
-
         const updateDolist = async (updateId, updateToDo) => {
             try {
               await API.UpdateDolist(updateId,updateToDo );

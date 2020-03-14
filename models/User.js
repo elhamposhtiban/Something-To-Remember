@@ -21,7 +21,13 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+
+    claimed: {
+        type: Number,
+        default: 0
     }
+
 });
 
 const User = mongoose.model('users', UserSchema);
