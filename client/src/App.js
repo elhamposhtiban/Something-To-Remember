@@ -8,8 +8,8 @@ import { setCurrentUser, logoutUser } from './actions/authentication';
 
 // import Navbar from './components/Navbar';
 import Register from './components/Register';
-import Login from './components/Login';
-import Home from './components/Home';
+// import Login from './components/Login';
+import Home from './components/Home/Home';
 
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
@@ -37,19 +37,18 @@ class App extends Component {
         <Router>
             <div>
               
-              { window.location.pathname !=="/register" &&
-              window.location.pathname !=="/login" ?  <Navbar />: null}
+              { window.location.pathname !=="/register"  && window.location.pathname !=="/" ?  <Navbar />: null}
               <Switch>
                 <Route exact path="/dashboard" component={ Home } />
-                {/* <div className="container"> */}
+                <Route exact path="/" component={ Register } />
                   <Route exact path="/register" component={ Register } />
-                  <Route exact path="/login" component={ Login } />
+                  {/* <Route exact path="/login" component={ Login } /> */}
                   <Route exact path="/dolist" component={Dolist} />
                   <Route exact path="/budget" component={Budget} />
                 {/* </div> */}
                 </Switch>
-              { window.location.pathname !=="/register" &&
-              window.location.pathname !=="/login" ?  <Footer/> : null}
+              { window.location.pathname !=="/register" && window.location.pathname !=="/" ?  <Footer/> : null}
+
               
             </div>
            
