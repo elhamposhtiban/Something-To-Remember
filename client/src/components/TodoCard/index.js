@@ -61,6 +61,11 @@ const ToDolistCard = (
 
   };
 
+  const Update = (e) => {
+    if(e.keyCode === 13) setEditTitle(false)
+    API.UpdateDolist(editInput._id, editInput)
+  }
+
     return (
 
     <li className=" ToDoList__item" >
@@ -72,8 +77,8 @@ const ToDolistCard = (
             <input
             name= "title"
             id={editInput._id}
-            value = {editInput.name}
-            onKeyUp={(e) => {if(e.keyCode === 13) setEditTitle(false)}}
+            value = {editInput.name} 
+            onKeyUp={Update}
             onChange={handleEditChange}
             type="text"
             className="form-control input-dolist"
@@ -95,7 +100,7 @@ const ToDolistCard = (
             id={editInput._id}
             value = {editInput.name}
             onChange={handleEditChange}
-            onKeyUp={(e) => {if(e.keyCode === 13) setEditDate(false)}}
+            onKeyUp={Update}
             type="text"
             className="form-control input-dolist"
             placeholder="description"
@@ -114,7 +119,7 @@ const ToDolistCard = (
             <DatePicker
             selected={editInput.date}
             id={editInput._id}
-            onKeyUp={(e) => {if(e.keyCode === 13) setEditTitle(false)}}
+            onKeyUp={Update}
             onChange={date => handleEditDateChange(date)}
             showTimeSelect
             timeFormat="HH:mm"
@@ -133,11 +138,11 @@ const ToDolistCard = (
 
         </div>
 
-    <button type="button" className="btn btn--toDoList-icon"
+    {/* <button type="button" className="btn btn--toDoList-icon"
         data-unique-id={editInput._id}
         onClick={() => {API.UpdateDolist(editInput._id, editInput)}}> 
         <FontAwesomeIcon icon={faEdit} /> 
-    </button> 
+    </button>  */}
 
     <button type="button" className="btn btn--toDoList-icon "
     data-unique-id={editInput._id}
