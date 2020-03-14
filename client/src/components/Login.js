@@ -5,7 +5,7 @@ import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
 import {Modal,
 Button} from "react-bootstrap"
-// import {Link} from 'react-router-dom';
+
 
 class Login extends Component {
 
@@ -43,7 +43,7 @@ class Login extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        
+
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/')
         }
@@ -63,35 +63,40 @@ class Login extends Component {
                 <Modal.Title>Log In</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <form >
-                 <div className="form-group">
-                     <input
-                    type="email"
-                    placeholder="Email"
-                    className={classnames('form-control form-control-lg', {
-                        'is-invalid': errors.email
-                    })}
-                    name="email"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.email }
-                    />
-                    {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                </div>
-                <div className="form-group">
-                    <input
-                    type="password"
-                    placeholder="Password"
-                    className={classnames('form-control form-control-lg', {
-                        'is-invalid': errors.password
-                    })} 
-                    name="password"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.password }
-                    />
-                    {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                </div>
+                    <form >
+                        <div className="form-group">
 
-            </form>
+                            <input
+                            type="email"
+                            placeholder="Email"
+                            className={classnames('form-control form-control-lg', {
+                                'is-invalid': errors.email
+                            })}
+                            name="email"
+                            onChange={ this.handleInputChange }
+                            value={ this.state.email }
+                            />
+
+                            {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                        </div>
+
+                        <div className="form-group">
+
+                            <input
+                            type="password"
+                            placeholder="Password"
+                            className={classnames('form-control form-control-lg', {
+                                'is-invalid': errors.password
+                            })} 
+                            name="password"
+                            onChange={ this.handleInputChange }
+                            value={ this.state.password }
+                            />
+
+                            {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                        </div>
+
+                    </form>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={this.props.handleModalClose} >
@@ -102,10 +107,6 @@ class Login extends Component {
                 </Button>
                 </Modal.Footer>
                 </Modal>
-        // <div className="container" style={{ marginTop: '50px', width: '700px'}}>
-        //     <h2 style={{marginBottom: '40px'}}>Login</h2>
-        //     
-        // </div>
         )
     }
 }
