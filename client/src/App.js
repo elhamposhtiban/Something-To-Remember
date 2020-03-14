@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -14,7 +14,7 @@ import Home from './components/Home';
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 import Footer from "./components/Footer/index"
-// import Navbar from "./components/Navbar/index"
+import Navbar from "./components/Navbar/index"
 // import {Col,Row,Container} from "./components/Grid"
 
 
@@ -36,9 +36,11 @@ class App extends Component {
       <Provider store = { store }>
         <Router>
             <div>
-              <Navbar />
+              
+              { window.location.pathname !=="/register" &&
+              window.location.pathname !=="/login" ?  <Navbar />: null}
               <Switch>
-                <Route exact path="/" component={ Home } />
+                <Route exact path="/dashboard" component={ Home } />
                 {/* <div className="container"> */}
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
@@ -46,7 +48,9 @@ class App extends Component {
                   <Route exact path="/budget" component={Budget} />
                 {/* </div> */}
                 </Switch>
-                <Footer/>
+              { window.location.pathname !=="/register" &&
+              window.location.pathname !=="/login" ?  <Footer/> : null}
+              
             </div>
            
           </Router>

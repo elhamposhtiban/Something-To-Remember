@@ -30,7 +30,7 @@ class Navbar extends Component {
                 <Link className="nav-link" to="/register">Sign Up</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/login">Sign In</Link>
+                <Link className="nav-link" to="/home">Sign In</Link>
             </li>
         </ul>
       )
