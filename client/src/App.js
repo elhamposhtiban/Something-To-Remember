@@ -13,6 +13,7 @@ import Home from './components/Home';
 
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
+import Footer from "./components/Footer/index"
 // import Navbar from "./components/Navbar/index"
 // import {Col,Row,Container} from "./components/Grid"
 
@@ -42,9 +43,10 @@ class App extends Component {
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/dolist" component={Dolist} />
-            <Route exact path="/budget" component={Budget} />
+                  <Route exact path="/budget" component={Budget} />
                 {/* </div> */}
                 </Switch>
+                <Footer/>
             </div>
            
           </Router>
