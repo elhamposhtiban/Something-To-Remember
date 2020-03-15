@@ -1,0 +1,54 @@
+.section-toDoList {
+    padding: 10rem;
+    background-color: $color-grey-light-1;
+    min-height: 100vh;
+}
+
+.ToDoList {
+    background-image:linear-gradient(105deg, rgba($color-white, .7) 0%,
+    rgba($color-white, .7) 44%,
+     transparent 44%) ,
+      url(../../assets/checklist-4.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+    height: 40rem;
+    width: 100%;
+    margin-top: 2rem;
+    animation: moveInRight 1s ease-out;
+
+    &__form {
+
+        width: 44%;
+        height: 40%;
+        padding: 3rem;
+        margin-top: 3rem;
+    }
+}
+
+.section-budget {
+    padding: 10rem;
+    background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
+    min-height: 100vh;
+}
+
+.budget {
+    background-image:linear-gradient(105deg, rgba($color-white, .8) 0%,
+    rgba($color-white, .8) 50%,
+     transparent 50%) ,
+      url(../../assets/1.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+    height: 55rem;
+    width: 100%;
+    margin-top: 2rem;
+    animation: moveInRight 1s ease-out;
+
+    &__form {
+
+        width: 50%;
+        height: 30%;
+        padding: 3rem;
+    }
+}
