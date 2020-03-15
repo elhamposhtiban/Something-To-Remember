@@ -20,16 +20,14 @@ const DolistSchema = new Schema({
        min: '1987-09-28',
     },
 
-    category: [
+    user: [
       {
         // Store ObjectIds in the array
         type: Schema.Types.ObjectId,
         // The ObjectIds will refer to the ids in the Note model
-        ref: "Category"
+        ref: "user"
       }
-    ]
-
-
+    ],
 
 },
 { timestamps:true});

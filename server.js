@@ -1,17 +1,13 @@
-
 const routes = require('./routes/route-index');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-// const DB = require('./db');
-
 const users = require('./routes/user.js'); 
 
-// mongoose.connect(DB, { useNewUrlParser: true }).then(
-//     () => {console.log('Database is connected') },
-//     err => { console.log('Can not connect to the database'+ err)}
-// );
+
+const PORT = process.env.PORT || 3003;
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weddingplanner");
 const app = express();
@@ -34,7 +30,6 @@ app.use('/api/users', users);
 app.use('/', routes);
 
 
-const PORT = process.env.PORT || 3003;
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
