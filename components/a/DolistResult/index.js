@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Proptype from "prop-types";
+<<<<<<< HEAD:client/src/components/DolistResult/index.js
 import ToDolistCard from "../TodoCard"
 import API from "../../utils/API";
 import DatePicker from "react-datepicker";
@@ -9,6 +10,14 @@ import {
     faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
+=======
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FlipMove from 'react-flip-move';
+import API from "../utils/API";
+>>>>>>> master:components/a/DolistResult/index.js
 
 
 const proptype = {

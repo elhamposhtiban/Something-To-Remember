@@ -1,7 +1,13 @@
 import React, {useState, useEffect} from "react";
+<<<<<<< HEAD:client/src/pages/doList.js
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
 import { Col, Row, Container } from "../components/Grid";
+=======
+import FormDolist from "../FormDolist/index";
+import DolistResult from "../DolistResult/index";
+import {Col,Row,Container} from "../Grid"
+>>>>>>> master:components/a/pages/doList.js
 import API from "../utils/API";
 
 

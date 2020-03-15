@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from "react";
+<<<<<<< HEAD:client/src/pages/expenses.js
 import Expensesform from "../components/Expensesform/index";
 import ExpensesResult from "../components/ExpensesResult/index";
+=======
+import Expensesform from "../Grid/Expensesform/index";
+import ExpensesResult from "../ExpensesResult/index";
+>>>>>>> master:components/a/pages/expenses.js
 import API from "../utils/API"
 
 
