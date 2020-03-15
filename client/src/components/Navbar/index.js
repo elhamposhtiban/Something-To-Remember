@@ -12,10 +12,9 @@ class Navbar extends Component {
         e.preventDefault();
         this.props.logoutUser(this.props.history);
     }
-    
+
     render() {
         const {isAuthenticated, user} = this.props.auth;
-
 
     return(
     

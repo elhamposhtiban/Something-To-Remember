@@ -23,7 +23,7 @@ const WeddingSchema = new Schema ({
       },
 
     totalBudget: {
-        type: Number,
+        type: Float32Array,
         required: false,
         min: [1, 'put any number you want'],
     },
@@ -38,7 +38,7 @@ const WeddingSchema = new Schema ({
          // Store ObjectIds in the array
          type: Schema.Types.ObjectId,
          // The ObjectIds will refer to the ids in the Note model
-         ref: "User"
+         ref: "user"
        }
      ]
 

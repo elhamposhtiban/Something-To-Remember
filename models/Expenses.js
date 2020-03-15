@@ -9,44 +9,43 @@ const ExpansesSchema = new Schema ({
     required: true
     },
     
-    amount: {
-        type: Number,
+    actualAmount: {
+        type: Float32Array,
         required: false,
+        default:null,
         min: [1, 'put any number you want'],
     },
 
-    savings: {
-        type: Number,     
-        min: [0, 'it is up to you'],
-    },
+    estimateAmount: {
+      type: Float32Array,
+      required: false,
+      default:null,
+      min: [1, 'put any number you want'],
+  },
 
     note: {
         type: String,
         required: true
     },
+    
+    currency: {
+      type:Float32Array,
+      default:"inactive"
+  },
 
     status: {
         type:Boolean,
         default:"inactive"
     },
 
-    category: [
-        {
-          // Store ObjectIds in the array
-          type: Schema.Types.ObjectId,
-          // The ObjectIds will refer to the ids in the Note model
-          ref: "Category"
-        }
-      ],
-
-      wedding: [
-        {
-          // Store ObjectIds in the array
-          type: Schema.Types.ObjectId,
-          // The ObjectIds will refer to the ids in the Note model
-          ref: "Wedding"
-        }
-      ]
+    user: [
+      {
+        // Store ObjectIds in the array
+        type: Schema.Types.ObjectId,
+        // The ObjectIds will refer to the ids in the Note model
+        ref: "user"
+      }
+    ],
 
 }, { timestamps:true})
 
