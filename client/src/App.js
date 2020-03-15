@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
+import Survey from "./components/Survey/index"
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
 // import Navbar from './components/Navbar';
@@ -15,7 +16,7 @@ import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 import Footer from "./components/Footer/index"
 import Navbar from "./components/Navbar/index"
-// import {Col,Row,Container} from "./components/Grid"
+
 
 
 if(localStorage.jwtToken) {
@@ -37,17 +38,19 @@ class App extends Component {
         <Router>
             <div>
               
-              { window.location.pathname !=="/register"  && window.location.pathname !=="/" ?  <Navbar />: null}
+              { window.location.pathname !=="/register"  && window.location.pathname !=="/" &&
+              window.location.pathname !=="/survey" ?  <Navbar />: null}
               <Switch>
                 <Route exact path="/dashboard" component={ Home } />
                 <Route exact path="/" component={ Register } />
                   <Route exact path="/register" component={ Register } />
-                  {/* <Route exact path="/login" component={ Login } /> */}
+                  <Route exact path="/survey" component={ Survey } />
                   <Route exact path="/dolist" component={Dolist} />
                   <Route exact path="/budget" component={Budget} />
-                {/* </div> */}
+                {/* <Route exact path="/login" component={ Login } /> */}
                 </Switch>
-              { window.location.pathname !=="/register" && window.location.pathname !=="/" ?  <Footer/> : null}
+              { window.location.pathname !=="/register" && window.location.pathname !=="/" &&
+              window.location.pathname !=="/survey" ?  <Footer/> : null}
 
               
             </div>
