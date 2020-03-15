@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import DatePicker from "react-datepicker";
+import API from "../utils/API";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,7 +14,7 @@ import {
 
 const Survey = () => {
  
-    const [weddingProfile, setWeddingProfile] = useState([]);
+  const [weddingProfile, setWeddingProfile] = useState([]);
   const [surveyInput, setSurveyInput] = useState(
       {
         brideName: "",
@@ -45,6 +46,55 @@ const Survey = () => {
   };
 
 
+
+  useEffect(() => {
+    loadWeddingProfile();
+  }, []);
+
+  // Loads all weddingProfile  and sets them to DolistloadDolist
+  const loadWeddingProfile = async () => {
+    try {
+      const response = await API.getAllDolist();
+      setWeddingProfile(response.data);
+      console.log('wedding profile', response.data)
+    } catch (error) {
+      console.group("it can not load wedding profile");
+      console.log(error);
+      console.groupEnd();
+    }
+  };
+
+
+  const handleSubmitProfile = async event => {
+    console.log("hi i am actually grabing the data for wedding profile")
+    event.preventDefault();
+    if (surveyInput.brideName && surveyInput.groomName) {
+      try {
+        await API.saveDolist({
+          ...surveyInput,
+        });
+        setWeddingProfile({
+            brideName: "",
+            groomName: "",
+            location: "",
+            totalBudget: "",
+            date: new Date(),
+        });
+        loadWeddingProfile();
+        console.log("success wedding profile")
+      } catch (error) {
+        console.group("SUBMIT FORM");
+        console.log(error);
+        console.groupEnd();
+      }
+    }
+  };
+    
+    
+
+  
+
+
     return( 
       
 
@@ -62,16 +112,16 @@ const Survey = () => {
                       </span>
                     </div>
 
-                  <input
-                    id="bride"
-                    name= "brideName"
-                    value = {surveyInput.name}
-                    onChange={onchangeSurveyHandler}
-                    type="text"
-                    className="form-control form-toDoList__input"
-                    placeholder="Bride Name"
-                  />
-                  <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
+                    <input
+                        id="bride"
+                        name= "brideName"
+                        value = {surveyInput.name}
+                        onChange={onchangeSurveyHandler}
+                        type="text"
+                        className="form-control form-toDoList__input"
+                        placeholder="Bride Name"
+                    />
+                    <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
 
                 </div>
 
@@ -84,16 +134,16 @@ const Survey = () => {
                       </span>
                     </div>
 
-                  <input
-                    id="groom"
-                    name= "groomName"
-                    value = {surveyInput.name}
-                    onChange={onchangeSurveyHandler}
-                    type="text"
-                    className="form-control form-toDoList__input"
-                    placeholder="Groom Name"
-                  />
-                  <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
+                    <input
+                        id="groom"
+                        name= "groomName"
+                        value = {surveyInput.name}
+                        onChange={onchangeSurveyHandler}
+                        type="text"
+                        className="form-control form-toDoList__input"
+                        placeholder="Groom Name"
+                    />
+                    <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
 
                 </div>
 
@@ -106,16 +156,16 @@ const Survey = () => {
                       </span>
                     </div>
 
-                  <input
-                    id="location"
-                    name= "location"
-                    value = {surveyInput.name}
-                    onChange={onchangeSurveyHandler}
-                    type="text"
-                    className="form-control form-toDoList__input"
-                    placeholder="Groom Name"
-                  />
-                  <label className ="Dolist-label" htmlFor="location"> Location</label>
+                    <input
+                        id="location"
+                        name= "location"
+                        value = {surveyInput.name}
+                        onChange={onchangeSurveyHandler}
+                        type="text"
+                        className="form-control form-toDoList__input"
+                        placeholder="Location"
+                    />
+                    <label className ="Dolist-label" htmlFor="location"> Location</label>
 
                 </div>
 
@@ -153,9 +203,10 @@ const Survey = () => {
                     value = {surveyInput.name}
                     onChange={onchangeSurveyHandler}
                     required/>
-                    <label htmlFor="amount" className="form__label">Total Budget</label>
+                    <label htmlFor="totalBudget" className="form__label">Total Budget</label>
                 
                 </div>
+
                 <button 
                 //   disabled={!(doListInput.title && doListInput.description)}
                 //   onClick= {}

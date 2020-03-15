@@ -38,8 +38,8 @@ class App extends Component {
         <Router>
             <div>
               
-              { window.location.pathname !=="/register"  && window.location.pathname !=="/" &&
-              window.location.pathname !=="/survey" ?  <Navbar />: null}
+              {window.location.pathname !=="/register"  && window.location.pathname !=="/" 
+               ?  <Navbar />: null}
               <Switch>
                 <Route exact path="/dashboard" component={ Home } />
                 <Route exact path="/" component={ Register } />
@@ -49,8 +49,8 @@ class App extends Component {
                   <Route exact path="/budget" component={Budget} />
                 {/* <Route exact path="/login" component={ Login } /> */}
                 </Switch>
-              { window.location.pathname !=="/register" && window.location.pathname !=="/" &&
-              window.location.pathname !=="/survey" ?  <Footer/> : null}
+              { window.location.pathname !=="/register" && window.location.pathname !=="/"
+              ?  <Footer/> : null}
 
               
             </div>

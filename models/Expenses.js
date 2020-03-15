@@ -10,14 +10,14 @@ const ExpansesSchema = new Schema ({
     },
     
     actualAmount: {
-        type: Float32Array,
+        type: Number,
         required: false,
         default:null,
         min: [1, 'put any number you want'],
     },
 
     estimateAmount: {
-      type: Float32Array,
+      type: Number,
       required: false,
       default:null,
       min: [1, 'put any number you want'],
@@ -29,7 +29,7 @@ const ExpansesSchema = new Schema ({
     },
     
     currency: {
-      type:Float32Array,
+      type:Number,
       default:"inactive"
   },
 
@@ -43,7 +43,7 @@ const ExpansesSchema = new Schema ({
         // Store ObjectIds in the array
         type: Schema.Types.ObjectId,
         // The ObjectIds will refer to the ids in the Note model
-        ref: "user"
+        ref: "User"
       }
     ],
 
