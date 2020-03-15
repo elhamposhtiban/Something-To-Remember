@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import PropType from "prop-types"
-import { faList} from "@fortawesome/free-solid-svg-icons";
-import { faDollarSign} from "@fortawesome/free-solid-svg-icons";
-import { faComment} from "@fortawesome/free-solid-svg-icons";
-import { faShoppingBag} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faList,
+  faDollarSign, 
+  faComment, 
+  faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+
 
 const propType = {
 

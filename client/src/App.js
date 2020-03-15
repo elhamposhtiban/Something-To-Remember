@@ -6,14 +6,15 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Register from './components/Register';
-import Login from './components/Login';
-import Home from './components/Home';
+// import Login from './components/Login';
+import Home from './components/Home/Home';
 
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
-// import Navbar from "./components/Navbar/index"
+import Footer from "./components/Footer/index"
+import Navbar from "./components/Navbar/index"
 // import {Col,Row,Container} from "./components/Grid"
 
 
@@ -35,16 +36,20 @@ class App extends Component {
       <Provider store = { store }>
         <Router>
             <div>
-              <Navbar />
+              
+              { window.location.pathname !=="/register"  && window.location.pathname !=="/" ?  <Navbar />: null}
               <Switch>
-                <Route exact path="/" component={ Home } />
-                {/* <div className="container"> */}
+                <Route exact path="/dashboard" component={ Home } />
+                <Route exact path="/" component={ Register } />
                   <Route exact path="/register" component={ Register } />
-                  <Route exact path="/login" component={ Login } />
+                  {/* <Route exact path="/login" component={ Login } /> */}
                   <Route exact path="/dolist" component={Dolist} />
-            <Route exact path="/budget" component={Budget} />
+                  <Route exact path="/budget" component={Budget} />
                 {/* </div> */}
                 </Switch>
+              { window.location.pathname !=="/register" && window.location.pathname !=="/" ?  <Footer/> : null}
+
+              
             </div>
            
           </Router>

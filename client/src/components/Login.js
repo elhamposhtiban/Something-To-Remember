@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
-// import {Link} from 'react-router-dom';
+import {Modal,
+Button} from "react-bootstrap"
+
 
 class Login extends Component {
 
@@ -34,12 +36,14 @@ class Login extends Component {
     }
 
     componentDidMount() {
+
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/');
         }
     }
 
     componentWillReceiveProps(nextProps) {
+
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/')
         }
@@ -53,47 +57,56 @@ class Login extends Component {
     render() {
         const {errors} = this.state;
         return(
-        <div className="container" style={{ marginTop: '50px', width: '700px'}}>
-            <h2 style={{marginBottom: '40px'}}>Login</h2>
-            <form onSubmit={ this.handleSubmit }>
-                <div className="form-group">
-                    <input
-                    type="email"
-                    placeholder="Email"
-                    className={classnames('form-control form-control-lg', {
-                        'is-invalid': errors.email
-                    })}
-                    name="email"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.email }
-                    />
-                    {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
-                </div>
-                <div className="form-group">
-                    <input
-                    type="password"
-                    placeholder="Password"
-                    className={classnames('form-control form-control-lg', {
-                        'is-invalid': errors.password
-                    })} 
-                    name="password"
-                    onChange={ this.handleInputChange }
-                    value={ this.state.password }
-                    />
-                    {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
-                        Login User
-                    </button>
-                    {/* < Link to='/'>
-                    <button type="submit" className="btn btn-primary">
-                        Login User
-                    </button>
-                    </Link> */}
-                </div>
-            </form>
-        </div>
+
+            <Modal show={this.props.show}  >
+                <Modal.Header closeButton>
+                <Modal.Title>Log In</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <form >
+                        <div className="form-group">
+
+                            <input
+                            type="email"
+                            placeholder="Email"
+                            className={classnames('form-control form-control-lg', {
+                                'is-invalid': errors.email
+                            })}
+                            name="email"
+                            onChange={ this.handleInputChange }
+                            value={ this.state.email }
+                            />
+
+                            {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                        </div>
+
+                        <div className="form-group">
+
+                            <input
+                            type="password"
+                            placeholder="Password"
+                            className={classnames('form-control form-control-lg', {
+                                'is-invalid': errors.password
+                            })} 
+                            name="password"
+                            onChange={ this.handleInputChange }
+                            value={ this.state.password }
+                            />
+
+                            {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                        </div>
+
+                    </form>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={this.props.handleModalClose} >
+                    Close
+                </Button>
+                <Button variant="primary btn" type="submit" onClick={ this.handleSubmit }>
+                Login User
+                </Button>
+                </Modal.Footer>
+                </Modal>
         )
     }
 }
@@ -110,3 +123,11 @@ const mapStateToProps = (state) => ({
 })
 
 export  default connect(mapStateToProps, { loginUser })(Login)
+
+
+
+
+
+
+
+
