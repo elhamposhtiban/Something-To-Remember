@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {
-          faFemale,
-          faMale,
-          faLocationArrow,
-          faDollarSign,
-         } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faFemale,
+    faMale,
+    faLocationArrow,
+    faDollarSign,
+   } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -24,6 +24,25 @@ const Survey = () => {
 
       }
   );
+
+  const onchangeSurveyHandler = (e) => {
+      const {name, value} = e.target;
+      setSurveyInput({
+          ...surveyInput,
+          [name] :value
+         
+      })
+      console.log(surveyInput)
+  }
+
+  const handleDateSurvey= date => {
+    setSurveyInput({
+      ...surveyInput,
+     date : date
+    });
+    console.log(surveyInput)
+
+  };
 
 
     return( 
@@ -45,9 +64,9 @@ const Survey = () => {
 
                   <input
                     id="bride"
-                    name= "bride"
-                    // value = {}
-                    // onChange={}
+                    name= "brideName"
+                    value = {surveyInput.name}
+                    onChange={onchangeSurveyHandler}
                     type="text"
                     className="form-control form-toDoList__input"
                     placeholder="Bride Name"
@@ -67,9 +86,9 @@ const Survey = () => {
 
                   <input
                     id="groom"
-                    name= "groom"
-                    // value = {}
-                    // onChange={}
+                    name= "groomName"
+                    value = {surveyInput.name}
+                    onChange={onchangeSurveyHandler}
                     type="text"
                     className="form-control form-toDoList__input"
                     placeholder="Groom Name"
@@ -90,8 +109,8 @@ const Survey = () => {
                   <input
                     id="location"
                     name= "location"
-                    // value = {}
-                    // onChange={}
+                    value = {surveyInput.name}
+                    onChange={onchangeSurveyHandler}
                     type="text"
                     className="form-control form-toDoList__input"
                     placeholder="Groom Name"
@@ -103,8 +122,8 @@ const Survey = () => {
                 <div className="form-toDoList__group input-group">
 
                   <DatePicker
-                    // selected={doListInput.date}
-                    // onChange={date => handleDateChange(date)}
+                    selected={surveyInput.date}
+                    onChange={date => handleDateSurvey(date)}
                     showTimeSelect
                     timeFormat="HH:mm"
                     timeIntervals={15}
@@ -131,8 +150,8 @@ const Survey = () => {
                     type="number"
                     placeholder="Total Budget"
                     className="form__input"
-                    // value = {expensesInput.name}
-                    // onChange = {event =>  (event)}
+                    value = {surveyInput.name}
+                    onChange={onchangeSurveyHandler}
                     required/>
                     <label htmlFor="amount" className="form__label">Total Budget</label>
                 
