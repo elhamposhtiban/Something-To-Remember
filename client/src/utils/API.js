@@ -58,6 +58,36 @@ export default {
     saveExpenses: (expensesData) => {
         console.log('data in api.js', expensesData)
         return axios.post("/api/expenses", expensesData);
-  }
+  },
+
+
+  ///////////////////////////////////// WEDDING PROFILE ///////////////////////////////////
+      // Gets the todolist 
+      getAllWedding: () => {
+        return axios.get("/api/wedding" );
+    },
+
+    // Gets the toWedding with the given id
+    getWedding: (id) => {
+        return axios.get("/api/wedding/" + id);
+    },
+
+    // Deletes the toWedding with the given id
+    deleteWedding: (id) => {
+        console.log("this is the id you clicking", id)
+        return axios.delete("/api/wedding/" + id);
+    },
+    
+    // update a toWedding to the database
+    UpdateWedding: (id, data) =>{
+        console.log("hi i can read update api from client side", id, data)
+        return axios.put("/api/wedding/" + id, data);
+    },
+
+      // Saves a toWedding to the database
+    saveWedding: (weddingData) => {
+        console.log('data in api.js', weddingData)
+        return axios.post("/api/wedding", weddingData);
+  },
 
  }

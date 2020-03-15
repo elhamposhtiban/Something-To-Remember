@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import DatePicker from "react-datepicker";
-import API from "../utils/API";
+import API from "../../utils/API";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -54,7 +54,7 @@ const Survey = () => {
   // Loads all weddingProfile  and sets them to DolistloadDolist
   const loadWeddingProfile = async () => {
     try {
-      const response = await API.getAllDolist();
+      const response = await API.getAllWedding();
       setWeddingProfile(response.data);
       console.log('wedding profile', response.data)
     } catch (error) {
@@ -70,7 +70,7 @@ const Survey = () => {
     event.preventDefault();
     if (surveyInput.brideName && surveyInput.groomName) {
       try {
-        await API.saveDolist({
+        await API.saveWedding({
           ...surveyInput,
         });
         setWeddingProfile({
@@ -209,9 +209,9 @@ const Survey = () => {
 
                 <button 
                 //   disabled={!(doListInput.title && doListInput.description)}
-                //   onClick= {}
+                   onClick= {handleSubmitProfile}
                   className="btn btn btn--pink-toDoList">
-                    CREATE
+                    done!
                 </button>
             
           </form>
