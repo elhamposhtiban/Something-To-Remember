@@ -5,9 +5,7 @@ const apiRoutes = require("./api");
 
  router.use("/api", apiRoutes);
  router.use("/user", user)
-// router.get("/",function(req,res){
-//   res.send("i am working and i can link frontend to backend")
-// })
+
 
 
 router.use(function(req, res) {
