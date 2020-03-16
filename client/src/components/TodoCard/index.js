@@ -138,11 +138,6 @@ const ToDolistCard = (
 
         </div>
 
-    {/* <button type="button" className="btn btn--toDoList-icon"
-        data-unique-id={editInput._id}
-        onClick={() => {API.UpdateDolist(editInput._id, editInput)}}> 
-        <FontAwesomeIcon icon={faEdit} /> 
-    </button>  */}
 
     <button type="button" className="btn btn--toDoList-icon "
     data-unique-id={editInput._id}

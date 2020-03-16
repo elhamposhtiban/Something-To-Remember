@@ -4,10 +4,9 @@ const db = require("../models");
 module.exports = {
 
   findAll: function(req, res) {
-    console.log("hi i am for expanses find all")
+    console.log("///wedding find All/////")
     db.Wedding
       .find()
-      .populate("user")
       .then(dbModel => {
 
         console.log('dbmodel', dbModel)
@@ -19,19 +18,15 @@ module.exports = {
   findById: function(req, res) {
     db.Wedding
       .findById(req.params.id)
-      .populate("user")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
   create: function(req, res) {
-    console.log("wedding req.body :",req.body)
+    console.log("*******wedding req.body is*********  :",req.body)
+
     db.Wedding
       .create(req.body)
-      .then(function(dbNote) {
-
-        return db.Wedding.findOneAndUpdate({ _id: req.params.id }, { user: dbuser._id }, { new: true });
-      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -39,19 +34,21 @@ module.exports = {
   update: function(req, res) {
     db.Wedding
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .populate("user")
+      .populate("User")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   remove: function(req, res) {
 
     console.log("hi delete for Wedding part")
 
     db.Wedding
       .findById({ _id: req.params.id })
-      .populate("user")
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 };
+
+

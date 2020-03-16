@@ -34,7 +34,7 @@ export default {
   ///////////////////////// EXPENSES & BUDGET ////////////////////////
 
       // Gets the todolist 
-      getAllExpenses: () => {
+    getAllExpenses: () => {
         return axios.get("/api/expenses" );
     },
 
@@ -63,7 +63,7 @@ export default {
 
   ///////////////////////////////////// WEDDING PROFILE ///////////////////////////////////
       // Gets the todolist 
-      getAllWedding: () => {
+    getAllWedding: () => {
         return axios.get("/api/wedding" );
     },
 
