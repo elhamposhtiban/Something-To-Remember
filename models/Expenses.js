@@ -29,7 +29,7 @@ const ExpansesSchema = new Schema ({
     },
     
     currency: {
-      type: Number,
+      type:Number,
       default:"inactive"
   },
 

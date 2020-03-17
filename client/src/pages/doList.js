@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
-import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 
 
