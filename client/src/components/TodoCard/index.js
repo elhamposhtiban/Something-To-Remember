@@ -1,22 +1,18 @@
 
 import React, {useState} from "react";
 import DatePicker from "react-datepicker";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from "../../utils/API";
+import { faTrash, 
+         faCheck 
+        } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 
 const ToDolistCard = (
     {
-        handleInputChange ,
-        doListInput ,
-        doList,
-        handleDateChange ,
         deleteHandler ,
-        
         item
     }
 ) => {
@@ -33,9 +29,6 @@ const ToDolistCard = (
         description: item.description
     }
 
-
-
-    // const [editList, setEditList] = useState([]);
 
 
     // here am making one state to use in handle change for edit part

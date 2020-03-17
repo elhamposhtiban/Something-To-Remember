@@ -1,6 +1,5 @@
 import React  from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
@@ -13,8 +12,7 @@ import Survey from "./components/Survey/index"
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 import Header from "./components/Header/index";
-import Footer from "./components/Footer/index";
-import Navbar from "./components/Navbar/index";
+import { LayoutOne, LayoutTwo } from "./components/Layout"
 
 
 
@@ -38,24 +36,33 @@ const App = () => {
 
         <Router>
 
-              {window.location.pathname !=="/register"  &&  window.location.pathname !=="/" 
-               ?  <Navbar />: null}
-
                 <Switch>
-                  <Route exact path="/dashboard" component={ Home } />
-                  <Route exact path="/" component={ Header } />
-                  <Route exact path="/register" component={ Register } />
-                  <Route exact path="/survey" component={ Survey } />
-                  <Route exact path="/dolist" component={Dolist} />
-                  <Route exact path="/budget" component={Budget} />
+                  <RouteWrapper exact path="/dashboard" component={ Home } layout={LayoutTwo}/>
+                  <RouteWrapper exact path="/" component={ Header } layout={LayoutOne} />
+                  <RouteWrapper exact path="/register" component={ Register } layout={LayoutOne} />
+                  <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne} />
+                  <RouteWrapper exact path="/dolist" component={Dolist} layout={LayoutTwo} />
+                  <RouteWrapper exact path="/budget" component={Budget} layout={LayoutTwo} />
                 </Switch>
-
-              { window.location.pathname !=="/register" && window.location.pathname !=="/"
-              ?  <Footer/> : null}
            
-          </Router>
-        </Provider>
+        </Router>
+
+      </Provider>
     );
+
+    function RouteWrapper({
+      component: Component, 
+      layout: Layout, 
+      ...rest
+    }) {
+      return (
+        <Route {...rest} render={(props) =>
+          <Layout {...props}>
+            <Component {...props} />
+          </Layout>
+        } />
+      );
+    }
   
 }
 

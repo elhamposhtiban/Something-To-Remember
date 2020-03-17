@@ -42,5 +42,5 @@ export const logoutUser = (history) => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
     dispatch(setCurrentUser({}));
-    history.push('/register');
+    history.push('/');
 }

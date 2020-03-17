@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { faStickyNote,
           faTasks,
-        faClock } from "@fortawesome/free-solid-svg-icons";
+        } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -15,7 +15,7 @@ const FormDolist = (
     handleDateChange}
 ) => {
 
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
     return( 
       
 

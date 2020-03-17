@@ -51,7 +51,7 @@ const Survey = () => {
     loadWeddingProfile();
   }, []);
 
-  // Loads all weddingProfile  and sets them to DolistloadDolist
+  // Loads all weddingProfile  and sets them to DoListLoad
   const loadWeddingProfile = async () => {
     try {
       const response = await API.getAllWedding();
@@ -66,7 +66,7 @@ const Survey = () => {
 
 
   const handleSubmitProfile = async event => {
-    console.log("hi i am actually grabing the data for wedding profile")
+    console.log("hi i am actually getting the data for wedding profile")
     event.preventDefault();
     if (surveyInput.brideName && surveyInput.groomName) {
       try {
