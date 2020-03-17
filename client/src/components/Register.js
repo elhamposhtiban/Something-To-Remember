@@ -231,9 +231,6 @@ export default connect(mapStateToProps,{ registerUser })(withRouter(Register))
 
 
 
-
-
-
 {/* <div className="container" style={{ marginTop: '50px', width: '700px'}}>
             <h2 style={{marginBottom: '40px'}}>Registration</h2>
             <form onSubmit={ this.handleSubmit }>

@@ -10,14 +10,14 @@ const ExpansesSchema = new Schema ({
     },
     
     actualAmount: {
-        type: Float32Array,
+        type: Number,
         required: false,
         default:null,
         min: [1, 'put any number you want'],
     },
 
     estimateAmount: {
-      type: Float32Array,
+      type: Number,
       required: false,
       default:null,
       min: [1, 'put any number you want'],
@@ -29,7 +29,7 @@ const ExpansesSchema = new Schema ({
     },
     
     currency: {
-      type:Float32Array,
+      type:Number,
       default:"inactive"
   },
 

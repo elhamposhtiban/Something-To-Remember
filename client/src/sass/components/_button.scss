@@ -62,6 +62,7 @@
         }
 
         }
+        
 
         &--toDoList-icon {
 
@@ -73,6 +74,18 @@
             background-color: $color-white;
         }
         
+        }
+
+        &--header {
+            background-color: transparent;
+         
+            color: $color-white;
+    
+        &::after {
+            background-color: transparent;
+      
+        }
+
         }
 
         &::after {

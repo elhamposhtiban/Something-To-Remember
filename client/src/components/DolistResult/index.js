@@ -1,13 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import Proptype from "prop-types";
 import ToDolistCard from "../TodoCard"
 import API from "../../utils/API";
-import DatePicker from "react-datepicker";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-    faTrash,
-    faCheck
-} from "@fortawesome/free-solid-svg-icons";
+
 
 
 
@@ -28,13 +23,6 @@ const DolistResult = ({
     setDolistInput,
     handleDateChange }) => {
 
-
-// // here i am using separate state in order to edit each input
-//     const [editTitle, setEditTitle] = useState(false);
-//     const [editNote, setEditNote] = useState(false);
-//     const [editDate, setEditDate] = useState(false);
-
-    
 
     //function for handling delete 
     const deleteHandler = event => {
@@ -63,26 +51,26 @@ const DolistResult = ({
         //function for handling update
 
         
-        const updateDolist = async (updateId, updateToDo) => {
-            try {
-              await API.UpdateDolist(updateId,updateToDo );
+        // const updateDolist = async (updateId, updateToDo) => {
+        //     try {
+        //       await API.UpdateDolist(updateId,updateToDo );
 
-              console.log(updateId)
+        //       console.log(updateId)
 
-              setDolistInput({
-                title: "",
-                date: new Date(),
-                description: "",
-              });
+        //       setDolistInput({
+        //         title: "",
+        //         date: new Date(),
+        //         description: "",
+        //       });
 
-               loadDolist();
+        //        loadDolist();
 
-            } catch(error) {
-              console.group("hey i can not update to do list for you");
-              console.log(error);
-              console.groupEnd();
-            }
-          };
+        //     } catch(error) {
+        //       console.group("hey i can not update to do list for you");
+        //       console.log(error);
+        //       console.groupEnd();
+        //     }
+        //   };
     
     return (
 

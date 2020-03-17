@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
-import Survey from "./components/Survey/index"
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
-// import Navbar from './components/Navbar';
 import Register from './components/Register';
-// import Login from './components/Login';
 import Home from './components/Home/Home';
-
+import Survey from "./components/Survey/index"
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
-import Footer from "./components/Footer/index"
-import Navbar from "./components/Navbar/index"
+import Header from "./components/Header/index";
+import { LayoutOne, LayoutTwo } from "./components/Layout"
 
 
 
@@ -31,34 +28,42 @@ if(localStorage.jwtToken) {
   }
 }
 
-class App extends Component {
-  render() {
+
+const App = () => {
+
     return (
       <Provider store = { store }>
-        <Router>
-            <div>
-              
-              { window.location.pathname !=="/register"  && window.location.pathname !=="/" &&
-              window.location.pathname !=="/survey" ?  <Navbar />: null}
-              <Switch>
-                <Route exact path="/dashboard" component={ Home } />
-                <Route exact path="/" component={ Register } />
-                  <Route exact path="/register" component={ Register } />
-                  <Route exact path="/survey" component={ Survey } />
-                  <Route exact path="/dolist" component={Dolist} />
-                  <Route exact path="/budget" component={Budget} />
-                {/* <Route exact path="/login" component={ Login } /> */}
-                </Switch>
-              { window.location.pathname !=="/register" && window.location.pathname !=="/" &&
-              window.location.pathname !=="/survey" ?  <Footer/> : null}
 
-              
-            </div>
+        <Router>
+
+                <Switch>
+                  <RouteWrapper exact path="/dashboard" component={ Home } layout={LayoutTwo}/>
+                  <RouteWrapper exact path="/" component={ Header } layout={LayoutOne} />
+                  <RouteWrapper exact path="/register" component={ Register } layout={LayoutOne} />
+                  <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne} />
+                  <RouteWrapper exact path="/dolist" component={Dolist} layout={LayoutTwo} />
+                  <RouteWrapper exact path="/budget" component={Budget} layout={LayoutTwo} />
+                </Switch>
            
-          </Router>
-        </Provider>
+        </Router>
+
+      </Provider>
     );
-  }
+
+    function RouteWrapper({
+      component: Component, 
+      layout: Layout, 
+      ...rest
+    }) {
+      return (
+        <Route {...rest} render={(props) =>
+          <Layout {...props}>
+            <Component {...props} />
+          </Layout>
+        } />
+      );
+    }
+  
 }
 
 export default App;
