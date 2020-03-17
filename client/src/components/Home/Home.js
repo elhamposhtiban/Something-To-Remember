@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const Home = () => {
     return (
-      
+      <section className="section-home">
         <Carousel>
             
         <Carousel.Item>
@@ -59,6 +59,7 @@ const Home = () => {
 
         
       </Carousel>
+      </section>
     )
 }
 
