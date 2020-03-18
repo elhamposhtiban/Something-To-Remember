@@ -11,7 +11,7 @@ const [budgetInput, setBudgetInput] = useState("");
 const [expensesInput, setExpensesInput] = useState({
 
     itemName: "",
-    amount: "",
+    amount: Number,
     category: "",
     note: ""
 
@@ -35,7 +35,7 @@ const loadBudget = async () => {
     try {
       const response = await API.getAllExpenses();
       setExpenses(response.data);
-      console.log('todos', response.data)
+      console.log('expenses is hereee', response.data)
     } catch (error) {
       console.group("it can not load todo list");
       console.log(error);
@@ -48,7 +48,7 @@ const loadBudget = async () => {
     try {
       const response = await API.getAllExpenses();
       setExpenses(response.data);
-      console.log('todos', response.data)
+      console.log('expenses is hereee', response.data)
     } catch (error) {
       console.group("it can not load todo list");
       console.log(error);
@@ -75,7 +75,7 @@ const loadBudget = async () => {
   };
 
   const handleExpensesSubmit = async event => {
-    console.log("hi i am actually grabing the data")
+    console.log("hi i am actually getting the data")
     event.preventDefault();
      {
       try {
@@ -84,7 +84,7 @@ const loadBudget = async () => {
         });
         setExpensesInput({
           itemName: "",
-          amount: "",
+          amount: Number,
           category: "",
           note: ""
       
@@ -112,7 +112,11 @@ const loadBudget = async () => {
         expenses = {expenses}
         />
 
-        <ExpensesResult/>
+{expenses.length ?
+        <ExpensesResult
+         expenses = {expenses}
+        />
+        :null}
         </section>
         </React.Fragment>
     )

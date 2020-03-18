@@ -95,7 +95,7 @@ const Expensesform = ({
                     type="text"
                     id="item"
                     className="form__input"
-                    name= "item"
+                    name= "itemName"
                     placeholder="Item Name"
                     value = {expensesInput.name}
                     onChange = {event => handleInputChange (event)}
