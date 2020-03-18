@@ -33,28 +33,28 @@ export default {
 
   ///////////////////////// EXPENSES & BUDGET ////////////////////////
 
-      // Gets the todolist 
+      // Gets the expenses 
     getAllExpenses: () => {
         return axios.get("/api/expenses" );
     },
 
-    // Gets the toexpenses with the given id
+    // Gets the expenses with the given id
     getExpenses: (id) => {
         return axios.get("/api/expenses/" + id);
     },
 
-    // Deletes the toexpenses with the given id
+    // Deletes the expenses with the given id
     deleteExpenses: (id) => {
         console.log("this is the id you clicking", id)
         return axios.delete("/api/expenses/" + id);
     },
     
-    // update a toexpenses to the database
+    // update a expenses to the database
     UpdateExpenses: (id) =>{
         return axios.put("/api/expenses/" + id);
     },
 
-      // Saves a toexpenses to the database
+      // Saves a expenses to the database
     saveExpenses: (expensesData) => {
         console.log('data in api.js', expensesData)
         return axios.post("/api/expenses", expensesData);
