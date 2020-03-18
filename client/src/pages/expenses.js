@@ -74,6 +74,30 @@ const loadBudget = async () => {
 
   };
 
+  const handleExpensesSubmit = async event => {
+    console.log("hi i am actually grabing the data")
+    event.preventDefault();
+     {
+      try {
+        await API.saveExpenses({
+          ...expensesInput,
+        });
+        setExpensesInput({
+          itemName: "",
+          amount: "",
+          category: "",
+          note: ""
+      
+        });
+        loadExpenses();
+        console.log("hi i am success!!")
+      } catch (error) {
+        console.group("SUBMIT FORM");
+        console.log(error);
+        console.groupEnd();
+      }
+    }
+  };
 
 
     return (
@@ -82,6 +106,7 @@ const loadBudget = async () => {
         <Expensesform
         handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
+        handleExpensesSubmit = {handleExpensesSubmit}
         expensesInput = {expensesInput}
         budgetInput = {budgetInput}
         expenses = {expenses}

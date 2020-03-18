@@ -10,7 +10,7 @@ const validateLoginInput = require('../validation/login');
 const User = require('../models/User');
 
 router.post('/register', function(req, res) {
-console.log(req.body)
+// console.log(req.body)
     const { errors, isValid } = validateRegisterInput(req.body);
 
     if(!isValid) {
@@ -57,7 +57,8 @@ console.log(req.body)
     });
 });
 
-router.post('/login', (req, res) => {
+
+router.post('/login',  (req, res) => {
 
     const { errors, isValid } = validateLoginInput(req.body);
 
@@ -70,6 +71,7 @@ router.post('/login', (req, res) => {
 
     User.findOne({email})
         .then(user => {
+            console.log(`this is the user `, user)
             if(!user) {
                 errors.email = 'User not found'
                 return res.status(404).json(errors);
@@ -87,6 +89,10 @@ router.post('/login', (req, res) => {
                             }, (err, token) => {
                                 if(err) console.error('There is some error in token', err);
                                 else {
+
+                                    req.user = user
+                                    
+                                    console.log(`this is second user console.log`, user)
                                     res.json({
                                         success: true,
                                         token: `Bearer ${token}`
