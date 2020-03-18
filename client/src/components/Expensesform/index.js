@@ -11,6 +11,7 @@ import {
 const propType = {
 
     handleInputChangeBudget : PropType.func.isRequired,
+    handleExpensesSubmit : PropType.func.isRequired,
     handleInputChange : PropType.func.isRequired,
     expensesInput : PropType.object.isRequired,
     budgetInput : PropType.string.isRequired
@@ -20,7 +21,8 @@ const Expensesform = ({
     handleInputChangeBudget,
     handleInputChange,
     expensesInput,
-    budgetInput
+    budgetInput,
+    handleExpensesSubmit
 })  => {
 
    const [showExpenses, setShowExpenses] = useState(false)
@@ -93,7 +95,7 @@ const Expensesform = ({
                     type="text"
                     id="item"
                     className="form__input"
-                    name= "item"
+                    name= "itemName"
                     placeholder="Item Name"
                     value = {expensesInput.name}
                     onChange = {event => handleInputChange (event)}
@@ -183,6 +185,7 @@ const Expensesform = ({
                     <button 
                     className="btn btn--pink"
                      type="submit"
+                     onClick = {handleExpensesSubmit}
                      >save</button>
                 </div>
 

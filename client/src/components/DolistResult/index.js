@@ -20,7 +20,6 @@ const DolistResult = ({
     loadDolist,
     handleInputChange,
     doListInput,
-    setDolistInput,
     handleDateChange }) => {
 
 

@@ -25,6 +25,7 @@ module.exports = {
 
   create: function(req, res) {
     console.log("hey this is your req.body",req.body)
+    console.log(req.user)
     db.Dolist
       .create(req.body)
       .then(dbModel => res.json(dbModel))

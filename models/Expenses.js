@@ -9,34 +9,34 @@ const ExpansesSchema = new Schema ({
     required: true
     },
     
-    actualAmount: {
+    amount: {
         type: Number,
         required: false,
         default:null,
         min: [1, 'put any number you want'],
     },
 
-    estimateAmount: {
-      type: Number,
-      required: false,
-      default:null,
-      min: [1, 'put any number you want'],
-  },
+  //   estimateAmount: {
+  //     type: Number,
+  //     required: false,
+  //     default:null,
+  //     min: [1, 'put any number you want'],
+  // },
 
     note: {
         type: String,
         required: true
     },
     
-    currency: {
-      type:Number,
-      default:"inactive"
-  },
+  //   currency: {
+  //     type:Number,
+  //     default:"inactive"
+  // },
 
-    status: {
-        type:Boolean,
-        default:"inactive"
-    },
+    // status: {
+    //     type:Boolean,
+    //     default:"inactive"
+    // },
 
     user: [
       {

@@ -15,7 +15,6 @@ const FormDolist = (
     handleDateChange}
 ) => {
 
-  // const [startDate, setStartDate] = useState(new Date());
     return( 
       
 
