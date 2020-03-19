@@ -5,7 +5,11 @@ import jwt_decode from 'jwt-decode';
 
 export const registerUser = (user, history) => dispatch => {
     axios.post('/api/users/register', user)
-            .then(res => history.push('/dashboard'))
+            .then(res => {
+                history.push('/dashboard');
+                console.log('i can read this part', res);
+                dispatch(setCurrentUser({id: res.data._id}));
+            })
             .catch(err => {
                 dispatch({
                     type: GET_ERRORS,
