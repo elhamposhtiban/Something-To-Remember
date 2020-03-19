@@ -8,6 +8,7 @@ Button} from "react-bootstrap"
 
 
 class Login extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -18,11 +19,13 @@ class Login extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleInputChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -31,12 +34,16 @@ class Login extends Component {
         }
         this.props.loginUser(user);
     }
+
     componentDidMount() {
+
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/');
         }
     }
+
     componentWillReceiveProps(nextProps) {
+
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/')
         }
@@ -46,9 +53,11 @@ class Login extends Component {
             });
         }
     }
+
     render() {
         const {errors} = this.state;
         return(
+
             <Modal show={this.props.show}  >
                 <Modal.Header closeButton>
                 <Modal.Title>Log In</Modal.Title>
@@ -56,6 +65,7 @@ class Login extends Component {
                 <Modal.Body>
                     <form >
                         <div className="form-group">
+
                             <input
                             type="email"
                             placeholder="Email"
@@ -68,6 +78,7 @@ class Login extends Component {
                             />
                             {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                         </div>
+
                         <div className="form-group">
                             
                             <input
@@ -82,6 +93,7 @@ class Login extends Component {
                             />
                             {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                         </div>
+
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -96,14 +108,20 @@ class Login extends Component {
         )
     }
 }
+
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
+
 const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors
 })
+
 export  default connect(mapStateToProps, { loginUser })(Login)
+
+
+
 
