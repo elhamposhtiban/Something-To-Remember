@@ -88,7 +88,7 @@ class Register extends Component {
 
         return(
             <React.Fragment>
-
+    <section className="section-signup">
             <div className="card register__form-card">
                 <div className="card-header">
                     <h3>Sign up</h3>
@@ -189,7 +189,7 @@ class Register extends Component {
 
                         <div className="form-group input-group">
   
-                            <button  type="submit" className="btn btn-primary">
+                            <button  type="submit" className="btn btn--pink-toDoList">
                                 SIgn Up
                             </button> 
                        
@@ -210,6 +210,7 @@ class Register extends Component {
                 handleModalClose = {this.handleModalClose}
                 />
             </div>
+    </section>
 
 </React.Fragment>
         )

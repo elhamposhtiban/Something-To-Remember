@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ToDolistCard = (
     {
+      handleDateChange,
         deleteHandler ,
         item
     }
@@ -21,10 +22,12 @@ const ToDolistCard = (
     const [editTitle, setEditTitle] = useState(false);
     const [editNote, setEditNote] = useState(false);
     const [editDate, setEditDate] = useState(false);
-    const time = new Date()
+
+    // const time = new Date()
+    // console.log(time)
     const todo = {
         title: item.title,
-        date: time.toDateString(),
+        dueDate: item.dueDate,
         _id: item._id,
         description: item.description
     }
@@ -45,10 +48,10 @@ const ToDolistCard = (
 
   };
 
-  const handleEditDateChange= date => {
+  const handleEditDateChange = date => {
     setEditInput({
         ...editInput,
-     date : date
+        dueDate : date
     });
     console.log(editInput)
 
@@ -56,7 +59,12 @@ const ToDolistCard = (
 
   const Update = (e) => {
     if(e.keyCode === 13) setEditTitle(false)
+    if(e.keyCode === 13) setEditNote(false)
+    if(e.keyCode === 13) setEditDate(false)
     API.UpdateDolist(editInput._id, editInput)
+
+    console.log("right now you are inside of update part")
+
   }
 
     return (
@@ -110,7 +118,7 @@ const ToDolistCard = (
             <div className=" ToDoList__input-edit">
 
             <DatePicker
-            selected={editInput.date}
+            selected={editInput.dueDate}
             id={editInput._id}
             onKeyUp={Update}
             onChange={date => handleEditDateChange(date)}
@@ -124,7 +132,7 @@ const ToDolistCard = (
             </div>:
 
             <h4 onClick={() => setEditDate(true)}
-            >  {editInput.date}
+            >  {editInput.dueDate}
             </h4>
             
             }

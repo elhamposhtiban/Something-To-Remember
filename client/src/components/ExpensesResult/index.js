@@ -16,12 +16,11 @@ const displayExpenses = ({
         <li className=" ToDoList__item" key={item._id} >
 
         <div className=" ToDoList__data">
-
+ 
 
                 <h2>
                     {item.itemName}
                 </h2>
-
                 <h2> 
                     {item.amount}
                 </h2>
