@@ -1,9 +1,11 @@
 .register__form-card {
-    height: 500px;
+    height: 470px;
     width: 350px;
     position: absolute;
-    top:51%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    // margin: 20px 81px 25px 402px;
+    top: 10%;
+    left: 12%;
+    // transform: translate(-50%,-50%);
+    animation: moveInRight 1.5s ease-out;
     background-color: transparent;
  }

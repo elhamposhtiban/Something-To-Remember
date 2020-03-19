@@ -59,3 +59,12 @@
     background-color: $color-grey-light-1;
     min-height: 100vh;
 }
+
+.section-signup {
+
+    background-image: url(../../assets/signup.jpg);
+    // background-repeat: no-repeat;
+    background-size: cover;
+    // background-attachment: fixed;
+    min-height: 100vh;
+}
