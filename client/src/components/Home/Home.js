@@ -1,12 +1,11 @@
 import React from "react";
-
 import Carousel from 'react-bootstrap/Carousel'
-import Figure from 'react-bootstrap/Figure'
+
+
 const Home = () => {
     return (
 
         <section className="section-home">
-        
       
         <Carousel className="carousel" >
             
@@ -17,8 +16,8 @@ const Home = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3></h3>
-          
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item >
 
@@ -30,8 +29,8 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-           
-           
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -43,8 +42,8 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-         
-          
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
           </Carousel.Caption>
         </Carousel.Item> 
 
@@ -56,53 +55,16 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-           
-         
+            <h3>4th slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
 
         
       </Carousel>
-      <br>
-      </br>
-      <h1> WELL…HELLO THERE! </h1>
-      <p> As an elite full-service event planning company, the mission is to take the stress out of the wedding day by using skilled training and vast experience to arrange and oversee every detail and bring the client’s vision to reality. We're thrilled you are visting, and hope this is the first step of your wonderful wedding planning journey with us!  Here's a bit about us ...
-       </p>
-       <div> 
-         <br>
-         </br>
-         <Figure>
-         <Figure.Image
-    width={171}
-    height={180}
-    alt="171x180"
-    src="https://avatars0.githubusercontent.com/u/55073793?s=460&u=d0b50bac586a6ec3294fcf8b97a2b4171e1627ce&v=4" 
-  />
-  <Figure.Image
-    width={171}
-    height={180}
-    alt="171x180"
-    src="https://avatars1.githubusercontent.com/u/55120923?s=400&u=56607acaf29e696bf905fa6146784f2dd58c1dc0&v=4"
-  />
-
-</Figure>
-         <h1>
-            Makah Abutahoun&Elham Poshtiban. </h1>
-         
-           
-         
-       </div>
-    
-     
-      
-       </section>
-       
-      
+        </section>
     )
 }
 
 export default Home;
-
-
-
 
