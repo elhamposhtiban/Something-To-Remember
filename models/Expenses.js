@@ -16,6 +16,13 @@ const ExpansesSchema = new Schema ({
         min: [1, 'put any number you want'],
     },
 
+    budget: {
+      type: Number,
+      required: false,
+      default:null,
+      min: [1, 'put any number you want'],
+    },
+
   //   estimateAmount: {
   //     type: Number,
   //     required: false,
