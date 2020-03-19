@@ -67,6 +67,7 @@ class Register extends Component {
         const { errors } = this.state;
         return(
             <React.Fragment>
+    <section className="section-signup">
             <div className="card register__form-card">
                 <div className="card-header">
                     <h3>Sign up</h3>
@@ -148,7 +149,8 @@ class Register extends Component {
                         <p id="terms">By signing up, you agree to out <span id="boldFont">Terms, Data Policy, and Cookies Policy </span>.
                         </p>
                         <div className="form-group input-group">
-                            <button  type="submit" className="btn btn-primary">
+  
+                            <button  type="submit" className="btn btn--pink-toDoList">
                                 SIgn Up
                             </button> 
                         </div>
@@ -166,6 +168,8 @@ class Register extends Component {
                 handleModalClose = {this.handleModalClose}
                 />
             </div>
+    </section>
+
 </React.Fragment>
         )
     }

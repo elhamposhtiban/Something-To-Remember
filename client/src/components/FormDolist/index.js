@@ -32,23 +32,23 @@ const FormDolist = (
                       </span>
                     </div>
 
-                  <input
-                    id="dolist"
-                    name= "title"
-                    value = {doListInput.name}
-                    onChange={handleInputChange}
-                    type="text"
-                    className="form-control form-toDoList__input"
-                    placeholder="title"
-                  />
-                  {/* <label className ="Dolist-label" htmlFor="dolist">title</label> */}
+                    <input
+                      id="dolist"
+                      name= "title"
+                      value = {doListInput.name}
+                      onChange={handleInputChange}
+                      type="text"
+                      className="form-control form-toDoList__input"
+                      placeholder="title"
+                    />
+                    {/* <label className ="Dolist-label" htmlFor="dolist">title</label> */}
 
                 </div>
 
                 <div className="form-toDoList__group input-group">
 
                   <DatePicker
-                    selected={doListInput.date}
+                    selected={doListInput.dueDate}
                     onChange={date => handleDateChange(date)}
                     showTimeSelect
                     timeFormat="HH:mm"

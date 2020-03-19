@@ -5,7 +5,8 @@ import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
 import {Modal,
 Button} from "react-bootstrap"
-// import {Link} from 'react-router-dom';
+
+
 class Login extends Component {
     constructor() {
         super();
@@ -87,7 +88,7 @@ class Login extends Component {
                 <Button variant="secondary" onClick={this.props.handleModalClose} >
                     Close
                 </Button>
-                <Button variant="primary btn" type="submit" onClick={ this.handleSubmit }>
+                <Button variant="btn" className="btn btn--pink" type="submit" onClick={ this.handleSubmit }>
                 Login User
                 </Button>
                 </Modal.Footer>

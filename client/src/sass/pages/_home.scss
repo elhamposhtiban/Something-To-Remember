@@ -5,8 +5,8 @@
 }
 .ToDoList {
     background-image:linear-gradient(105deg, rgba($color-white, .7) 0%,
-    rgba($color-white, .7) 44%,
-     transparent 44%) ,
+    rgba($color-white, .7) 48%,
+     transparent 48%) ,
       url(../../assets/checklist-4.jpg);
     background-size: cover;
     border-radius: 3px;
@@ -16,7 +16,8 @@
     margin-top: 2rem;
     animation: moveInRight 1s ease-out;
     &__form {
-        width: 44%;
+
+        width: 48%;
         height: 40%;
         padding: 3rem;
         margin-top: 3rem;
@@ -48,5 +49,14 @@
 .section-home {
     padding: 10rem;
     background-color: $color-grey-light-1;
+    min-height: 100vh;
+}
+
+.section-signup {
+
+    background-image: url(../../assets/signup.jpg);
+    // background-repeat: no-repeat;
+    background-size: cover;
+    // background-attachment: fixed;
     min-height: 100vh;
 }

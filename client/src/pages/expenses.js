@@ -69,9 +69,33 @@ const loadBudget = async () => {
     setExpensesInput({
       ...expensesInput,
       [name]: value
+      
     });
     console.log(expensesInput)
+  };
 
+  const handleBudgetSubmit = async event => {
+    console.log("hi i am actually getting the data")
+    event.preventDefault();
+     {
+      try {
+        await API.saveExpenses({
+          ...budgetInput,
+        });
+        setBudgetInput("")
+    
+        let budget = budgetInput.reduce((total, value) => {
+          return total.amount - value.amount;
+        });
+        console.log(budget)
+        setBudgetInput(budget);
+        console.log("i am budget")
+      } catch (error) {
+        console.group("i am not working BUDGET");
+        console.log(error);
+        console.groupEnd();
+      }
+    }
   };
 
   const handleExpensesSubmit = async event => {
@@ -89,6 +113,7 @@ const loadBudget = async () => {
           note: ""
       
         });
+
         loadExpenses();
         console.log("hi i am success!!")
       } catch (error) {
@@ -106,6 +131,7 @@ const loadBudget = async () => {
         <Expensesform
         handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
+        handleBudgetSubmit = {handleBudgetSubmit}
         handleExpensesSubmit = {handleExpensesSubmit}
         expensesInput = {expensesInput}
         budgetInput = {budgetInput}

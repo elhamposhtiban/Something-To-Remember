@@ -11,7 +11,7 @@ const Dolist = () => {
 
   const [doListInput, setDolistInput] = useState({
       title: "",
-      date: new Date(),
+      dueDate: new Date(),
       description: ""
   });
 
@@ -56,7 +56,7 @@ const Dolist = () => {
     const handleDateChange= date => {
       setDolistInput({
         ...doListInput,
-       date : date
+        dueDate : date
       });
       console.log(doListInput)
 
@@ -73,7 +73,7 @@ const Dolist = () => {
           });
           setDolistInput({
             title: "",
-            date: new Date(),
+            dueDate: new Date(),
             description: "",
           });
           loadDolist();
@@ -95,14 +95,14 @@ const Dolist = () => {
     <div className = "section-toDoList">
             <div className="row">
 
-            <div className="col-2-of-2">
-                <button 
-                    type="button"
-                    className="btn btn--pink "
-                    onClick= {showHandler}>
-                        add your checklist
-                </button>
-            </div>
+              <div className="col-2-of-2">
+                  <button 
+                      type="button"
+                      className="btn btn--pink "
+                      onClick= {showHandler}>
+                          add your checklist
+                  </button>
+              </div>
 
             </div>
 
