@@ -1,12 +1,27 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
+// import { LanguageProvider } from '../../containers/Languages';
+// import LanguageSelector from '../lang/LanguageSelector';
+// import Explore from '../lang/Explore';
+
 
 
 const Home = () => {
-    return (
 
-        <section className="section-home">
-      
+
+    return ( 
+
+      <section className="section-home">
+    {/* // <LanguageProvider> */}
+    //   <div className="App">
+    //     <header className="App-header">
+    {/* //       <LanguageSelector /> */}
+    //     </header>
+
+    //     <Explore />
+    //   </div>
+    {/* // </LanguageProvider> */}
+
         <Carousel className="carousel" >
             
         <Carousel.Item className="carousel" >
@@ -63,8 +78,7 @@ const Home = () => {
         
       </Carousel>
         </section>
-    )
+    );
 }
-
 export default Home;
 
