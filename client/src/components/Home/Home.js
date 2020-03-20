@@ -68,7 +68,7 @@ const Home = () => {
         
       </Carousel>
 <br></br>
-<p> select a language</p>
+
       <LanguageProvider>
       <div className="App">
       <header className="App-header">
