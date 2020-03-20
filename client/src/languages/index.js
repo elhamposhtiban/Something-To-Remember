@@ -1,15 +1,18 @@
 import tr from './tr';
 import en from './en';
 import de from './de';
+import es from './es';
 
 export const dictionaryList = {
   tr,
   en,
-  de
+  de,
+  es
 };
 
 export const languageOptions = [
-  { id: 'tr', text: 'Turkce' },
-  { id: 'en', text: 'English'},
-  { id: 'de', text: 'Deutsch' }
+  { id: 'en', text: 'English🇺🇸'},
+  { id: 'tr', text: 'Turkce🇹🇷' },
+  { id: 'de', text: 'Deutsch🇱🇺' },
+  { id: 'es', text: 'Spanish'}
 ];
