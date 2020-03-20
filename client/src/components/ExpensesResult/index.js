@@ -8,16 +8,22 @@ const displayExpenses = ({
 
 ) => {
 
+    console.log("this is an expenses", expenses)
+
     return (
+        
 
         <ul className="list-group">
 
         { expenses?.length && expenses.map(item => ( 
+
+
         <li className=" ToDoList__item" key={item._id} >
 
         <div className=" ToDoList__data">
  
 
+               <h1>{item.budget}</h1>
                 <h2>
                     {item.itemName}
                 </h2>
@@ -28,6 +34,7 @@ const displayExpenses = ({
 
                 <h4>
                     {item.category}
+
                 </h4>
 
                 <h4>
@@ -49,8 +56,6 @@ const displayExpenses = ({
 //     onClick={deleteHandler}> 
 //     <FontAwesomeIcon icon={faCheck} /> 
 //     </button> 
-
-
 
 
     )

@@ -17,10 +17,10 @@ const Footer = () => {
                       <div className="footer__navigation">
                           <ul className="footer__list">
                               <li className="footer__item"> <a href="https://github.com/elhamposhtiban" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faInstagram}/></a> </li>
-                              <li className="footer__item"> <a href="https://www.linkedin.com/in/elham-poshtiban-2a40a4149/" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faFacebook}/></a> </li>
-                              <li className="footer__item"> <a href="./public/assets/images/Elham-resume.pdf" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faTwitter}/></a> </li>
+                              <li className="footer__item"> <a href="#" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faFacebook}/></a> </li>
+                              <li className="footer__item"> <a href="#" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faTwitter}/></a> </li>
                               <li className="footer__item"> <a href="mailto:elham.poshtiban@gmail.com" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faGithub}/></a> </li>
-                              <li className="footer__item"> <a href="tel:2814259682" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faPinterest}/></a> </li>
+                              <li className="footer__item"> <a href="#" className="footer__link"><FontAwesomeIcon className="fa-3x media-link" icon={faPinterest}/></a> </li>
                           </ul> 
                       </div>
                   </div>

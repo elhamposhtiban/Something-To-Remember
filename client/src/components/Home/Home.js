@@ -1,9 +1,13 @@
 
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
+import {useSelector} from "react-redux"
 
 
 const Home = () => {
+
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
     return (
 
         <section className="section-home">

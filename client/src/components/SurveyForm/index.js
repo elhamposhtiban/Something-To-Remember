@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {useSelector} from "react-redux"
 import DatePicker from "react-datepicker";
 import API from "../../utils/API";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,88 +13,18 @@ import {
 
 
 
-const Survey = () => {
- 
-  const [weddingProfile, setWeddingProfile] = useState([]);
-  const [surveyInput, setSurveyInput] = useState(
-      {
-        brideName: "",
-        groomName: "",
-        location: "",
-        totalBudget: "",
-        date: new Date(),
-
-      }
-  );
-
-  const onchangeSurveyHandler = (e) => {
-      const {name, value} = e.target;
-      setSurveyInput({
-          ...surveyInput,
-          [name] :value
-         
-      })
-      console.log(surveyInput)
+const SurveyForm = (
+  {
+    onchangeSurveyHandler,
+    handleDateSurvey,
+    handleSubmitProfile ,
+    loadWeddingProfile ,
+    surveyInput,
   }
+) => {
 
-  const handleDateSurvey= date => {
-    setSurveyInput({
-      ...surveyInput,
-     date : date
-    });
-    console.log(surveyInput)
-
-  };
-
-
-
-  useEffect(() => {
-    loadWeddingProfile();
-  }, []);
-
-  // Loads all weddingProfile  and sets them to DoListLoad
-  const loadWeddingProfile = async () => {
-    try {
-      const response = await API.getAllWedding();
-      setWeddingProfile(response.data);
-      console.log('wedding profile', response.data)
-    } catch (error) {
-      console.group("it can not load wedding profile");
-      console.log(error);
-      console.groupEnd();
-    }
-  };
-
-
-  const handleSubmitProfile = async event => {
-    console.log("hi i am actually getting the data for wedding profile")
-    event.preventDefault();
-    if (surveyInput.brideName && surveyInput.groomName) {
-      try {
-        await API.saveWedding({
-          ...surveyInput,
-        });
-        setWeddingProfile({
-            brideName: "",
-            groomName: "",
-            location: "",
-            totalBudget: "",
-            date: new Date(),
-        });
-        loadWeddingProfile();
-        console.log("success wedding profile")
-      } catch (error) {
-        console.group("SUBMIT FORM");
-        console.log(error);
-        console.groupEnd();
-      }
-    }
-  };
-    
-    
-
-  
-
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
 
     return( 
       
@@ -221,4 +152,4 @@ const Survey = () => {
     )
 }
 
-export default Survey;
+export default SurveyForm;

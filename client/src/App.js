@@ -8,7 +8,7 @@ import { setCurrentUser, logoutUser } from './actions/authentication';
 
 import Register from './components/Register';
 import Home from './components/Home/Home';
-import Survey from "./components/Survey/index"
+import Survey from "./pages/survey"
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 import Header from "./components/Header/index";

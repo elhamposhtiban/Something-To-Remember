@@ -2,10 +2,13 @@ import React, {useState, useEffect} from "react";
 import FormDolist from "../components/FormDolist/index";
 import DolistResult from "../components/DolistResult/index";
 import API from "../utils/API";
+import {useSelector} from "react-redux"
 
 
 const Dolist = () => {
 
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
       
   const [doList, setDolist] = useState([]);
 

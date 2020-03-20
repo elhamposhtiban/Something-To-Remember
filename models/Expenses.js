@@ -16,12 +16,12 @@ const ExpansesSchema = new Schema ({
         min: [1, 'put any number you want'],
     },
 
-    budget: {
-      type: Number,
-      required: false,
-      default:null,
-      min: [1, 'put any number you want'],
-    },
+    // budgetInput: {
+    //   type: Number,
+    //   required: false,
+    //   default:null,
+    //   min: [1, 'put any number you want'],
+    // },
 
   //   estimateAmount: {
   //     type: Number,
@@ -33,6 +33,10 @@ const ExpansesSchema = new Schema ({
     note: {
         type: String,
         required: true
+    },
+
+    category: {
+      type: String
     },
     
   //   currency: {

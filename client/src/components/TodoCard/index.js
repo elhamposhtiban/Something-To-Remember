@@ -23,11 +23,12 @@ const ToDolistCard = (
     const [editNote, setEditNote] = useState(false);
     const [editDate, setEditDate] = useState(false);
 
-    // const time = new Date()
-    // console.log(time)
+     const time = new Date(item.dueDate)
+     console.log(time)
+
     const todo = {
         title: item.title,
-        dueDate: item.dueDate,
+        dueDate: time.toDateString(), 
         _id: item._id,
         description: item.description
     }
@@ -49,20 +50,26 @@ const ToDolistCard = (
   };
 
   const handleEditDateChange = date => {
+
+    console.log("date is " , typeof date)
     setEditInput({
         ...editInput,
-        dueDate : date
+        dueDate : date.toDateString()
     });
+
     console.log(editInput)
 
   };
 
   const Update = (e) => {
-    if(e.keyCode === 13) setEditTitle(false)
-    if(e.keyCode === 13) setEditNote(false)
-    if(e.keyCode === 13) setEditDate(false)
-    API.UpdateDolist(editInput._id, editInput)
+    if(e.keyCode === 13) {
 
+      setEditTitle(false)
+      setEditNote(false)
+      setEditDate(false)
+      API.UpdateDolist(editInput._id, editInput)
+    } 
+ 
     console.log("right now you are inside of update part")
 
   }
@@ -118,9 +125,10 @@ const ToDolistCard = (
             <div className=" ToDoList__input-edit">
 
             <DatePicker
-            selected={editInput.dueDate}
+            selected={ Date.parse(editInput.dueDate)}
             id={editInput._id}
-            onKeyUp={Update}
+            onKeyDown={Update}
+            onClickOutside={Update}
             onChange={date => handleEditDateChange(date)}
             showTimeSelect
             timeFormat="HH:mm"
