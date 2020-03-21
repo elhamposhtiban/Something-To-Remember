@@ -5,6 +5,12 @@ import React from "react";
 const Header = () => {
     return (
 
+    // if (user is authenticated) {
+    //     logout
+    // }
+    // else{
+
+    // }
      <header className="header">
         <div className="text-box">
             <h1 className="heading-primary">
