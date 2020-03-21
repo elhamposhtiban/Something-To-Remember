@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {useSelector} from "react-redux"
 import DatePicker from "react-datepicker";
 import API from "../../utils/API";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,109 +10,28 @@ import {
     faLocationArrow,
     faDollarSign,
    } from "@fortawesome/free-solid-svg-icons";
-
-
-
-const Survey = () => {
- 
-  const [weddingProfile, setWeddingProfile] = useState([]);
-  const [surveyInput, setSurveyInput] = useState(
-      {
-        brideName: "",
-        groomName: "",
-        location: "",
-        totalBudget: "",
-        date: new Date(),
-
-      }
-  );
-
-  const onchangeSurveyHandler = (e) => {
-      const {name, value} = e.target;
-      setSurveyInput({
-          ...surveyInput,
-          [name] :value
-         
-      })
-      console.log(surveyInput)
+const SurveyForm = (
+  {
+    onchangeSurveyHandler,
+    handleDateSurvey,
+    handleSubmitProfile ,
+    loadWeddingProfile ,
+    surveyInput,
   }
-
-  const handleDateSurvey= date => {
-    setSurveyInput({
-      ...surveyInput,
-     date : date
-    });
-    console.log(surveyInput)
-
-  };
-
-
-
-  useEffect(() => {
-    loadWeddingProfile();
-  }, []);
-
-  // Loads all weddingProfile  and sets them to DoListLoad
-  const loadWeddingProfile = async () => {
-    try {
-      const response = await API.getAllWedding();
-      setWeddingProfile(response.data);
-      console.log('wedding profile', response.data)
-    } catch (error) {
-      console.group("it can not load wedding profile");
-      console.log(error);
-      console.groupEnd();
-    }
-  };
-
-
-  const handleSubmitProfile = async event => {
-    console.log("hi i am actually getting the data for wedding profile")
-    event.preventDefault();
-    if (surveyInput.brideName && surveyInput.groomName) {
-      try {
-        await API.saveWedding({
-          ...surveyInput,
-        });
-        setWeddingProfile({
-            brideName: "",
-            groomName: "",
-            location: "",
-            totalBudget: "",
-            date: new Date(),
-        });
-        loadWeddingProfile();
-        console.log("success wedding profile")
-      } catch (error) {
-        console.group("SUBMIT FORM");
-        console.log(error);
-        console.groupEnd();
-      }
-    }
-  };
-    
-    
-
-  
-
-
+) => {
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
     return( 
       
-
       <div className="ToDoList">
-
           <div className="ToDoList__form">
-
             <form className = " form-toDoList">
-
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faFemale} />
                       </span>
                     </div>
-
                     <input
                         id="bride"
                         name= "brideName"
@@ -122,18 +42,14 @@ const Survey = () => {
                         placeholder="Bride Name"
                     />
                     <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
-
                 </div>
-
                 
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faMale} />
                       </span>
                     </div>
-
                     <input
                         id="groom"
                         name= "groomName"
@@ -144,18 +60,14 @@ const Survey = () => {
                         placeholder="Groom Name"
                     />
                     <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
-
                 </div>
-
                                 
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faLocationArrow} />
                       </span>
                     </div>
-
                     <input
                         id="location"
                         name= "location"
@@ -166,11 +78,8 @@ const Survey = () => {
                         placeholder="Location"
                     />
                     <label className ="Dolist-label" htmlFor="location"> Location</label>
-
                 </div>
-
                 <div className="form-toDoList__group input-group">
-
                   <DatePicker
                     selected={surveyInput.date}
                     onChange={date => handleDateSurvey(date)}
@@ -184,16 +93,13 @@ const Survey = () => {
                   />
                    <label className ="Dolist-label" htmlFor="date"> Date</label>
                 </div>
-
                 
                 <div className="form__group input-group">
-
                     <div className="input-group-prepend">
                         <span className="input-group-text">
                         <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
                         </span>
                     </div>
-
                     <input 
                     id="totalBudget"
                     name= "totalBudget"
@@ -206,7 +112,6 @@ const Survey = () => {
                     <label htmlFor="totalBudget" className="form__label">Total Budget</label>
                 
                 </div>
-
                 <button 
                 //   disabled={!(doListInput.title && doListInput.description)}
                    onClick= {handleSubmitProfile}
@@ -217,8 +122,6 @@ const Survey = () => {
           </form>
         </div>
     </div>
-
     )
 }
-
-export default Survey;
+export default SurveyForm;
