@@ -2,9 +2,13 @@ import React, {useState, useEffect} from "react";
 import Expensesform from "../components/Expensesform/index";
 import ExpensesResult from "../components/ExpensesResult/index";
 import API from "../utils/API"
+import {useSelector} from "react-redux"
 
 
 const Expenses = () => {
+
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
 
 const [expenses, setExpenses] = useState([]);
 const [budgetInput, setBudgetInput] = useState("");
@@ -80,7 +84,7 @@ const loadBudget = async () => {
      {
       try {
         await API.saveExpenses({
-          ...budgetInput,
+          budgetInput,
         });
         setBudgetInput("")
     
@@ -138,7 +142,7 @@ const loadBudget = async () => {
         expenses = {expenses}
         />
 
-{expenses.length ?
+    {expenses.length ?
         <ExpensesResult
          expenses = {expenses}
         />

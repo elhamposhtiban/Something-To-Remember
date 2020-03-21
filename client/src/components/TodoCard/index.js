@@ -41,6 +41,7 @@ const ToDolistCard = (
         ...editInput,
         dueDate : date.toDateString()
     });
+
     console.log(editInput)
   };
   const Update = (e) => {

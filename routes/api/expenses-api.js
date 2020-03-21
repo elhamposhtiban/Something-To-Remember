@@ -8,6 +8,8 @@ router
 .route("/")
 .get(expensesController.findAll)
 .post(expensesController.create);
+// .post((req, res)=> {console.log(req.body); res.send(`hi`)} )
+
 
 
 // Matches with "/api/expenses/:id"
