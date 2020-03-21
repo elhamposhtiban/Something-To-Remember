@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { Text } from '../../containers/Languages';
 
 export default function Explore() {
-  const [clickText, setClickText] = useState();
+  // const [clickText, setClickText] = useState();
 
-  const handleClick = () => {
-    setClickText(<Text tid="buttonClicked" />);
-  }
+  // const handleClick = () => {
+  //   setClickText(<Text tid="buttonClicked" />);
+  // }
 
   return (
     <div>
