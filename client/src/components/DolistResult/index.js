@@ -46,31 +46,6 @@ const DolistResult = ({
       }
     };
 
-
-        //function for handling update
-
-        
-        // const updateDolist = async (updateId, updateToDo) => {
-        //     try {
-        //       await API.UpdateDolist(updateId,updateToDo );
-
-        //       console.log(updateId)
-
-        //       setDolistInput({
-        //         title: "",
-        //         date: new Date(),
-        //         description: "",
-        //       });
-
-        //        loadDolist();
-
-        //     } catch(error) {
-        //       console.group("hey i can not update to do list for you");
-        //       console.log(error);
-        //       console.groupEnd();
-        //     }
-        //   };
-    
     return (
 
         

@@ -2,12 +2,15 @@ import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import { LanguageProvider } from '../../containers/Languages';
 import LanguageSelector from '../lang/LanguageSelector';
+import {useSelector} from "react-redux"
 import Explore from '../lang/Explore';
 
 
 
 const Home = () => {
 
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
 
     return ( 
 

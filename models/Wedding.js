@@ -23,7 +23,8 @@ const WeddingSchema = new Schema ({
       },
 
     totalBudget: {
-        type: Number,
+        type:Number,
+        // type: Decimal128,
         required: true,
         min: [1, 'put any number you want'],
     },
@@ -32,7 +33,11 @@ const WeddingSchema = new Schema ({
         type: Date,
         min: '1987-09-28',
      },
- 
+
+     user_id: {
+        type: Schema.Types.ObjectId,
+        ref:"user"
+     }
 
 },
 { timestamps:true})

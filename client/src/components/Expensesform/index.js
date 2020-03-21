@@ -71,134 +71,134 @@ const Expensesform = ({
             </div>
         </div>
 
-{showExpenses &&  
+        {showExpenses &&  
 
-<div className="row">
+        <div className="row">
 
-    <div className="budget">
+            <div className="budget">
 
-        <div className="budget__form">
+                <div className="budget__form">
 
-            <form  className="form">
+                    <form  className="form">
 
-                <div className=" u-margin-bottom-medium">
-                    <h2 className="heading-secondary">
-                      set Your budget
-                    </h2>
+                        <div className=" u-margin-bottom-medium">
+                            <h2 className="heading-secondary">
+                            set Your budget
+                            </h2>
+                        </div>
+
+                        <div className="form__group input-group">
+
+                            <div className="input-group-prepend ">
+                                <span className="input-group-text">
+                                <FontAwesomeIcon className="form__icon fa-2x" icon={faShoppingBag} />
+                                </span>
+                            </div>
+
+                            <input 
+                            type="text"
+                            id="item"
+                            className="form__input"
+                            name= "itemName"
+                            placeholder="Item Name"
+                            value = {expensesInput.name}
+                            onChange = {event => handleInputChange (event)}
+                            required/>
+                            <label htmlFor="item" className="form__label">Item Name</label>
+
+                        </div>
+
+                        <div className="form__group input-group">
+
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">
+                                <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
+                                </span>
+                            </div>
+
+                            <input 
+                            id="amount"
+                            name= "amount"
+                            type="number"
+                            placeholder="Amount Paid"
+                            className="form__input"
+                            value = {expensesInput.name}
+                            onChange = {event => handleInputChange (event)}
+                            required/>
+                            <label htmlFor="amount" className="form__label">Amount Paid</label>
+                        
+                        </div>
+
+                        <div className="form__group input-group">
+
+                            <div className="input-group-prepend mb-5">
+                                <span className="input-group-text">
+                                <FontAwesomeIcon className="form__icon fa-2x" icon={faList} />
+                                </span>
+                            </div>
+
+                            <select name="category"
+                            id="category"
+                            value = {expensesInput.name}
+                            onChange = {event => handleInputChange (event)}
+                            className="form__input mb-5">
+                                <option selected>category</option>
+                                <option> Reception Venue & Rentals </option>
+                                <option> Ceremony Location Fee </option>
+                                <option> Food & Service</option>
+                                <option> Photographer & Videographer </option>
+                                <option> Decorations & flowerset </option>
+                                <option> Music  </option>
+                                <option> Makeup artist & hair styling </option>
+                                <option> Bride Gown & Alterations </option>
+                                <option> Bride's Accessories</option>
+                                <option> Bride's Bouquet</option>
+                                <option> Bridesmaid</option>
+                                <option> Groom's Tux or Suit </option>
+                                <option> Groom's Accessories </option>
+                                <option> Groomsmen  </option>
+                                <option> Honeymoon </option>
+                                <option> Others</option>
+                            </select>
+
+                        <label htmlFor="category" className="form__label"></label>
+
+                        </div>
+                        
+                        <div className="form__group input-group u-margin-bottom-medium">
+
+                            <div className="input-group-prepend">
+                                <span className=" input-group-text">
+                                <FontAwesomeIcon className="form__icon fa-2x" icon={faComment} />
+                                </span>
+                            </div>
+
+                            <textarea
+                            type="text"
+                            name="note" 
+                            placeholder="note" 
+                            id="note-input" 
+                            className="form__input"
+                            value = {expensesInput.name}
+                            onChange = {event => handleInputChange (event)}
+                            required></textarea>
+                            <label htmlFor="note-input" className="form__label"> Note </label>
+                        </div>
+
+                        <div className="form__group">
+                            <button 
+                            className="btn btn--pink"
+                            type="submit"
+                            onClick = {handleExpensesSubmit}
+                            >save</button>
+                        </div>
+
+                    </form>
                 </div>
-
-                <div className="form__group input-group">
-
-                    <div className="input-group-prepend ">
-                        <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon fa-2x" icon={faShoppingBag} />
-                        </span>
-                    </div>
-
-                    <input 
-                    type="text"
-                    id="item"
-                    className="form__input"
-                    name= "itemName"
-                    placeholder="Item Name"
-                    value = {expensesInput.name}
-                    onChange = {event => handleInputChange (event)}
-                    required/>
-                    <label htmlFor="item" className="form__label">Item Name</label>
-
                 </div>
-
-                <div className="form__group input-group">
-
-                    <div className="input-group-prepend">
-                        <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
-                        </span>
-                    </div>
-
-                    <input 
-                    id="amount"
-                    name= "amount"
-                    type="number"
-                    placeholder="Amount Paid"
-                    className="form__input"
-                    value = {expensesInput.name}
-                    onChange = {event => handleInputChange (event)}
-                    required/>
-                    <label htmlFor="amount" className="form__label">Amount Paid</label>
-                
-                </div>
-
-                <div className="form__group input-group">
-
-                    <div className="input-group-prepend mb-5">
-                        <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon fa-2x" icon={faList} />
-                        </span>
-                    </div>
-
-                    <select name="category"
-                    id="category"
-                    value = {expensesInput.name}
-                    onChange = {event => handleInputChange (event)}
-                    className="form__input mb-5">
-                        <option selected>category</option>
-                        <option> Reception Venue & Rentals </option>
-                        <option> Ceremony Location Fee </option>
-                        <option> Food & Service</option>
-                        <option> Photographer & Videographer </option>
-                        <option> Decorations & flowerset </option>
-                        <option> Music  </option>
-                        <option> Makeup artist & hair styling </option>
-                        <option> Bride Gown & Alterations </option>
-                        <option> Bride's Accessories</option>
-                        <option> Bride's Bouquet</option>
-                        <option> Bridesmaid</option>
-                        <option> Groom's Tux or Suit </option>
-                        <option> Groom's Accessories </option>
-                        <option> Groomsmen  </option>
-                        <option> Honeymoon </option>
-                        <option> Others</option>
-                    </select>
-
-                <label htmlFor="category" className="form__label"></label>
-
-                </div>
-                
-                <div className="form__group input-group u-margin-bottom-medium">
-
-                    <div className="input-group-prepend">
-                        <span className=" input-group-text">
-                        <FontAwesomeIcon className="form__icon fa-2x" icon={faComment} />
-                        </span>
-                    </div>
-
-                    <textarea
-                    type="text"
-                    name="note" 
-                    placeholder="note" 
-                    id="note-input" 
-                    className="form__input"
-                    value = {expensesInput.name}
-                    onChange = {event => handleInputChange (event)}
-                    required></textarea>
-                    <label htmlFor="note-input" className="form__label"> Note </label>
-                </div>
-
-                <div className="form__group">
-                    <button 
-                    className="btn btn--pink"
-                     type="submit"
-                     onClick = {handleExpensesSubmit}
-                     >save</button>
-                </div>
-
-            </form>
-          </div>
-        </div>
-    </div>
-}
-</React.Fragment>
+            </div>
+        }
+        </React.Fragment>
       )
     }
 
