@@ -10,9 +10,12 @@ import {
     faLocationArrow,
     faDollarSign,
    } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD:client/src/components/SurveyForm/index.js
 
 
 
+=======
+>>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
 const SurveyForm = (
   {
     onchangeSurveyHandler,
@@ -22,27 +25,26 @@ const SurveyForm = (
     surveyInput,
   }
 ) => {
+<<<<<<< HEAD:client/src/components/SurveyForm/index.js
 
   const result = useSelector (state => state.auth.user)
   console.log( "this is result", result)
 
+=======
+  const result = useSelector (state => state.auth.user)
+  console.log( "this is result", result)
+>>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
     return( 
       
-
       <div className="ToDoList">
-
           <div className="ToDoList__form">
-
             <form className = " form-toDoList">
-
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faFemale} />
                       </span>
                     </div>
-
                     <input
                         id="bride"
                         name= "brideName"
@@ -53,18 +55,14 @@ const SurveyForm = (
                         placeholder="Bride Name"
                     />
                     <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
-
                 </div>
-
                 
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faMale} />
                       </span>
                     </div>
-
                     <input
                         id="groom"
                         name= "groomName"
@@ -75,18 +73,14 @@ const SurveyForm = (
                         placeholder="Groom Name"
                     />
                     <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
-
                 </div>
-
                                 
                 <div className="form-toDoList__group input-group">
-
                     <div className="input-group-prepend">
                       <span className="input-group-text">
                       <FontAwesomeIcon className="form__icon fa-2x" icon={faLocationArrow} />
                       </span>
                     </div>
-
                     <input
                         id="location"
                         name= "location"
@@ -97,11 +91,8 @@ const SurveyForm = (
                         placeholder="Location"
                     />
                     <label className ="Dolist-label" htmlFor="location"> Location</label>
-
                 </div>
-
                 <div className="form-toDoList__group input-group">
-
                   <DatePicker
                     selected={surveyInput.date}
                     onChange={date => handleDateSurvey(date)}
@@ -115,16 +106,13 @@ const SurveyForm = (
                   />
                    <label className ="Dolist-label" htmlFor="date"> Date</label>
                 </div>
-
                 
                 <div className="form__group input-group">
-
                     <div className="input-group-prepend">
                         <span className="input-group-text">
                         <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
                         </span>
                     </div>
-
                     <input 
                     id="totalBudget"
                     name= "totalBudget"
@@ -137,7 +125,6 @@ const SurveyForm = (
                     <label htmlFor="totalBudget" className="form__label">Total Budget</label>
                 
                 </div>
-
                 <button 
                 //   disabled={!(doListInput.title && doListInput.description)}
                    onClick= {handleSubmitProfile}
@@ -148,8 +135,11 @@ const SurveyForm = (
           </form>
         </div>
     </div>
-
     )
 }
+<<<<<<< HEAD:client/src/components/SurveyForm/index.js
 
 export default SurveyForm;
+=======
+export default SurveyForm;
+>>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
