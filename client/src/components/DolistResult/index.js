@@ -97,8 +97,3 @@ const DolistResult = ({
 
 DolistResult.prototype = proptype
 export default DolistResult;
-
-
-
-
-

@@ -5,10 +5,9 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
-
 import Register from './components/Register';
 import Home from './components/Home/Home';
-import Survey from "./components/Survey/index"
+import Survey from "./pages/survey"
 import Dolist from "./pages/doList";
 import Budget from "./pages/expenses";
 import Header from "./components/Header/index";
@@ -20,7 +19,6 @@ if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken);
   store.dispatch(setCurrentUser(decoded));
-
   const currentTime = Date.now() / 1000;
   if(decoded.exp < currentTime) {
     store.dispatch(logoutUser());
@@ -65,5 +63,4 @@ const App = () => {
     }
   
 }
-
 export default App;

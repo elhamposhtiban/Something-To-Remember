@@ -3,7 +3,6 @@
     background-color: $color-grey-light-1;
     min-height: 100vh;
 }
-
 .ToDoList {
     background-image:linear-gradient(105deg, rgba($color-white, .7) 0%,
     rgba($color-white, .7) 48%,
@@ -16,7 +15,6 @@
     width: 100%;
     margin-top: 2rem;
     animation: moveInRight 1s ease-out;
-
     &__form {
 
         width: 48%;
@@ -25,13 +23,11 @@
         margin-top: 3rem;
     }
 }
-
 .section-budget {
     padding: 10rem;
     background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
     min-height: 100vh;
 }
-
 .budget {
     background-image:linear-gradient(105deg, rgba($color-white, .8) 0%,
     rgba($color-white, .8) 50%,
@@ -44,16 +40,12 @@
     width: 100%;
     margin-top: 2rem;
     animation: moveInRight 1s ease-out;
-
     &__form {
-
         width: 50%;
         height: 30%;
         padding: 3rem;
     }
 }
-
-
 .section-home {
     padding: 10rem;
     background-color: $color-grey-light-1;
