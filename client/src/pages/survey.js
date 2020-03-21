@@ -2,14 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import API from "../utils/API";
 import SurveyForm from "../components/SurveyForm/index"
-<<<<<<< HEAD
-
-
 const Survey = () => {
-
-=======
-const Survey = () => {
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71
     const result = useSelector (state => state.auth.user)
     console.log( "this is result", result)
    
@@ -94,10 +87,6 @@ const Survey = () => {
         }
       }
     };
-<<<<<<< HEAD
-
-=======
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71
         
     return( 
       
@@ -108,14 +97,6 @@ handleSubmitProfile = {handleSubmitProfile}
 loadWeddingProfile = {loadWeddingProfile}
 surveyInput = {surveyInput}
 />
-<<<<<<< HEAD
-
-
-      )
-  }
-  
-  export default Survey;
-=======
       )
   }
   
@@ -125,4 +106,3 @@ surveyInput = {surveyInput}
 
 
 
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71

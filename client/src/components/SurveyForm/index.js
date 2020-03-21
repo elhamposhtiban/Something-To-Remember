@@ -10,12 +10,6 @@ import {
     faLocationArrow,
     faDollarSign,
    } from "@fortawesome/free-solid-svg-icons";
-<<<<<<< HEAD:client/src/components/SurveyForm/index.js
-
-
-
-=======
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
 const SurveyForm = (
   {
     onchangeSurveyHandler,
@@ -25,15 +19,8 @@ const SurveyForm = (
     surveyInput,
   }
 ) => {
-<<<<<<< HEAD:client/src/components/SurveyForm/index.js
-
   const result = useSelector (state => state.auth.user)
   console.log( "this is result", result)
-
-=======
-  const result = useSelector (state => state.auth.user)
-  console.log( "this is result", result)
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
     return( 
       
       <div className="ToDoList">
@@ -137,9 +124,4 @@ const SurveyForm = (
     </div>
     )
 }
-<<<<<<< HEAD:client/src/components/SurveyForm/index.js
-
 export default SurveyForm;
-=======
-export default SurveyForm;
->>>>>>> a50170f0c78d9501e22c389217018492713bdd71:client/src/components/Survey/index.js
