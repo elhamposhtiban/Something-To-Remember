@@ -7,9 +7,12 @@ import {useSelector} from "react-redux"
 
 const Dolist = () => {
 
+  // this is for linking user-id to state 
   const result = useSelector (state => state.auth.user.id)
   console.log( "this is result", result)
-      
+
+  const [showTodoList, setShowTodoList] = useState({})
+
   const [doList, setDolist] = useState([]);
 
   const [doListInput, setDolistInput] = useState({
@@ -21,7 +24,36 @@ const Dolist = () => {
 
   const [showToDoListForm, setShowToDoListForm] = useState(false)
 
+  const userId =result
 
+
+  console.log("this is userid", userId)
+
+  useEffect(() => {
+    const displayTodoList = async function() {
+      const showTodoLists = await displayDo();
+      setShowTodoList(showTodoLists);
+    }
+    displayTodoList();
+  }, []);
+  
+
+  const displayDo = async () => {
+    try {
+      const response = await API.getAllByUserIdDolist(userId);
+      console.log('you should show me user links', response.data)
+      return response.data[0] 
+
+    } catch (error) {
+      console.group("it can not load wedding profile");
+      console.log(error);
+      console.groupEnd();
+    }
+
+  };
+
+
+  //function for showing the to do list from
   const showHandler = () => {
    setShowToDoListForm(!showToDoListForm);
   }
@@ -73,6 +105,7 @@ const Dolist = () => {
         try {
           await API.saveDolist({
             ...doListInput,
+            user_id: result
           });
           setDolistInput({
             title: "",
@@ -108,8 +141,6 @@ const Dolist = () => {
               </div>
 
             </div>
-
-       
 
             <div className="row">
 

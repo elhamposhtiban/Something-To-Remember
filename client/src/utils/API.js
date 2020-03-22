@@ -13,6 +13,12 @@ export default {
         return axios.get("/api/dolist/" + id);
     },
 
+    getAllByUserIdDolist: (user_id) => {
+        
+        console.log('i am dolist user Id associate', user_id)
+        return axios.get ("/api/dolist/user/"+ user_id)
+    },
+
     // Deletes the todolist with the given id
     deleteDolist: (id) => {
         console.log("this is the id you clicking", id)

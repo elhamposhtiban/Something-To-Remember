@@ -8,15 +8,17 @@ import {useSelector} from "react-redux"
 const Expenses = () => {
 
 
+  // this is for linking user-id to state 
   const result = useSelector (state => state.auth.user.id)
   console.log( "this is result", result)
 
+  //this state is for showing budget that we grabbing from survey page
   const [showBudget, setShowBudget] = useState({})
 
+  //this state is for storing data, and reading data
   const [expenses, setExpenses] = useState([]);
-
-  const [budgetInput, setBudgetInput] = useState("");
   
+    // this state is for grabbing info from the form inputs 
   const [expensesInput, setExpensesInput] = useState({
 
     itemName: "",
@@ -55,30 +57,9 @@ const Expenses = () => {
   };
 
 
-
-
-// useEffect ( () => {
-//     loadBudget ();
-// }, []);
-
-
 useEffect ( () => {
     loadExpenses ();
 }, []);
-
-
-
-// const loadBudget = async () => {
-//     try {
-//       const response = await API.getAllExpenses();
-//       setExpenses(response.data);
-//       console.log('expenses is hereee', response.data)
-//     } catch (error) {
-//       console.group("it can not load todo list");
-//       console.log(error);
-//       console.groupEnd();
-//     }
-//   };
 
 
   const loadExpenses = async () => {
@@ -93,12 +74,7 @@ useEffect ( () => {
     }
   };
 
-  //function for handling input change for budget 
-  // const handleInputChangeBudget = event => {
-  //   setBudgetInput(event.target.value);
-  //   console.log(budgetInput)
 
-  // };
 
   // function for handling input change for form
   const handleInputChange = event => {
@@ -111,29 +87,6 @@ useEffect ( () => {
     console.log(expensesInput)
   };
 
-  const handleBudgetSubmit = async event => {
-    console.log("hi i am actually getting the data")
-    event.preventDefault();
-     {
-      try {
-        await API.saveExpenses({
-          budgetInput,
-        });
-        setBudgetInput("")
-    
-        let budget = budgetInput.reduce((total, value) => {
-          return total.amount - value.amount;
-        });
-        console.log(budget)
-        setBudgetInput(budget);
-        console.log("i am budget")
-      } catch (error) {
-        console.group("i am not working BUDGET");
-        console.log(error);
-        console.groupEnd();
-      }
-    }
-  };
 
   const handleExpensesSubmit = async event => {
     console.log("hi i am actually getting the data")
@@ -170,12 +123,12 @@ useEffect ( () => {
 
         <section className="section-budget">
         <Expensesform
-        // handleInputChangeBudget= {handleInputChangeBudget}
+
         handleInputChange = {handleInputChange}
-        // handleBudgetSubmit = {handleBudgetSubmit}
+
         handleExpensesSubmit = {handleExpensesSubmit}
         expensesInput = {expensesInput}
-        budgetInput = {budgetInput}
+
         expenses = {expenses}
         />
 
@@ -197,3 +150,66 @@ useEffect ( () => {
 }
 
 export default Expenses;
+
+
+
+
+
+
+
+///////////////////// this are for budget that i wanna keep them for now comment 
+
+  // const [budgetInput, setBudgetInput] = useState("");
+
+// useEffect ( () => {
+//     loadBudget ();
+// }, []);
+
+
+  //function for handling input change for budget 
+  // const handleInputChangeBudget = event => {
+  //   setBudgetInput(event.target.value);
+  //   console.log(budgetInput)
+
+  // };
+
+  // const loadBudget = async () => {
+//     try {
+//       const response = await API.getAllExpenses();
+//       setExpenses(response.data);
+//       console.log('expenses is hereee', response.data)
+//     } catch (error) {
+//       console.group("it can not load todo list");
+//       console.log(error);
+//       console.groupEnd();
+//     }
+//   };
+
+
+  // const handleBudgetSubmit = async event => {
+  //   console.log("hi i am actually getting the data")
+  //   event.preventDefault();
+  //    {
+  //     try {
+  //       await API.saveExpenses({
+  //         budgetInput,
+  //       });
+  //       setBudgetInput("")
+    
+  //       let budget = budgetInput.reduce((total, value) => {
+  //         return total.amount - value.amount;
+  //       });
+  //       console.log(budget)
+  //       setBudgetInput(budget);
+  //       console.log("i am budget")
+  //     } catch (error) {
+  //       console.group("i am not working BUDGET");
+  //       console.log(error);
+  //       console.groupEnd();
+  //     }
+  //   }
+  // };
+
+  // handleInputChangeBudget= {handleInputChangeBudget}
+  // handleBudgetSubmit = {handleBudgetSubmit}
+  // budgetInput = {budgetInput}
