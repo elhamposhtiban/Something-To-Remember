@@ -7,26 +7,59 @@ import {useSelector} from "react-redux"
 
 const Expenses = () => {
 
-  const result = useSelector (state => state.auth.user)
+
+  const result = useSelector (state => state.auth.user.id)
   console.log( "this is result", result)
 
-const [expenses, setExpenses] = useState([]);
-const [budgetInput, setBudgetInput] = useState("");
-const [expensesInput, setExpensesInput] = useState({
+  const [showBudget, setShowBudget] = useState({})
+
+  const [expenses, setExpenses] = useState([]);
+
+  const [budgetInput, setBudgetInput] = useState("");
+  
+  const [expensesInput, setExpensesInput] = useState({
 
     itemName: "",
     amount: Number,
     category: "",
     note: ""
 
-})
+      })
 
-console.log(expensesInput)
+  const userId =result
 
 
-useEffect ( () => {
-    loadBudget ();
-}, []);
+  console.log("this is userid", userId)
+
+  useEffect(() => {
+    const displayB = async function() {
+      const showBudgets = await displayBudget();
+      setShowBudget(showBudgets);
+    }
+    displayB();
+  }, []);
+  
+
+  const displayBudget = async () => {
+    try {
+      const response = await API.getAllByUserIdExpenses(userId);
+      console.log('you should show me user links', response.data)
+      return response.data[0] 
+
+    } catch (error) {
+      console.group("it can not load wedding profile");
+      console.log(error);
+      console.groupEnd();
+    }
+
+  };
+
+
+
+
+// useEffect ( () => {
+//     loadBudget ();
+// }, []);
 
 
 useEffect ( () => {
@@ -35,17 +68,17 @@ useEffect ( () => {
 
 
 
-const loadBudget = async () => {
-    try {
-      const response = await API.getAllExpenses();
-      setExpenses(response.data);
-      console.log('expenses is hereee', response.data)
-    } catch (error) {
-      console.group("it can not load todo list");
-      console.log(error);
-      console.groupEnd();
-    }
-  };
+// const loadBudget = async () => {
+//     try {
+//       const response = await API.getAllExpenses();
+//       setExpenses(response.data);
+//       console.log('expenses is hereee', response.data)
+//     } catch (error) {
+//       console.group("it can not load todo list");
+//       console.log(error);
+//       console.groupEnd();
+//     }
+//   };
 
 
   const loadExpenses = async () => {
@@ -60,12 +93,12 @@ const loadBudget = async () => {
     }
   };
 
-  // function for handling input change for budget 
-  const handleInputChangeBudget = event => {
-    setBudgetInput(event.target.value);
-    console.log(budgetInput)
+  //function for handling input change for budget 
+  // const handleInputChangeBudget = event => {
+  //   setBudgetInput(event.target.value);
+  //   console.log(budgetInput)
 
-  };
+  // };
 
   // function for handling input change for form
   const handleInputChange = event => {
@@ -109,6 +142,7 @@ const loadBudget = async () => {
       try {
         await API.saveExpenses({
           ...expensesInput,
+          user_id: result
         });
         setExpensesInput({
           itemName: "",
@@ -129,26 +163,36 @@ const loadBudget = async () => {
   };
 
 
+  // console.log("hey i am getiing this from wedding profile" ,showBudget.totalBudget)
+
     return (
       <React.Fragment>
+
         <section className="section-budget">
         <Expensesform
-        handleInputChangeBudget= {handleInputChangeBudget}
+        // handleInputChangeBudget= {handleInputChangeBudget}
         handleInputChange = {handleInputChange}
-        handleBudgetSubmit = {handleBudgetSubmit}
+        // handleBudgetSubmit = {handleBudgetSubmit}
         handleExpensesSubmit = {handleExpensesSubmit}
         expensesInput = {expensesInput}
         budgetInput = {budgetInput}
         expenses = {expenses}
         />
 
+{showBudget?
+
+          <div>  hiiii {showBudget.totalBudget} </div> : null
+        }
+
     {expenses.length ?
         <ExpensesResult
          expenses = {expenses}
         />
         :null}
+
         </section>
-        </React.Fragment>
+
+      </React.Fragment>
     )
 }
 

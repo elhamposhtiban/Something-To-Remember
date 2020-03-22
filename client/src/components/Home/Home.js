@@ -1,21 +1,75 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import { LanguageProvider } from '../../containers/Languages';
 import LanguageSelector from '../lang/LanguageSelector';
 import {useSelector} from "react-redux"
 import Explore from '../lang/Explore';
+import API from "../../utils/API";
 
 
 
-const Home = () => {
 
+const Home = ({}) => {
+  
   const result = useSelector (state => state.auth.user)
   console.log( "this is result", result)
+
+  const [showName, setShowName] = useState({})
+
+  const userId = result.id
+
+  useEffect(() => {
+    const displayName = async function() {
+      const showNames = await displayObj();
+      setShowName(showNames);
+    }
+    displayName();
+  }, []);
+  
+
+  const displayObj = async () => {
+    try {
+      const response = await API.getAllByUserIdWedding(userId);
+      console.log('wedding profile', response.data)
+      return response.data[0] 
+
+    } catch (error) {
+      console.group("it can not load wedding profile");
+      console.log(error);
+      console.groupEnd();
+    }
+
+  };
+
+  // const currentDate = new Date ().toDateString();
+
+  // console.log(currentDate)
+
+  // // const diffTime = showName.date - currentDate; 
+  // console.log(showName.date)
+
+ 
+
+  
 
     return ( 
 
       <section className="section-home">
-    <Carousel className="carousel" >
+    <ul className="list-group">
+      { showName?  
+          <li className=" ToDoList__item" >
+              <div className=" ToDoList__data">
+
+              <h1> HI {showName.brideName} & {showName.groomName} </h1>
+               {/* <h2> hey you have :  { diffTime}  left</h2> */}
+
+      
+              </div>
+          </li> : null
+      } 
+      </ul>
+
+      <Carousel className="carousel" >
             
         <Carousel.Item className="carousel" >
           <img
@@ -68,19 +122,19 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        
       </Carousel>
+
 <br></br>
 
-      <LanguageProvider>
-      <div className="App">
-      <header className="App-header">
-    <LanguageSelector />
-       </header>
+    <LanguageProvider>
+          <div className="App">
+          <header className="App-header">
+              <LanguageSelector />
+          </header>
 
-      <Explore />
-     </div>
-   </LanguageProvider>
+             <Explore />
+        </div>
+    </LanguageProvider>
         </section>
     );
 }

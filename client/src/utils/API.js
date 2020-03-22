@@ -43,6 +43,13 @@ export default {
         return axios.get("/api/expenses/" + id);
     },
 
+    
+    getAllByUserIdExpenses: (user_id) => {
+        
+        console.log('hi i am  user id for expenses', user_id)
+        return axios.get ("/api/expenses/user/"+ user_id)
+    },
+
     // Deletes the expenses with the given id
     deleteExpenses: (id) => {
         console.log("this is the id you clicking", id)
@@ -65,6 +72,10 @@ export default {
       // Gets the todolist 
     getAllWedding: () => {
         return axios.get("/api/wedding" );
+    },
+
+    getAllByUserIdWedding: (user_id) => {
+    return axios.get ("/api/wedding/user/"+ user_id)
     },
 
     // Gets the toWedding with the given id

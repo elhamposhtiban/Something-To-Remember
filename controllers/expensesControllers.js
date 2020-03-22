@@ -22,6 +22,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findByUserId: function(req, res) {
+    
+    console.log("this is req.params.id",req.params.id )
+    db.Expenses
+      .find({user_id: req.params.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   create: function(req, res) {
     console.log("hi create for expanses i am showing req.body",req.body)
 

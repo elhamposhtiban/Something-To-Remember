@@ -7,7 +7,7 @@ import {useSelector} from "react-redux"
 
 const Dolist = () => {
 
-  const result = useSelector (state => state.auth.user)
+  const result = useSelector (state => state.auth.user.id)
   console.log( "this is result", result)
       
   const [doList, setDolist] = useState([]);
