@@ -29,14 +29,15 @@ const Expenses = () => {
       })
 
   const userId =result
-
-
   console.log("this is userid", userId)
+
+
 
   useEffect(() => {
     const displayB = async function() {
       const showBudgets = await displayBudget();
       setShowBudget(showBudgets);
+      console.log("this is a showBudgets", showBudgets)
     }
     displayB();
   }, []);
@@ -44,7 +45,7 @@ const Expenses = () => {
 
   const displayBudget = async () => {
     try {
-      const response = await API.getAllByUserIdExpenses(userId);
+      const response = await API.getAllByUserIdWedding(userId);
       console.log('you should show me user links', response.data)
       return response.data[0] 
 
@@ -88,6 +89,18 @@ useEffect ( () => {
   };
 
 
+  // const handleCurrentBudget = event => {
+  //   const value = event.target.value;
+  //   setExpensesInput({
+  //     amount,
+  //     [name]: value
+  //   });
+  //  const currentBudget =  showBudget.totalBudget - amount.value 
+
+  //  setShowBudget(currentBudget);
+  // }
+
+
   const handleExpensesSubmit = async event => {
     console.log("hi i am actually getting the data")
     event.preventDefault();
@@ -105,6 +118,7 @@ useEffect ( () => {
       
         });
 
+// handleCurrentBudget ();
         loadExpenses();
         console.log("hi i am success!!")
       } catch (error) {
@@ -116,7 +130,6 @@ useEffect ( () => {
   };
 
 
-  // console.log("hey i am getiing this from wedding profile" ,showBudget.totalBudget)
 
     return (
       <React.Fragment>
@@ -132,7 +145,7 @@ useEffect ( () => {
         expenses = {expenses}
         />
 
-{showBudget?
+    {showBudget?
 
           <div>  hiiii {showBudget.totalBudget} </div> : null
         }

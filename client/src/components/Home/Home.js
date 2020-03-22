@@ -22,6 +22,7 @@ const Home = ({}) => {
     const displayName = async function() {
       const showNames = await displayObj();
       setShowName(showNames);
+      console.log("this is show names",showNames)
     }
     displayName();
   }, []);
@@ -71,56 +72,82 @@ const Home = ({}) => {
 
       <Carousel className="carousel" >
             
-        <Carousel.Item className="carousel" >
-          <img
-            className="d-block w-100 carousel__img"
-            src="https://images.303magazine.com/uploads/2019/03/wedding-celebration.jpg"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
+            <Carousel.Item className="carousel" >
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://images.303magazine.com/uploads/2019/03/wedding-celebration.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                
+              
+              </Carousel.Caption>
+            </Carousel.Item >
+    
+            <Carousel.Item className="carousel">
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://s23527.pcdn.co/wp-content/uploads/2018/04/weddings-3225110_1920.jpg.optimal.jpg"
+                alt="Third slide"
+              />
           
-          </Carousel.Caption>
-        </Carousel.Item >
-
-        <Carousel.Item className="carousel">
-          <img
-            className="d-block w-100 carousel__img"
-            src="https://s23527.pcdn.co/wp-content/uploads/2018/04/weddings-3225110_1920.jpg.optimal.jpg"
-            alt="Third slide"
-          />
-      
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
+              <Carousel.Caption>
+              
+              
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="carousel">
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://californiaweddingday.com/sites/default/files/CWD/online/realweddings/sara_danny/1B1A2181.jpg"
+                alt="Third slide"
+              />
           
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item className="carousel">
-          <img
-            className="d-block w-100 carousel__img"
-            src="https://www.brides.com/thmb/8Rvt7SaouAlrdp_L_4Es0feG4uE=/2400x2400/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__brides__proteus__5c1931e79abd092cf4bd393a__11-f2d4ff86cd6b4e1bb09ba0dab4d10068.jpeg"
-            alt="Third slide"
-          />
-      
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
+              <Carousel.Caption>
+                
+               
+              </Carousel.Caption>
+            </Carousel.Item>
+    
+            <Carousel.Item className="carousel">
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://images.squarespace-cdn.com/content/v1/570b04d32eeb819034cca091/1461878935465-VJ39LPXYLI47OV4QYDDK/ke17ZwdGBToddI8pDm48kJtsZFmkn0vlL84AeVJ0sQd7gQa3H78H3Y0txjaiv_0fp_mq1AZEKQalsDjhaHkwoqUnZsVrR84hBHFZcSX3PY1NgQScQZEPAo_oDhToEdDpZGjoBKy3azqku80C789l0hReLB75oIvKxcDxwlnLXabjozB0jfAon2Pyt7VR2FcPrGrPNC6ntOZxogQgwkEsng/image-asset.jpeg?format=1000w"
+                alt="Third slide"
+              />
           
-          </Carousel.Caption>
-        </Carousel.Item> 
-
-        <Carousel.Item className="carousel">
-          <img
-            className="d-block w-100 carousel__img"
-            src="https://www.brides.com/thmb/oh7NFl5QEsxMKjKT7E5-IkI9-3I=/2048x1152/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__brides__proteus__5c1a91636b6bc209f4038244__169-1adbafcbb5c146aca5b1e969d9c1a961.jpeg"
-            alt="Third slide"
-          />
-      
-          <Carousel.Caption>
-            <h3>4th slide label</h3>
-           
-          </Carousel.Caption>
-        </Carousel.Item>
+              <Carousel.Caption>
+                <h3>4thslide label</h3>
+              
+              </Carousel.Caption>
+            </Carousel.Item> 
+    
+            <Carousel.Item className="carousel">
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://www.brides.com/thmb/oh7NFl5QEsxMKjKT7E5-IkI9-3I=/2048x1152/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__brides__proteus__5c1a91636b6bc209f4038244__169-1adbafcbb5c146aca5b1e969d9c1a961.jpeg"
+                alt="Third slide"
+              />
+          
+              <Carousel.Caption>
+              
+               
+              </Carousel.Caption>
+            </Carousel.Item>
+          
+               
+            <Carousel.Item className="carousel">
+              <img
+                className="d-block w-100 carousel__img"
+                src="https://www.easyweddings.com.au/articles/wp-content/uploads/sites/5/2018/11/iStock-929779474-1920x1402.jpg"
+                alt="Third slide"
+              />
+          
+              <Carousel.Caption>
+              
+               
+              </Carousel.Caption>
+            </Carousel.Item>
 
       </Carousel>
 
