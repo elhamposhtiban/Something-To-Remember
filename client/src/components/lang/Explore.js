@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Text } from '../../containers/Languages';
+import { Text } from '../containers/Languages';
 
 export default function Explore() {
   // const [clickText, setClickText] = useState();

@@ -1,17 +1,13 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
-import { LanguageProvider } from '../../containers/Languages';
+import { LanguageProvider } from '../containers/Languages';
 import LanguageSelector from '../lang/LanguageSelector';
 import {useSelector} from "react-redux"
 import Explore from '../lang/Explore';
-import {useSelector} from "react-redux"
+
 
 
 const Home = () => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 97fb4bf894096413b3198cbf7afdabaec19e9072
   const result = useSelector (state => state.auth.user)
   console.log( "this is result", result)
 
@@ -27,7 +23,7 @@ const Home = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
+            
           
           </Carousel.Caption>
         </Carousel.Item >
@@ -40,8 +36,20 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-            <h3>Second slide label</h3>
           
+          
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className="carousel">
+          <img
+            className="d-block w-100 carousel__img"
+            src="https://californiaweddingday.com/sites/default/files/CWD/online/realweddings/sara_danny/1B1A2181.jpg"
+            alt="Third slide"
+          />
+      
+          <Carousel.Caption>
+            
+           
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -53,7 +61,7 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>4thslide label</h3>
           
           </Carousel.Caption>
         </Carousel.Item> 
@@ -66,12 +74,27 @@ const Home = () => {
           />
       
           <Carousel.Caption>
-            <h3>4th slide label</h3>
+          
            
           </Carousel.Caption>
         </Carousel.Item>
+      
+           
+        <Carousel.Item className="carousel">
+          <img
+            className="d-block w-100 carousel__img"
+            src="https://www.easyweddings.com.au/articles/wp-content/uploads/sites/5/2018/11/iStock-929779474-1920x1402.jpg"
+            alt="Third slide"
+          />
+      
+          <Carousel.Caption>
+          
+           
+          </Carousel.Caption>
+        </Carousel.Item>
+           
 
-        
+          
       </Carousel>
 <br></br>
 

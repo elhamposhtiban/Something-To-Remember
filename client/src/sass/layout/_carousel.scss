@@ -1,7 +1,14 @@
 .carousel {
-    height: 60rem;
+    height: 500px;
+    width:100rem;
+    background-size: cover;
+    margin-top: 2rem;
+   
+    margin: auto;
     &__img {
-//   padding: 4rem;
+  padding:1rem;
 
     }
 }
+
+
