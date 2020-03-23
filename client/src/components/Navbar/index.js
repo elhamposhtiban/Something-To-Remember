@@ -28,7 +28,6 @@ class Navbar extends Component {
             <ul className="navigation__list">
 
                 <li className="navigation__item"><a href="/dashboard" className="navigation__link">Dash Board</a></li>
-                <li className="navigation__item"><a href="/#" className="navigation__link">contact</a></li>
                 <li className="navigation__item"><a href="/dolist" className="navigation__link">check list</a></li>
                 <li className="navigation__item"><a href="/budget" className="navigation__link">budgeter</a></li>
                 <li className="navigation__item">
@@ -37,6 +36,12 @@ class Navbar extends Component {
                 className="rounded-circle"
                 style={{ width: '25px', marginRight: '5px'}} />
                 Logout</a></li>
+                <li className="navigation__item"><a href="/#" className="navigation__link">
+                <form className="form-inline my-2 my-lg-0">
+                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button className="btn btn--pink" type="submit">Search</button>
+                </form>
+                </a></li>
             
             </ul>
         </nav>

@@ -1,7 +1,54 @@
 .carousel {
-    height: 60rem;
+    
+    height: 50rem;
+    width: 80rem;
+    position: relative;
+    text-align: center;
+    padding-left: 150px;
+    
     &__img {
-//   padding: 4rem;
+        height: 50rem;
+        width: 70rem;
+        text-align: center;
+        border: solid;
+        border-radius: 5rem;
+        margin-left: -150px;
 
     }
+}
+
+.couple-name {
+
+    &__text {
+
+        text-align: center;
+
+        &-main {
+
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            background-image:linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            letter-spacing: .2rem;
+            transition: all .2s;
+            animation: moveInRight 1s ease-out;
+            text-shadow: .5rem 1rem 2rem rgba($color-black, .2) ;
+        }
+
+        &-sub {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1.3rem;
+            animation: moveInRight 1s ease-out;
+            margin-bottom: 6rem;
+            text-shadow: .5rem 1rem 2rem rgba($color-black, .2) ;
+        }
+    }
+
 }
