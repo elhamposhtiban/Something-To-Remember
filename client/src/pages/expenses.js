@@ -97,7 +97,8 @@ useEffect ( () => {
 
    console.log("this is current BUdget", currentBudget)
    console.log("this is show budgett", showBudget.totalBudget)
-   setShowBudget(currentBudget);
+   setShowBudget(prevState => ({ ...prevState, totalBudget: currentBudget }));
+  //  setShowBudget(currentBudget);
 
 
   }
@@ -120,13 +121,13 @@ useEffect ( () => {
       
         });
 
-        const totalBudgetFunc = async function() {
-          const finalBudget = await handleCurrentBudget();
-          setShowBudget(finalBudget);
-          console.log("this is a final budget", finalBudget)
-        }
+        // const totalBudgetFunc = async function() {
+        //   const finalBudget = await handleCurrentBudget();
+        //   setShowBudget(finalBudget);
+        //   console.log("this is a final budget", finalBudget)
+        // }
 
-        totalBudgetFunc();
+        // totalBudgetFunc();
 
         handleCurrentBudget()
         loadExpenses();
