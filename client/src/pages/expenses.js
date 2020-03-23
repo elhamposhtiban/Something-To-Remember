@@ -89,16 +89,18 @@ useEffect ( () => {
   };
 
 
-  // const handleCurrentBudget = event => {
-  //   const value = event.target.value;
-  //   setExpensesInput({
-  //     amount,
-  //     [name]: value
-  //   });
-  //  const currentBudget =  showBudget.totalBudget - amount.value 
+  const handleCurrentBudget = () => {
 
-  //  setShowBudget(currentBudget);
-  // }
+   const currentBudget =  showBudget.totalBudget - expensesInput.amount
+
+   console.log("i am working")
+
+   console.log("this is current BUdget", currentBudget)
+   console.log("this is show budgett", showBudget.totalBudget)
+   setShowBudget(currentBudget);
+
+
+  }
 
 
   const handleExpensesSubmit = async event => {
@@ -118,7 +120,15 @@ useEffect ( () => {
       
         });
 
-// handleCurrentBudget ();
+        const totalBudgetFunc = async function() {
+          const finalBudget = await handleCurrentBudget();
+          setShowBudget(finalBudget);
+          console.log("this is a final budget", finalBudget)
+        }
+
+        totalBudgetFunc();
+
+        handleCurrentBudget()
         loadExpenses();
         console.log("hi i am success!!")
       } catch (error) {
@@ -138,21 +148,22 @@ useEffect ( () => {
         <Expensesform
 
         handleInputChange = {handleInputChange}
-
         handleExpensesSubmit = {handleExpensesSubmit}
+        showBudget = {showBudget}
         expensesInput = {expensesInput}
 
         expenses = {expenses}
         />
-
+{/* 
     {showBudget?
 
           <div>  hiiii {showBudget.totalBudget} </div> : null
-        }
+        } */}
 
     {expenses.length ?
         <ExpensesResult
          expenses = {expenses}
+         loadExpenses = {loadExpenses}
         />
         :null}
 
@@ -167,62 +178,3 @@ export default Expenses;
 
 
 
-
-
-
-///////////////////// this are for budget that i wanna keep them for now comment 
-
-  // const [budgetInput, setBudgetInput] = useState("");
-
-// useEffect ( () => {
-//     loadBudget ();
-// }, []);
-
-
-  //function for handling input change for budget 
-  // const handleInputChangeBudget = event => {
-  //   setBudgetInput(event.target.value);
-  //   console.log(budgetInput)
-
-  // };
-
-  // const loadBudget = async () => {
-//     try {
-//       const response = await API.getAllExpenses();
-//       setExpenses(response.data);
-//       console.log('expenses is hereee', response.data)
-//     } catch (error) {
-//       console.group("it can not load todo list");
-//       console.log(error);
-//       console.groupEnd();
-//     }
-//   };
-
-
-  // const handleBudgetSubmit = async event => {
-  //   console.log("hi i am actually getting the data")
-  //   event.preventDefault();
-  //    {
-  //     try {
-  //       await API.saveExpenses({
-  //         budgetInput,
-  //       });
-  //       setBudgetInput("")
-    
-  //       let budget = budgetInput.reduce((total, value) => {
-  //         return total.amount - value.amount;
-  //       });
-  //       console.log(budget)
-  //       setBudgetInput(budget);
-  //       console.log("i am budget")
-  //     } catch (error) {
-  //       console.group("i am not working BUDGET");
-  //       console.log(error);
-  //       console.groupEnd();
-  //     }
-  //   }
-  // };
-
-  // handleInputChangeBudget= {handleInputChangeBudget}
-  // handleBudgetSubmit = {handleBudgetSubmit}
-  // budgetInput = {budgetInput}

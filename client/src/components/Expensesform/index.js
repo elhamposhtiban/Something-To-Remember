@@ -19,12 +19,10 @@ const propType = {
       }
 
 const Expensesform = ({
-    handleInputChangeBudget,
     handleInputChange,
     expensesInput,
-    budgetInput,
-    handleBudgetSubmit,
-    handleExpensesSubmit
+    handleExpensesSubmit,
+    showBudget
 })  => {
 
     //this is a use state for showing and hiding the budget form
@@ -47,10 +45,15 @@ const Expensesform = ({
                 type="button"
                 className="btn btn--white budget-manage-btn"
                 onClick= {showHandler}>
-                    add your budget
+                    add your expenses
                 </button>
             </div>
             <div className= "col-2-of-2">
+                
+            {showBudget?
+
+            <div className="total-budget"> this is your total budget {showBudget.totalBudget} $ </div> : null
+            }
             </div>
         </div>
 
@@ -66,7 +69,7 @@ const Expensesform = ({
 
                         <div className=" u-margin-bottom-medium">
                             <h2 className="heading-secondary">
-                            set Your budget
+                            set Your expenses
                             </h2>
                         </div>
 

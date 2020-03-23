@@ -1,0 +1,39 @@
+
+.form-survey {
+    
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+
+    }
+    &__input{
+    font-size: inherit;
+    margin-top: 0;
+    padding:1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-purple-light, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all .3s;
+
+    &:focus {
+        outline: none;
+        box-shadow: 1rem 2rem rgba($color-white , .2);
+        border-bottom: 3px solid $color-pink-light-0;
+    }
+
+    &:focus:invalid {
+        border-bottom: 3px solid $color-alert;
+    }
+
+    &::-webkit-input-placeholder {
+        color:$color-grey-dark-3;
+    }
+
+    &__icon {
+        color: $color-grey-light-1;
+    }
+    
+}
+}

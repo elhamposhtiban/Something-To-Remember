@@ -59,3 +59,33 @@
     background-size: cover;
     min-height: 100vh;
 }
+
+
+.section-survey {
+    padding: 10rem;
+    background-color: $color-grey-light-1;
+    min-height: 100vh;
+}
+.Survey {
+    background-image:linear-gradient(105deg, rgba($color-white, .7) 0%,
+    rgba($color-white, .7) 48%,
+     transparent 48%) ,
+      url(../../assets/survey.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .20);
+    height: 50rem;
+    width: 60%;
+    margin-top: 2rem;
+    position: absolute;
+    top: 9%;
+    left: 20%;
+    animation: moveInRight 1s ease-out;
+    &__form {
+
+        width: 48%;
+        height: 40%;
+        padding: 3rem;
+        margin-top: 3rem;
+    }
+}
