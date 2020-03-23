@@ -5,6 +5,8 @@ import { faTrash,
          faCheck 
         } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 const ToDolistCard = (
     {
       handleDateChange,

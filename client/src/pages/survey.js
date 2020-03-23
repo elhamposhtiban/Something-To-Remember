@@ -1,8 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import {useSelector} from "react-redux";
 import API from "../utils/API";
-import SurveyForm from "../components/SurveyForm/index"
-const Survey = () => {
+import SurveyForm from "../components/SurveyForm/index";
+
+
+
+
+const Survey = (props) => {
+
     const result = useSelector (state => state.auth.user)
     console.log( "this is result", result)
    
@@ -16,12 +21,10 @@ const Survey = () => {
           location: "",
           totalBudget: Number,
           date: new Date(),
-  
         }
     );
   
-    //updating user claim with this state
-    const [upUserClaim, setUpUserClaim] = useState([])
+
   
     const onchangeSurveyHandler = (e) => {
         const {name, value} = e.target;
@@ -70,6 +73,7 @@ const Survey = () => {
         try {
           await API.saveWedding({
             ...surveyInput,
+            user_id: result.id
           });
           setWeddingProfile({
               brideName: "",
@@ -77,8 +81,10 @@ const Survey = () => {
               location: "",
               totalBudget: "",
               date: new Date(),
+            
           });
           loadWeddingProfile();
+          props.history.push("dashboard");
           console.log("success wedding profile")
         } catch (error) {
           console.group("SUBMIT FORM");
@@ -87,16 +93,21 @@ const Survey = () => {
         }
       }
     };
+    
         
     return( 
       
-<SurveyForm
-onchangeSurveyHandler ={onchangeSurveyHandler}
-handleDateSurvey ={handleDateSurvey}
-handleSubmitProfile = {handleSubmitProfile}
-loadWeddingProfile = {loadWeddingProfile}
-surveyInput = {surveyInput}
-/>
+      <React.Fragment>
+            
+            <SurveyForm
+            onchangeSurveyHandler ={onchangeSurveyHandler}
+            handleDateSurvey ={handleDateSurvey}
+            handleSubmitProfile = {handleSubmitProfile}
+            loadWeddingProfile = {loadWeddingProfile}
+            surveyInput = {surveyInput}
+            />
+
+      </React.Fragment>
       )
   }
   

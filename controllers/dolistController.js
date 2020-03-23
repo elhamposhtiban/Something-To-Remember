@@ -23,6 +23,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findByUserId: function(req, res) {
+    console.log("this is req.params.id",req.params.id )
+    db.Dolist
+      .find({user_id: req.params.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   create: function(req, res) {
     console.log("hey this is your req.body",req.body)
     console.log(req.user)

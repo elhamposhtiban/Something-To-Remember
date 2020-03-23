@@ -1,0 +1,13 @@
+.about {
+    
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 3rem 6rem rgba($color-black, .4);
+    background-color: $color-white;
+    border-radius: 3rem;
+    padding:6rem;
+    padding-left: 7rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+}

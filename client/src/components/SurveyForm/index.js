@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {useSelector} from "react-redux"
 import DatePicker from "react-datepicker";
-import API from "../../utils/API";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,12 +9,12 @@ import {
     faLocationArrow,
     faDollarSign,
    } from "@fortawesome/free-solid-svg-icons";
+
 const SurveyForm = (
   {
     onchangeSurveyHandler,
     handleDateSurvey,
     handleSubmitProfile ,
-    loadWeddingProfile ,
     surveyInput,
   }
 ) => {
@@ -26,6 +25,7 @@ const SurveyForm = (
       <div className="ToDoList">
           <div className="ToDoList__form">
             <form className = " form-toDoList">
+
                 <div className="form-toDoList__group input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -79,6 +79,7 @@ const SurveyForm = (
                     />
                     <label className ="Dolist-label" htmlFor="location"> Location</label>
                 </div>
+
                 <div className="form-toDoList__group input-group">
                   <DatePicker
                     selected={surveyInput.date}

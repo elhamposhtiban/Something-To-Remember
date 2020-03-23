@@ -51,23 +51,6 @@ const Expensesform = ({
                 </button>
             </div>
             <div className= "col-2-of-2">
-                
-                <label className ="expenses-label" htmlFor="budget"> Specify your total budget($)</label>
-                <input
-                    id="budget"
-                    name= "budget"
-                    type="number"
-                    className="form-control input-expenses"
-                    placeholder="budget"
-                    onChange = {event => handleInputChangeBudget(event)}
-                    value = {budgetInput}
-                />
-                    <button 
-                    className="btn btn--white mt-3"
-                    type="submit"
-                    onClick = {handleBudgetSubmit}
-                      >submit
-                    </button>
             </div>
         </div>
 

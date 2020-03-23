@@ -7,45 +7,60 @@ import {useSelector} from "react-redux"
 
 const Expenses = () => {
 
-  const result = useSelector (state => state.auth.user)
+
+  // this is for linking user-id to state 
+  const result = useSelector (state => state.auth.user.id)
   console.log( "this is result", result)
 
-const [expenses, setExpenses] = useState([]);
-const [budgetInput, setBudgetInput] = useState("");
-const [expensesInput, setExpensesInput] = useState({
+  //this state is for showing budget that we grabbing from survey page
+  const [showBudget, setShowBudget] = useState({})
+
+  //this state is for storing data, and reading data
+  const [expenses, setExpenses] = useState([]);
+  
+    // this state is for grabbing info from the form inputs 
+  const [expensesInput, setExpensesInput] = useState({
 
     itemName: "",
     amount: Number,
     category: "",
     note: ""
 
-})
+      })
 
-console.log(expensesInput)
+  const userId =result
+  console.log("this is userid", userId)
 
 
-useEffect ( () => {
-    loadBudget ();
-}, []);
+
+  useEffect(() => {
+    const displayB = async function() {
+      const showBudgets = await displayBudget();
+      setShowBudget(showBudgets);
+      console.log("this is a showBudgets", showBudgets)
+    }
+    displayB();
+  }, []);
+  
+
+  const displayBudget = async () => {
+    try {
+      const response = await API.getAllByUserIdWedding(userId);
+      console.log('you should show me user links', response.data)
+      return response.data[0] 
+
+    } catch (error) {
+      console.group("it can not load wedding profile");
+      console.log(error);
+      console.groupEnd();
+    }
+
+  };
 
 
 useEffect ( () => {
     loadExpenses ();
 }, []);
-
-
-
-const loadBudget = async () => {
-    try {
-      const response = await API.getAllExpenses();
-      setExpenses(response.data);
-      console.log('expenses is hereee', response.data)
-    } catch (error) {
-      console.group("it can not load todo list");
-      console.log(error);
-      console.groupEnd();
-    }
-  };
 
 
   const loadExpenses = async () => {
@@ -60,12 +75,7 @@ const loadBudget = async () => {
     }
   };
 
-  // function for handling input change for budget 
-  const handleInputChangeBudget = event => {
-    setBudgetInput(event.target.value);
-    console.log(budgetInput)
 
-  };
 
   // function for handling input change for form
   const handleInputChange = event => {
@@ -78,29 +88,18 @@ const loadBudget = async () => {
     console.log(expensesInput)
   };
 
-  const handleBudgetSubmit = async event => {
-    console.log("hi i am actually getting the data")
-    event.preventDefault();
-     {
-      try {
-        await API.saveExpenses({
-          budgetInput,
-        });
-        setBudgetInput("")
-    
-        let budget = budgetInput.reduce((total, value) => {
-          return total.amount - value.amount;
-        });
-        console.log(budget)
-        setBudgetInput(budget);
-        console.log("i am budget")
-      } catch (error) {
-        console.group("i am not working BUDGET");
-        console.log(error);
-        console.groupEnd();
-      }
-    }
-  };
+
+  // const handleCurrentBudget = event => {
+  //   const value = event.target.value;
+  //   setExpensesInput({
+  //     amount,
+  //     [name]: value
+  //   });
+  //  const currentBudget =  showBudget.totalBudget - amount.value 
+
+  //  setShowBudget(currentBudget);
+  // }
+
 
   const handleExpensesSubmit = async event => {
     console.log("hi i am actually getting the data")
@@ -109,6 +108,7 @@ const loadBudget = async () => {
       try {
         await API.saveExpenses({
           ...expensesInput,
+          user_id: result
         });
         setExpensesInput({
           itemName: "",
@@ -118,6 +118,7 @@ const loadBudget = async () => {
       
         });
 
+// handleCurrentBudget ();
         loadExpenses();
         console.log("hi i am success!!")
       } catch (error) {
@@ -129,27 +130,99 @@ const loadBudget = async () => {
   };
 
 
+
     return (
       <React.Fragment>
+
         <section className="section-budget">
         <Expensesform
-        handleInputChangeBudget= {handleInputChangeBudget}
+
         handleInputChange = {handleInputChange}
-        handleBudgetSubmit = {handleBudgetSubmit}
+
         handleExpensesSubmit = {handleExpensesSubmit}
         expensesInput = {expensesInput}
-        budgetInput = {budgetInput}
+
         expenses = {expenses}
         />
+
+    {showBudget?
+
+          <div>  hiiii {showBudget.totalBudget} </div> : null
+        }
 
     {expenses.length ?
         <ExpensesResult
          expenses = {expenses}
         />
         :null}
+
         </section>
-        </React.Fragment>
+
+      </React.Fragment>
     )
 }
 
 export default Expenses;
+
+
+
+
+
+
+
+///////////////////// this are for budget that i wanna keep them for now comment 
+
+  // const [budgetInput, setBudgetInput] = useState("");
+
+// useEffect ( () => {
+//     loadBudget ();
+// }, []);
+
+
+  //function for handling input change for budget 
+  // const handleInputChangeBudget = event => {
+  //   setBudgetInput(event.target.value);
+  //   console.log(budgetInput)
+
+  // };
+
+  // const loadBudget = async () => {
+//     try {
+//       const response = await API.getAllExpenses();
+//       setExpenses(response.data);
+//       console.log('expenses is hereee', response.data)
+//     } catch (error) {
+//       console.group("it can not load todo list");
+//       console.log(error);
+//       console.groupEnd();
+//     }
+//   };
+
+
+  // const handleBudgetSubmit = async event => {
+  //   console.log("hi i am actually getting the data")
+  //   event.preventDefault();
+  //    {
+  //     try {
+  //       await API.saveExpenses({
+  //         budgetInput,
+  //       });
+  //       setBudgetInput("")
+    
+  //       let budget = budgetInput.reduce((total, value) => {
+  //         return total.amount - value.amount;
+  //       });
+  //       console.log(budget)
+  //       setBudgetInput(budget);
+  //       console.log("i am budget")
+  //     } catch (error) {
+  //       console.group("i am not working BUDGET");
+  //       console.log(error);
+  //       console.groupEnd();
+  //     }
+  //   }
+  // };
+
+  // handleInputChangeBudget= {handleInputChangeBudget}
+  // handleBudgetSubmit = {handleBudgetSubmit}
+  // budgetInput = {budgetInput}

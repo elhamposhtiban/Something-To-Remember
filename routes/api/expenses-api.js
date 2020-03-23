@@ -8,8 +8,6 @@ router
 .route("/")
 .get(expensesController.findAll)
 .post(expensesController.create);
-// .post((req, res)=> {console.log(req.body); res.send(`hi`)} )
-
 
 
 // Matches with "/api/expenses/:id"
@@ -18,5 +16,10 @@ router
 .get(expensesController.findById)
 .put(expensesController.update)
 .delete(expensesController.remove);
+
+// Matches with "/api/expenses/user/:id"
+router
+.route("/user/:id")
+.get(expensesController.findByUserId);
 
 module.exports = router

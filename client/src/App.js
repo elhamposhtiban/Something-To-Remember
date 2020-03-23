@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -29,6 +29,7 @@ if(localStorage.jwtToken) {
 
 const App = () => {
 
+
     return (
       <Provider store = { store }>
 
@@ -38,7 +39,7 @@ const App = () => {
                   <RouteWrapper exact path="/dashboard" component={ Home } layout={LayoutTwo}/>
                   <RouteWrapper exact path="/" component={ Header } layout={LayoutOne} />
                   <RouteWrapper exact path="/register" component={ Register } layout={LayoutOne} />
-                  <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne} />
+                  <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne}/>
                   <RouteWrapper exact path="/dolist" component={Dolist} layout={LayoutTwo} />
                   <RouteWrapper exact path="/budget" component={Budget} layout={LayoutTwo} />
                 </Switch>
@@ -64,3 +65,18 @@ const App = () => {
   
 }
 export default App;
+
+
+
+
+
+  // const [showName, setShowName] = useState();
+
+  // const handlerShow = (profile) => {
+  
+  //   setShowName(profile)
+  // }
+
+
+  // <RouteWrapper exact path="/dashboard" component={ Home } layout={LayoutTwo} showName = {showName} />
+  // <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne} handlerShow= {handlerShow}/>
