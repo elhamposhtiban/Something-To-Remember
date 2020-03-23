@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
+
 const displayExpenses = ({
 
     expenses,
@@ -98,3 +99,26 @@ const displayExpenses = ({
 
 
 export default displayExpenses;
+
+
+
+
+
+
+
+
+
+//     <ul className="list-group">
+
+//     { expenses?.length && expenses.map(item => ( 
+
+//     <expensesCard
+//     key={item._id}
+//     item = {item}
+//     handleInputChange = {handleInputChange}
+//     deleteHandler = {deleteHandler}
+//     />
+
+
+//     ))}
+// </ul>
