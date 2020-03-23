@@ -22,14 +22,16 @@ const SurveyForm = (
   console.log( "this is result", result)
     return( 
       
-      <div className="ToDoList">
-          <div className="ToDoList__form">
-            <form className = " form-toDoList">
+      <section className="section-survey">
 
-                <div className="form-toDoList__group input-group">
+        <div className="Survey"> 
+          <div className="Survey__form">
+            <form className = " form-survey">
+
+                <div className="form-survey__group input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
-                      <FontAwesomeIcon className="form__icon fa-2x" icon={faFemale} />
+                      <FontAwesomeIcon className="form-survey__icon fa-2x" icon={faFemale} />
                       </span>
                     </div>
                     <input
@@ -38,16 +40,16 @@ const SurveyForm = (
                         value = {surveyInput.name}
                         onChange={onchangeSurveyHandler}
                         type="text"
-                        className="form-control form-toDoList__input"
+                        className="form-control form-survey__input"
                         placeholder="Bride Name"
                     />
                     <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
                 </div>
                 
-                <div className="form-toDoList__group input-group">
+                <div className="form-survey__group input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
-                      <FontAwesomeIcon className="form__icon fa-2x" icon={faMale} />
+                      <FontAwesomeIcon className="form-survey__icon fa-2x" icon={faMale} />
                       </span>
                     </div>
                     <input
@@ -56,16 +58,16 @@ const SurveyForm = (
                         value = {surveyInput.name}
                         onChange={onchangeSurveyHandler}
                         type="text"
-                        className="form-control form-toDoList__input"
+                        className="form-control form-survey__input"
                         placeholder="Groom Name"
                     />
                     <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
                 </div>
                                 
-                <div className="form-toDoList__group input-group">
+                <div className="form-survey__group input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
-                      <FontAwesomeIcon className="form__icon fa-2x" icon={faLocationArrow} />
+                      <FontAwesomeIcon className="form-survey__icon fa-2x" icon={faLocationArrow} />
                       </span>
                     </div>
                     <input
@@ -74,13 +76,13 @@ const SurveyForm = (
                         value = {surveyInput.name}
                         onChange={onchangeSurveyHandler}
                         type="text"
-                        className="form-control form-toDoList__input"
+                        className="form-control form-survey__input"
                         placeholder="Location"
                     />
                     <label className ="Dolist-label" htmlFor="location"> Location</label>
                 </div>
 
-                <div className="form-toDoList__group input-group">
+                <div className="form-survey__group input-group">
                   <DatePicker
                     selected={surveyInput.date}
                     onChange={date => handleDateSurvey(date)}
@@ -90,15 +92,15 @@ const SurveyForm = (
                     timeCaption="time"
                     dateFormat="MMMM d, yyyy h:mm aa"
                     id="date"
-                    className="form-control form-toDoList__input"
+                    className="form-control form-survey__input"
                   />
                    <label className ="Dolist-label" htmlFor="date"> Date</label>
                 </div>
                 
-                <div className="form__group input-group">
+                <div className="form-survey__group input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
-                        <FontAwesomeIcon className="form__icon fa-2x" icon={faDollarSign} />
+                        <FontAwesomeIcon className="form-survey__icon fa-2x" icon={faDollarSign} />
                         </span>
                     </div>
                     <input 
@@ -122,7 +124,8 @@ const SurveyForm = (
             
           </form>
         </div>
-    </div>
+        </div>
+    </section>
     )
 }
 export default SurveyForm;

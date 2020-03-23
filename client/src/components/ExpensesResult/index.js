@@ -54,13 +54,14 @@ const displayExpenses = ({
  
 
                <h1>{item.budget}</h1>
+               
                 <h2>
                     {item.itemName}
                 </h2>
+
                 <h2> 
                     {item.amount}
                 </h2>
-
 
                 <h4>
                     {item.category}
