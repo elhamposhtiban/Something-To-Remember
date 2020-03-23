@@ -27,7 +27,7 @@ class Navbar extends Component {
         <nav className="navigation__nav">
             <ul className="navigation__list">
 
-                <li className="navigation__item"><a href="/dashboard" className="navigation__link">Dash Board</a></li>
+                <li className="navigation__item"><a href="/dashboard" className="navigation__link">DashBoard</a></li>
                 <li className="navigation__item"><a href="/dolist" className="navigation__link">check list</a></li>
                 <li className="navigation__item"><a href="/budget" className="navigation__link">budgeter</a></li>
                 <li className="navigation__item">

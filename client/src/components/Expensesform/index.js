@@ -43,7 +43,7 @@ const Expensesform = ({
             <div className="col-1-of-2">
                 <button 
                 type="button"
-                className="btn btn--white budget-manage-btn"
+                className="btn btn--pink budget-manage-btn"
                 onClick= {showHandler}>
                     add your expenses
                 </button>

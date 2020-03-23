@@ -83,18 +83,18 @@ const SurveyForm = (
                     <label className ="form-survey__label" htmlFor="location">Location</label>
                 </div>
 
-                <div className="form-survey__group input-group">
-                  <DatePicker
+                    <div className="form-toDoList__group input-group">
+                    <DatePicker
                     selected={surveyInput.date}
                     onChange={date => handleDateSurvey(date)}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={15}
-                    timeCaption="time"
-                    dateFormat="MMMM d, yyyy h:mm aa"
-                    id="date"
-                    className="form-control form-survey__input"
-                  />
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeIntervals={15}
+                      timeCaption="time"
+                      dateFormat="MMMM d, yyyy h:mm aa"
+                      id="date"
+                      className="form-control form-toDoList__input"
+                    />
                    <label className ="form-survey__label" htmlFor="date"> Date </label>
                 </div>
 

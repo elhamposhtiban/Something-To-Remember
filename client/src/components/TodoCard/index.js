@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ToDolistCard = (
     {
-      handleDateChange,
         deleteHandler ,
         item
     }
@@ -18,18 +17,21 @@ const ToDolistCard = (
     const [editTitle, setEditTitle] = useState(false);
     const [editNote, setEditNote] = useState(false);
     const [editDate, setEditDate] = useState(false);
+
      const time = new Date(item.dueDate)
      console.log(time)
+
     const todo = {
         title: item.title,
         dueDate: time.toDateString(), 
         _id: item._id,
         description: item.description
     }
+
     // here am making one state to use in handle change for edit part
     const [editInput, setEditInput] = useState(todo);
     // function for handling input change 
-  const handleEditChange = event => {
+    const handleEditChange = event => {
     const { name, value } = event.target;
     setEditInput({
       ...editInput,

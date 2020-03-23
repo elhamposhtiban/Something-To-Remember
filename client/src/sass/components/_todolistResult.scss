@@ -9,6 +9,7 @@
 &__item {
   margin: 1rem;
   border-radius: 2rem;
+  list-style: none;
   animation: moveInLeft 1s ease-out;
   background-image: linear-gradient(to right bottom, $color-pink-light-0, $color-purple-dark-0);
 };
