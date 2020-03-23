@@ -41,7 +41,6 @@ const FormDolist = (
                       className="form-control form-toDoList__input"
                       placeholder="title"
                     />
-                    {/* <label className ="Dolist-label" htmlFor="dolist">title</label> */}
 
                 </div>
 
@@ -75,8 +74,6 @@ const FormDolist = (
                     placeholder="description"
                     onChange={handleInputChange} 
                   />
-
-                    {/* <label className ="Dolist-label" htmlFor="description">description</label> */}
 
                 </div>
                   

@@ -1,3 +1,4 @@
+
 import React from "react";
 import {useSelector} from "react-redux"
 import DatePicker from "react-datepicker";
@@ -43,7 +44,7 @@ const SurveyForm = (
                         className="form-control form-survey__input"
                         placeholder="Bride Name"
                     />
-                    <label className ="Dolist-label" htmlFor="bride"> Bride Name</label>
+                    <label className ="form-survey__label" htmlFor="bride"> Who's the lucky bride</label>
                 </div>
                 
                 <div className="form-survey__group input-group">
@@ -61,7 +62,7 @@ const SurveyForm = (
                         className="form-control form-survey__input"
                         placeholder="Groom Name"
                     />
-                    <label className ="Dolist-label" htmlFor="groom"> Groom Name</label>
+                    <label className ="form-survey__label" htmlFor="groom"> Who's the lucky groom</label>
                 </div>
                                 
                 <div className="form-survey__group input-group">
@@ -79,7 +80,7 @@ const SurveyForm = (
                         className="form-control form-survey__input"
                         placeholder="Location"
                     />
-                    <label className ="Dolist-label" htmlFor="location"> Location</label>
+                    <label className ="form-survey__label" htmlFor="location">Location</label>
                 </div>
 
                 <div className="form-survey__group input-group">
@@ -94,9 +95,9 @@ const SurveyForm = (
                     id="date"
                     className="form-control form-survey__input"
                   />
-                   <label className ="Dolist-label" htmlFor="date"> Date</label>
+                   <label className ="form-survey__label" htmlFor="date"> Date </label>
                 </div>
-                
+
                 <div className="form-survey__group input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
@@ -108,13 +109,14 @@ const SurveyForm = (
                     name= "totalBudget"
                     type="number"
                     placeholder="Total Budget"
-                    className="form__input"
+                    className="form-survey__input"
                     value = {surveyInput.name}
                     onChange={onchangeSurveyHandler}
                     required/>
-                    <label htmlFor="totalBudget" className="form__label">Total Budget</label>
+                    <label htmlFor="totalBudget" className="form-survey__label">Total Budget</label>
                 
                 </div>
+               
                 <button 
                 //   disabled={!(doListInput.title && doListInput.description)}
                    onClick= {handleSubmitProfile}

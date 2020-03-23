@@ -97,8 +97,7 @@ useEffect ( () => {
 
    console.log("this is current BUdget", currentBudget)
    console.log("this is show budgett", showBudget.totalBudget)
-   setShowBudget(currentBudget);
-
+   setShowBudget(prevState => ({ ...prevState, totalBudget: currentBudget }));
 
   }
 
@@ -119,14 +118,6 @@ useEffect ( () => {
           note: ""
       
         });
-
-        const totalBudgetFunc = async function() {
-          const finalBudget = await handleCurrentBudget();
-          setShowBudget(finalBudget);
-          console.log("this is a final budget", finalBudget)
-        }
-
-        totalBudgetFunc();
 
         handleCurrentBudget()
         loadExpenses();
@@ -154,11 +145,7 @@ useEffect ( () => {
 
         expenses = {expenses}
         />
-{/* 
-    {showBudget?
 
-          <div>  hiiii {showBudget.totalBudget} </div> : null
-        } */}
 
     {expenses.length ?
         <ExpensesResult
