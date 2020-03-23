@@ -153,6 +153,7 @@ useEffect ( () => {
     {expenses.length ?
         <ExpensesResult
          expenses = {expenses}
+         loadExpenses = {loadExpenses}
         />
         :null}
 
