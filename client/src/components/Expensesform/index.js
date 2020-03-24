@@ -19,12 +19,10 @@ const propType = {
       }
 
 const Expensesform = ({
-    handleInputChangeBudget,
     handleInputChange,
     expensesInput,
-    budgetInput,
-    handleBudgetSubmit,
-    handleExpensesSubmit
+    handleExpensesSubmit,
+    showBudget
 })  => {
 
     //this is a use state for showing and hiding the budget form
@@ -45,29 +43,17 @@ const Expensesform = ({
             <div className="col-1-of-2">
                 <button 
                 type="button"
-                className="btn btn--white budget-manage-btn"
+                className="btn btn--pink budget-manage-btn"
                 onClick= {showHandler}>
-                    add your budget
+                    add your expenses
                 </button>
             </div>
             <div className= "col-2-of-2">
                 
-                <label className ="expenses-label" htmlFor="budget"> Specify your total budget($)</label>
-                <input
-                    id="budget"
-                    name= "budget"
-                    type="number"
-                    className="form-control input-expenses"
-                    placeholder="budget"
-                    onChange = {event => handleInputChangeBudget(event)}
-                    value = {budgetInput}
-                />
-                    <button 
-                    className="btn btn--white mt-3"
-                    type="submit"
-                    onClick = {handleBudgetSubmit}
-                      >submit
-                    </button>
+            {showBudget?
+
+            <div className="total-budget"> this is your total budget {showBudget.totalBudget} $ </div> : null
+            }
             </div>
         </div>
 
@@ -83,7 +69,7 @@ const Expensesform = ({
 
                         <div className=" u-margin-bottom-medium">
                             <h2 className="heading-secondary">
-                            set Your budget
+                            set Your expenses
                             </h2>
                         </div>
 

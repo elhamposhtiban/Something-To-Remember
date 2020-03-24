@@ -63,15 +63,20 @@
     display: block;
 }
 
-.expenses-label {
-    font-size: inherit;
-    text-transform: uppercase;
+.total-budget {
+    font-size: 2rem;
     font-weight: 700;
+    text-transform: uppercase;
     display: inline-block;
-    background-image:linear-gradient(to right bottom, $color-purple-dark-2, $color-purple-dark-0);
+    background-image:linear-gradient(to right bottom, $color-grey-dark, $color-grey-dark-2);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     margin-bottom: 2rem;
+    margin-right: 1rem;
     letter-spacing: .2rem;
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2) ;
+    animation: moveInRight 1s ease-out;
 }
+
+

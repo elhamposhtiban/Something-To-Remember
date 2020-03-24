@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 export const registerUser = (user, history) => dispatch => {
     axios.post('/api/users/register', user)
             .then(res => {
-                history.push('/dashboard');
+                history.push('/survey');
                 console.log('i can read this part', res);
                 dispatch(setCurrentUser({id: res.data._id}));
             })

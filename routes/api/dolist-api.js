@@ -17,4 +17,10 @@ router
 .put(dolistController.update)
 .delete(dolistController.remove);
 
+
+// Matches with "/api/dolist/user/:id"
+router
+.route("/user/:id")
+.get(dolistController.findByUserId);
+
 module.exports = router

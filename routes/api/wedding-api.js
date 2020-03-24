@@ -1,20 +1,25 @@
 const router = require("express").Router();
-const dolistController = require ("../../controllers/weddingController");
+const weddingController = require ("../../controllers/weddingController");
 
 
 // Matches with "/api/wedding"
 
 router
 .route("/")
-.get(dolistController.findAll)
-.post(dolistController.create);
+.get(weddingController.findAll)
+.post(weddingController.create);
 
 
 // Matches with "/api/wedding/:id"
 router
 .route("/:id")
-.get(dolistController.findById)
-.put(dolistController.update)
-.delete(dolistController.remove);
+.get(weddingController.findById)
+.put(weddingController.update)
+.delete(weddingController.remove);
+
+// Matches with "/api/wedding/user/:id"
+router
+.route("/user/:id")
+.get(weddingController.findByUserId);
 
 module.exports = router
