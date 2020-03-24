@@ -53,7 +53,7 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item className="carousel">
+        {/* <Carousel.Item className="carousel">
           <img
             className="d-block w-100 carousel__img"
             src="https://www.brides.com/thmb/8Rvt7SaouAlrdp_L_4Es0feG4uE=/2400x2400/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__brides__proteus__5c1931e79abd092cf4bd393a__11-f2d4ff86cd6b4e1bb09ba0dab4d10068.jpeg"
@@ -64,7 +64,7 @@ const Home = () => {
             <h3>4thslide label</h3>
           
           </Carousel.Caption>
-        </Carousel.Item> 
+        </Carousel.Item>  */}
 
         <Carousel.Item className="carousel">
           <img
