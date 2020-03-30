@@ -24,23 +24,23 @@ Demo : ![Application](/client/public/some-thing-to-remember.webm)
 
 
 ## Tech Stack
-•	Language : React, JSX, Javascript.  
-•	Framework : Sass, Bootstrap.
-•	Routing : Express.
-•	Database : Mongoose.
+-	Language : React, JSX, Javascript.  
+-	Framework : Sass, Bootstrap.
+-	Routing : Express.
+-	Database : Mongoose.
 
 ## MVP
-•	User Authentification   
-•	Creating Check list 
-•	Expenses Tracking  
-•	Design UI with Sass 
+-	User Authentification   
+-	Creating Check list 
+-	Expenses Tracking  
+-	Design UI with Sass 
 
 
 ## Stretch Goals
-•	Making a gift list for guests with sharing features.
-•	Allowing users to provide reviews and leave comments.
-•	Adding the multi-languages feature to all application.    
-•	Adding advice & articles page related to the purpose of the application.
+-	Making a gift list for guests with sharing features.
+-	Allowing users to provide reviews and leave comments.
+-	Adding the multi-languages feature to all application.    
+-	Adding advice & articles page related to the purpose of the application.
 
 
 
