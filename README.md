@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-it is a wedding planner. you can manage the big day of your life with using our application which gives you a chance to make a To Do list and manage your expanses here you just have to count on us.
+Something To Remember is a wedding planner application. For those couples who want to get married and they need help to simply manage their dream day. here we offer them really cool features in our application.  
 ## Developers
 
 - **Developer 1: Elham Poshtiban**
@@ -14,29 +14,35 @@ it is a wedding planner. you can manage the big day of your life with using our 
   - Portfolio: https://makahal.github.io/Basic-Portfolio/
   - Github: https://github.com/MAKAHAL
   - LinkedIn: https://www.linkedin.com/in/makah-abutahoun-51a14b192/
-  
+
+## Deployment   
+
+ [Link](https://some-thing-to-remember.herokuapp.com/)   
 
 ## Animated Gifs/Pictures of App
-
+Demo : ![Application](/client/src/assets/some-thing-to-remember.webm)
 
 
 ## Tech Stack
-
-
-
-## APIs
-
+•	Language : React, JSX, Javascript.  
+•	Framework : Sass, Bootstrap.
+•	Routing : Express.
+•	Database : Mongoose.
 
 ## MVP
+•	User Authentification   
+•	Creating Check list 
+•	Expenses Tracking  
+•	Design UI with Sass 
 
 
 ## Stretch Goals
+•	Making a gift list for guests with sharing features.
+•	Allowing users to provide reviews and leave comments.
+•	Adding the multi-languages feature to all application.    
+•	Adding advice & articles page related to the purpose of the application.
 
 
 
-## Future Development
-- Auto generate item IDS  -> Query based on names
-
-## Credits/Resources
 
 
