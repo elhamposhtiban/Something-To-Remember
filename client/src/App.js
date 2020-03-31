@@ -70,13 +70,3 @@ export default App;
 
 
 
-  // const [showName, setShowName] = useState();
-
-  // const handlerShow = (profile) => {
-  
-  //   setShowName(profile)
-  // }
-
-
-  // <RouteWrapper exact path="/dashboard" component={ Home } layout={LayoutTwo} showName = {showName} />
-  // <RouteWrapper exact path="/survey" component={ Survey } layout={LayoutOne} handlerShow= {handlerShow}/>

@@ -56,9 +56,6 @@ const Home = ({}) => {
   // console.log(showName.date)
 
  
-
-  
-
     return ( 
 
       <section className="section-home">
