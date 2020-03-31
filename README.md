@@ -20,7 +20,7 @@ Something To Remember is a wedding planner application. For those couples who wa
  [Link](https://some-thing-to-remember.herokuapp.com/)   
 
 ## Animated Gifs/Pictures of App
-Demo : 
+ 
  1:  ![Application](/client/src/assets/2.gif)
 
  2:  ![Application](/client/src/assets/3.gif)
