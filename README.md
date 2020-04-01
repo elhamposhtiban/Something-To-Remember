@@ -15,6 +15,15 @@ Something To Remember is a wedding planner application. For those couples who wa
   - Github: https://github.com/MAKAHAL
   - LinkedIn: https://www.linkedin.com/in/makah-abutahoun-51a14b192/
 
+## Getting started 
+Click the deployed link below to use the application on the Heroku server, or follow the instructions below for local use.
+
+Local Use
+- use the clone button above copy the repository clone there.
+- clone this repo to a local directory.
+- run command 'npm install' to install necessary dependencies.
+- then run command 'npm start' to launch the application.  
+
 ## Deployment   
 
  [Link](https://some-thing-to-remember.herokuapp.com/)   
