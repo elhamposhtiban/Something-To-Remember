@@ -9,7 +9,7 @@ const users = require('./routes/user.js');
 const PORT = process.env.PORT || 3003;
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/weddingplanner");
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://elham_po:Moh@mmadreza1@cluster0.7onmm.mongodb.net/database?retryWrites=true&w=majority");
 const app = express();
 app.use(passport.initialize());
 require('./passport')(passport);
