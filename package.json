@@ -63,7 +63,7 @@
     "query-string": "^6.11.1",
     "react-i18next": "^11.3.3",
     "react-select": "^3.0.8",
-    "validator": "^12.2.0",
+    "validator": "^13.7.0",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
